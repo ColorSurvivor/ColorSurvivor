@@ -462,8 +462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_pos: {fileID: 865570009}
   EnemyType:
-  - {fileID: 4484857528196351084, guid: 147234da33b56d84d9b21ff26c981728, type: 3}
-  - {fileID: 0}
+  - {fileID: 4484857528196351084, guid: 8efd76f1a6f98a84598a01baf2a6a7de, type: 3}
+  - {fileID: 4484857528196351084, guid: 8efd76f1a6f98a84598a01baf2a6a7de, type: 3}
   spawnTime: 0.5
   currentTime: 0
 --- !u!4 &973984664

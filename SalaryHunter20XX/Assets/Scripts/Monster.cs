@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Monster : Entity
 {
-    Transform target; //플레이어의 위치를 저장.
+    protected Transform target; //플레이어의 위치를 저장.
 
     void Update()
     {

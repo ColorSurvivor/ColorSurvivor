@@ -14,8 +14,11 @@ public class Enemy_Manager : MonoBehaviour
     {
         if(currentTime >= spawnTime)
         {
+            int randi = Random.Range(0,2);
+
             Vector3 spawnPos = new Vector3(10, 10, 0);
-            GameObject EnemyObj = Instantiate(EnemyType[0], spawnPos, Quaternion.identity);
+            GameObject EnemyObj = Instantiate(EnemyType[randi], spawnPos, Quaternion.identity);
+            EnemyObj.transform.SetParent(transform);
             EnemyObj.GetComponent<Monster>().SetPlayer(player_pos);
 
             currentTime = 0f; //적 생성 후 초기화 
