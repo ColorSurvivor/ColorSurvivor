@@ -14,6 +14,9 @@ public class Player : Entity
         // 매 프레임마다 입력 벡터를 초기화 (이전 프레임의 방향을 제거)
         inputVec = Vector2.zero;
 
+        // 마우스 위치를 받아옴
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         // WASD 키 입력을 감지하고 그에 따라 방향 벡터를 누적함
         if (Input.GetKey(KeyCode.W)) inputVec += Vector2.up;     // 위쪽 (0, 1)
         if (Input.GetKey(KeyCode.S)) inputVec += Vector2.down;   // 아래 (-0, -1)
@@ -26,5 +29,19 @@ public class Player : Entity
         // Entity에서 정의한 DoMove() 함수 호출 → Rigidbody2D의 linearVelocity에 적용됨
         // 최종적으로 (방향 * 속도)로 이동이 실행됨
         DoMove(inputVec * SPD);
+
+        // 마우스의 위치가 플레이어의 X 좌표보다 작으면 flipX를 true로 변경
+        // 반대의 경우에는 작동하지 않음
+        if (mouseWorldPos.x < transform.position.x)
+        {
+            SR.flipX = true;
+        }
+        else
+        {
+            SR.flipX = false;
+        }
+
+        // 애니메이션 설정
+        Ani.SetFloat("Move", inputVec.magnitude);
     }
 }
