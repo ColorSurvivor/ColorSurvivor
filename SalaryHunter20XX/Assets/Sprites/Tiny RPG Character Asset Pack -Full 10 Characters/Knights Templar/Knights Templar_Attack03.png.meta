@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Knights Templar_Attack03_0: 2415638844804635769
+      Knights Templar_Attack03_1: -7998171432074888565
+      Knights Templar_Attack03_10: 4114808463931302274
+      Knights Templar_Attack03_2: -7246520644674107882
+      Knights Templar_Attack03_3: -6095923279521470433
+      Knights Templar_Attack03_4: 5795626268747239837
+      Knights Templar_Attack03_5: -7440993510365232302
+      Knights Templar_Attack03_6: 4754609493337800133
+      Knights Templar_Attack03_7: -2294157235393635792
+      Knights Templar_Attack03_8: -418856194732151926
+      Knights Templar_Attack03_9: 8947968088785089611
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

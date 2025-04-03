@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Knights Templar_Hit_0: -6698413690933959799
+      Knights Templar_Hit_1: -6786776790459328777
+      Knights Templar_Hit_2: -1436251656554726535
+      Knights Templar_Hit_3: -3302026514781447332
+      Knights Templar_Hit_4: -8666722397273259731
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Armored Axeman_Attack02_0: -2424112629520567127
+      Armored Axeman_Attack02_1: 4956618381772542602
+      Armored Axeman_Attack02_2: 6402700292578306393
+      Armored Axeman_Attack02_3: 1070710205606054481
+      Armored Axeman_Attack02_4: -515232637734151888
+      Armored Axeman_Attack02_5: -6185104904400175885
+      Armored Axeman_Attack02_6: 2365751940134096597
+      Armored Axeman_Attack02_7: -7634969227119396155
+      Armored Axeman_Attack02_8: 3177545146685424366
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

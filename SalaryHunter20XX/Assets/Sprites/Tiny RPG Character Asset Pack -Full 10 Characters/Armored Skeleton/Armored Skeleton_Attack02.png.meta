@@ -647,7 +647,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Armored Skeleton_Attack02_0: -7292608768777289551
+      Armored Skeleton_Attack02_1: -8853105199713661269
+      Armored Skeleton_Attack02_10: 2199177583279927138
+      Armored Skeleton_Attack02_11: 2130491724900439162
+      Armored Skeleton_Attack02_12: -4329758954072731181
+      Armored Skeleton_Attack02_13: -657306649119410926
+      Armored Skeleton_Attack02_14: -8970259987200926661
+      Armored Skeleton_Attack02_15: -8171096681646796059
+      Armored Skeleton_Attack02_16: -4190125541670183199
+      Armored Skeleton_Attack02_17: -8812360021655520179
+      Armored Skeleton_Attack02_18: -6045293459218293427
+      Armored Skeleton_Attack02_19: 6509129509823156329
+      Armored Skeleton_Attack02_2: 2969096382295801952
+      Armored Skeleton_Attack02_20: -3979257477366214703
+      Armored Skeleton_Attack02_3: 7093982757043292339
+      Armored Skeleton_Attack02_4: 102976050493489652
+      Armored Skeleton_Attack02_5: 4994328691367143861
+      Armored Skeleton_Attack02_6: -4252186957174128976
+      Armored Skeleton_Attack02_7: 7563962999139799920
+      Armored Skeleton_Attack02_8: 1517645290345560231
+      Armored Skeleton_Attack02_9: 469902026911299827
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

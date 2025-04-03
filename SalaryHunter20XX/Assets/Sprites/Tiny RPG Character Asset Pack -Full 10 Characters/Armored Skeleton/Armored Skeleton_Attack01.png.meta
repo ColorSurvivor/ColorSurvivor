@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Armored Skeleton_Attack01_0: -28914286135106820
+      Armored Skeleton_Attack01_1: -4251122228686885953
+      Armored Skeleton_Attack01_2: 8552009466685195999
+      Armored Skeleton_Attack01_3: 6592364627293527734
+      Armored Skeleton_Attack01_4: 2797935596532865345
+      Armored Skeleton_Attack01_5: -2657501758477021276
+      Armored Skeleton_Attack01_6: 4822933944459660648
+      Armored Skeleton_Attack01_7: -7472173786454687517
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

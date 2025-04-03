@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Knights Templar_Death_0: 125988318078611397
+      Knights Templar_Death_1: 8917926979685873346
+      Knights Templar_Death_2: 5865685052845670087
+      Knights Templar_Death_3: -8582618299719966181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
