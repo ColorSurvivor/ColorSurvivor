@@ -2,28 +2,24 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    // Update is called once per frame
     void Start()
     {
-        // 플레이어의 이동 속도 설정 (SPD는 Entity에서 상속받은 이동속도 변수)
         SPD = 3;
     }
-
     void Update()
     {
-        // 매 프레임마다 입력 벡터를 초기화 (이전 프레임의 방향을 제거)
-        inputVec = Vector2.zero;
-
-        // WASD 키 입력을 감지하고 그에 따라 방향 벡터를 누적함
-        if (Input.GetKey(KeyCode.W)) inputVec += Vector2.up;     // 위쪽 (0, 1)
-        if (Input.GetKey(KeyCode.S)) inputVec += Vector2.down;   // 아래 (-0, -1)
-        if (Input.GetKey(KeyCode.A)) inputVec += Vector2.left;   // 왼쪽 (-1, 0)
-        if (Input.GetKey(KeyCode.D)) inputVec += Vector2.right;  // 오른쪽 (1, 0)
-
-        // 대각선 입력 시 이동 속도 보정을 위해 방향 벡터를 정규화 (길이를 1로 맞춤)
-        inputVec = inputVec.normalized;
-
-        // Entity에서 정의한 DoMove() 함수 호출 → Rigidbody2D의 linearVelocity에 적용됨
-        // 최종적으로 (방향 * 속도)로 이동이 실행됨
-        DoMove(inputVec * SPD);
+        Vector2 MoveVec = new Vector2(0,0);
+        if(Input.GetKey(KeyCode.W))
+            MoveVec+= new Vector2(0,1*this.SPD);
+        if(Input.GetKey(KeyCode.A))
+            MoveVec+= new Vector2(-1*this.SPD,0);
+        if(Input.GetKey(KeyCode.S))
+            MoveVec+= new Vector2(0,-1*this.SPD);
+        if(Input.GetKey(KeyCode.D))
+            MoveVec+= new Vector2(1*this.SPD,0);//WASD 인풋 받기, 스피드 값을 기본치에 곱해줌
+        DoMove(MoveVec);//받은거 이동에 반영
     }
 }

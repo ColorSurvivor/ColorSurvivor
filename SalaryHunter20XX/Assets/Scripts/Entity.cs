@@ -3,7 +3,6 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     protected int MaxHP = 10, HP = 10; //걍 넣어놓은 기본값
-    public Vector2 inputVec; // 이동방식 변경에 따른 추가
     public int GetMaxHP()
     {
         return MaxHP;
