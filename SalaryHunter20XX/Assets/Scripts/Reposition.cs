@@ -3,7 +3,7 @@ using UnityEngine;
 public class Reposition : MonoBehaviour
 {
     private Collider2D coll;
-    private const float TILE_SIZE = 48f; // 타일이 48x48 크기이므로 이동 거리도 48 단위로 설정
+    private const float TILE_SIZE = 72f; // 타일이 72x72 크기이므로 이동 거리도 72 단위로 설정
 
     void Awake()
     {
