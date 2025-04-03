@@ -48,7 +48,7 @@ public class Enemy2 : Monster
 
     void CheckDist() //플레이어와의 거리를 측정해서 CurrentState를 변경.
     {
-        if(CurrentState == EnemyState.Move && Vector3.Distance(transform.position, target.transform.position) <= 5)
+        if(CurrentState == EnemyState.Move && Vector3.Distance(transform.position, target.transform.position) <= 1.5f)
         {
             CurrentState = EnemyState.Attack;
         }

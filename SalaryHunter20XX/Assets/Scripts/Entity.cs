@@ -3,6 +3,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     protected int MaxHP = 10, HP = 10; //걍 넣어놓은 기본값
+    
     public int GetMaxHP()
     {
         return MaxHP;

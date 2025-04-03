@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7821a1ef3d61d4cadf41fb629fb423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputVec: {x: 0, y: 0}
 --- !u!212 &865570008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -462,8 +463,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_pos: {fileID: 865570009}
   EnemyType:
-  - {fileID: 4484857528196351084, guid: 8efd76f1a6f98a84598a01baf2a6a7de, type: 3}
-  - {fileID: 4484857528196351084, guid: 8efd76f1a6f98a84598a01baf2a6a7de, type: 3}
+  - {fileID: 7271891827032266991, guid: 147234da33b56d84d9b21ff26c981728, type: 3}
+  - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
   spawnTime: 0.5
   currentTime: 0
 --- !u!4 &973984664
