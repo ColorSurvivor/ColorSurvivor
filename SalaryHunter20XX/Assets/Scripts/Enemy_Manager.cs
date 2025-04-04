@@ -6,9 +6,8 @@ public class Enemy_Manager : MonoBehaviour
     public GameObject[] EnemyType; //적의 종류를 받은 배열 
     public float spawnTime, currentTime; //적이 생성되는 간격과 생성을 위한 변수 
 
-    Vector2 center = Vector2.zero;  // 타원의 중심
-    float radiusX = 6.5f;             // 가로 반지름 (a)
-    float radiusY = 3.5f;             // 세로 반지름 (b)
+    float radiusX = 20f;             // 가로 반지름 (a)
+    float radiusY = 12f;             // 세로 반지름 (b)
     void Start()
     {
         currentTime = 0f;
@@ -28,6 +27,8 @@ public class Enemy_Manager : MonoBehaviour
     void Spawn()
     {
         int randomIndex = Random.Range(0, 2); //두가지 적 중 임의의 적 선택.
+
+        Vector2 center = player_pos.position; // 중앙을 플레이어 위치로 설정하여 지속적으로 갱신
 
         float angle = Random.Range(0f, 2f * Mathf.PI); // 0 ~ 2π 사이 각도
 
