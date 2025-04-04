@@ -2,6 +2,33 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    protected float ATSpd = 1f, HPReg =0f, DEF = 0f, EXPM = 1f, GOLDM = 1f, Mag = 1f; //공속, 체젠, 방어력, 경험치배율, 돈배율, 자석범위
+
+    public float GetATSpd()
+    {
+        return ATSpd;
+    }
+    public float GetHPReg()
+    {
+        return HPReg;
+    }
+   
+    public float GetDEF()
+    {
+        return DEF;
+    }
+    public float GetEXPM()
+    {
+        return EXPM;
+    }
+    public float GetGOLDM()
+    {
+        return GOLDM;
+    }
+    public float GetMag()
+    {
+        return Mag;
+    }
     public Vector2 inputVec; // 이동방식 변경에 따른 추가
     void Start()
     {
@@ -43,5 +70,16 @@ public class Player : Entity
 
         // 애니메이션 설정
         Ani.SetFloat("Move", inputVec.magnitude);
+    }
+    new public void HPChange(float How) //힐도 딜도 이걸로 통합 처리. 플레이어의 데미지는 방어력을 계산해서 적용용
+    {
+        if(How < 0) //데미지의 경우
+        {
+            CurHP += How - GetDEF() * 0.5f; //방어력 * 0.5 만큼 데미지를 덜받음. 방어력이 2면 1데미지 경감.
+        }
+        else
+        {
+            CurHP += How; //회복은 그대로 적용.
+        }
     }
 }

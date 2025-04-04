@@ -2,27 +2,31 @@ using UnityEngine;
 
 public class Monster : Entity
 {
+    protected float contactDMG = 1f;
     protected Transform target; //플레이어의 위치를 저장.
 
-    void Update()
+    public float GetContactDMG()
+    {
+        return contactDMG;
+    } 
+    void FixedUpdate()
     {
         if(target != null) //플레이어 데이터가 없는 경우에는 이동 X(오류 상황)
         {
             Vector2 direction = (target.position - transform.position).normalized;
-            DoMove(direction * 2.5f); // 5는 이동속도로 나중에 변경.
+            DoMove(direction * GetSPD()); 
         }
-        
-
     }
     public void SetPlayer(Transform tgt)
     {
         target = tgt;
     }
-    void OnCollisionEnter(Collision other) //모든 적은 플레이어와 충돌 시 플레이어에게 피해.
+    void OnCollisionEnter2D(Collision2D collision) //모든 적은 플레이어와 충돌 시 플레이어에게 피해.
     {
-        if(other.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
-            //플레이어에게 데미지
+            collision.gameObject.GetComponent<Player>().HPChange(GetContactDMG() * -1);
+            //충돌 딜레이도 변수로 선언해야함 
         }
     }
 

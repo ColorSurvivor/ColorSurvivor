@@ -152,7 +152,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -40606,7 +40606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_pos: {fileID: 116440256}
   EnemyType:
-  - {fileID: 7271891827032266991, guid: 147234da33b56d84d9b21ff26c981728, type: 3}
+  - {fileID: 1468705467444847978, guid: e40aa78fa1e487940a6f81a7118002d4, type: 3}
   - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
   spawnTime: 2
   currentTime: 0
@@ -53931,8 +53931,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 803454244}
   - {fileID: 519420032}
-  - {fileID: 1953592721}
   - {fileID: 619394802}
-  - {fileID: 116440256}
   - {fileID: 2019787109}
+  - {fileID: 1953592721}
+  - {fileID: 116440256}
   - {fileID: 927517448}
