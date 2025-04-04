@@ -40585,6 +40585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1953592721}
   - component: {fileID: 1953592720}
+  - component: {fileID: 1953592722}
   m_Layer: 0
   m_Name: Enemy_Manager
   m_TagString: Untagged
@@ -40599,7 +40600,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953592719}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f70e9cb3e9a54cf49a9526549aa1c09e, type: 3}
   m_Name: 
@@ -40625,6 +40626,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1953592722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953592719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5950e21885e0b3c4aa6973feaaf02d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_pos: {fileID: 116440256}
+  EnemyType:
+  - {fileID: 1468705467444847978, guid: e40aa78fa1e487940a6f81a7118002d4, type: 3}
+  - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
+  poolSize: 20
+  spawnTime: 1
+  currentTime: 0
 --- !u!1 &2019787107
 GameObject:
   m_ObjectHideFlags: 0
