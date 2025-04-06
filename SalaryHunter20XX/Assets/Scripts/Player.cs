@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : Entity
 {
     protected float ATSpd = 1f, HPReg =0f, DEF = 0f, EXPM = 1f, GOLDM = 1f, Mag = 1f; //공속, 체젠, 방어력, 경험치배율, 돈배율, 자석범위
-
+    float curEXP, MaxEXP;
     public float GetATSpd()
     {
         return ATSpd;
@@ -81,5 +81,9 @@ public class Player : Entity
         {
             CurHP += How; //회복은 그대로 적용.
         }
+    }
+    public void getEXP(float amount)
+    {
+        curEXP += amount;
     }
 }

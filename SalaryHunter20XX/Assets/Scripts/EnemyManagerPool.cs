@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Manager_Pool : MonoBehaviour
+public class EnemyManagerPool : MonoBehaviour
 {
     public Transform player_pos; // 플레이어 위치를 참조할 Transform
     public GameObject[] EnemyType; // 다양한 적 프리팹 배열
+    public int level;
     public int poolSize = 20; // 오브젝트 풀의 초기 크기
     public float spawnTime, currentTime; // 스폰 간격 및 현재 시간 누적용 변수
 
@@ -27,6 +28,7 @@ public class Enemy_Manager_Pool : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime; // 프레임마다 시간 누적
+        level = Mathf.FloorToInt(GameManager.instance.curGameTime / 60f); //60초마다 레벨 증가.
 
         // 스폰 시간 도달 시 적 생성
         if (currentTime >= spawnTime)
@@ -76,7 +78,8 @@ public class Enemy_Manager_Pool : MonoBehaviour
         float y = center.y + radiusY * Mathf.Sin(angle);
 
         enemy.transform.position = new Vector2(x, y); // 위치 설정
-        enemy.GetComponent<Monster>().SetPlayer(player_pos); // 적에게 플레이어 위치 전달
+        enemy.GetComponent<Monster>().SetPlayerData(player_pos); // 적에게 플레이어 위치 전달
+        enemy.GetComponent<Monster>().muliplier = Mathf.Pow(1.2f, level); //60초마다 1.2배씩 스탯이 증가.
         enemy.SetActive(true); // 활성화하여 게임에 등장
     }
 
