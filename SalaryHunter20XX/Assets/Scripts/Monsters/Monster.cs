@@ -21,6 +21,10 @@ public class Monster : Entity
         if(target != null) //플레이어 데이터가 없는 경우에는 이동 X(오류 상황)
         {
             Vector2 direction = (target.position - transform.position).normalized;
+        if (direction.x < 0)//플레이어 방향 바라보기
+            SR.flipX = true;
+        else
+            SR.flipX = false;
             DoMove(direction * GetSPD()); 
         }
     }

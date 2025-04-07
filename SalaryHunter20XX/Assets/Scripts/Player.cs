@@ -30,10 +30,12 @@ public class Player : Entity
         return Mag;
     }
     public Vector2 inputVec; // 이동방식 변경에 따른 추가
+    Animator Ani;
     void Start()
     {
         // 플레이어의 이동 속도 설정 (SPD는 Entity에서 상속받은 이동속도 변수)
         SPD = 3;
+        Ani = GetComponent<Animator>();
     }
 
     void Update()
@@ -52,6 +54,7 @@ public class Player : Entity
 
         // 대각선 입력 시 이동 속도 보정을 위해 방향 벡터를 정규화 (길이를 1로 맞춤)
         inputVec = inputVec.normalized;
+        Ani.SetFloat("Move",inputVec.magnitude);
 
         // Entity에서 정의한 DoMove() 함수 호출 → Rigidbody2D의 linearVelocity에 적용됨
         // 최종적으로 (방향 * 속도)로 이동이 실행됨
