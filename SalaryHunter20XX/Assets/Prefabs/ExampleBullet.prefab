@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 897690052361416616}
   m_Layer: 0
   m_Name: ExampleBullet
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f55e2b41e1e7294f8bcc78afb7cad2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DMG: 5
+  GoVec: {x: 0, y: 0}
 --- !u!50 &4981347003469757825
 Rigidbody2D:
   serializedVersion: 5

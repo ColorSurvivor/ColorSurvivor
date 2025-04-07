@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ExampleBullet : MonoBehaviour
 {
-    int DMG = 5; //탄막의 데미지
+    public int DMG = 5; //탄막의 데미지
     int SPD = 10; //탄막의 속도
     Rigidbody2D RD;
     public Vector2 GoVec; //날아갈 방향
@@ -22,16 +22,21 @@ public class ExampleBullet : MonoBehaviour
         StartCoroutine(Timer()); //자괴
     }
     void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("Enemy"))
     {
-        if(collision.tag =="Enemy") //적에게 맞았을시
+        var enemy = collision.GetComponent<Monster>();
+        if (enemy != null)
         {
-            collision.GetComponent<Entity>().HPChange(-DMG); //데미지 주고 자괴
-            Destroy(gameObject);
+            enemy.TakeDamage(DMG); // ← 맞은 적이 스스로 처리함
         }
+
+        Destroy(gameObject);
     }
+}
     IEnumerator Timer() //너무 멀리 날아가면 자괴
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }

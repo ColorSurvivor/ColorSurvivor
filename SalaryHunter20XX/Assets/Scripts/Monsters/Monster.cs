@@ -40,6 +40,37 @@ public class Monster : Entity
             //충돌 딜레이도 변수로 선언해야함 
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.gameObject.CompareTag("PlayerBullet"))
+    {
+        int dmg = collision.gameObject.GetComponent<ExampleBullet>().DMG;
+        TakeDamage(dmg); // 체력 감소 + 죽음 처리까지 포함됨
+
+        Destroy(collision.gameObject); // 총알도 제거
+    }
+}
+
+    public void TakeDamage(int amount)
+    {
+        CurHP -= amount;
+        Debug.Log("피격! 현재 체력: " + CurHP);
+
+        if (CurHP <= 0)
+        {
+            Die(); // 죽음 처리 함수
+        }
+        else
+        {
+            // 피격 효과나 애니메이션
+        }
+    }
+    public void Die()
+    {
+        Debug.Log("몬스터 사망!");
+        gameObject.SetActive(false);
+    }
     void Init()
     {
         MaxHP = statData.baseMaxHP * muliplier;

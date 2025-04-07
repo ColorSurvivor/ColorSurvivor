@@ -169,4 +169,6 @@ MonoBehaviour:
     baseMaxHP: 10
     baseATK: 2
     baseContactDMG: 1
+  expPrefab: {fileID: 0}
+  muliplier: 0
   bullet: {fileID: 1800189191439712385, guid: f16e0a5eb3a21764a9c45d85196c0a52, type: 3}
