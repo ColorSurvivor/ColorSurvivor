@@ -8,7 +8,7 @@ public class Monster : Entity
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
 
-    private bool isDead = false;
+    protected bool isDead = false;
 
     protected override void Awake()
     {
@@ -25,7 +25,7 @@ public class Monster : Entity
     {
         return contactDMG;
     } 
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if(isDead || target == null) return; //죽은 상태이거나 플레이어 데이터가 없는 경우에는 이동 X(오류 상황)
     
