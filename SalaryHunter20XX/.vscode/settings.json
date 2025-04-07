@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SalaryHunter20XX_Test.sln"
+    "dotnet.defaultSolution": "SalaryHunter20XX.sln"
 }

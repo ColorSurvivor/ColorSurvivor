@@ -41,16 +41,7 @@ public class Monster : Entity
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.gameObject.CompareTag("PlayerBullet"))
-    {
-        int dmg = collision.gameObject.GetComponent<ExampleBullet>().DMG;
-        TakeDamage(dmg); // 체력 감소 + 죽음 처리까지 포함됨
-
-        Destroy(collision.gameObject); // 총알도 제거
-    }
-}
+    
 
     public void TakeDamage(int amount)
     {
