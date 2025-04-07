@@ -8,8 +8,17 @@ public class Monster : Entity
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
 
+    private bool isDead = false;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Ani = GetComponent<Animator>();
+    }
+
     void OnEnable()
     {
+        isDead = false;
         Init();
     }
     public float GetContactDMG()
@@ -18,15 +27,17 @@ public class Monster : Entity
     } 
     void FixedUpdate()
     {
-        if(target != null) //플레이어 데이터가 없는 경우에는 이동 X(오류 상황)
-        {
-            Vector2 direction = (target.position - transform.position).normalized;
+        if(isDead || target == null) return; //죽은 상태이거나 플레이어 데이터가 없는 경우에는 이동 X(오류 상황)
+    
+        Vector2 direction = (target.position - transform.position).normalized;
+        
         if (direction.x < 0)//플레이어 방향 바라보기
             SR.flipX = true;
         else
             SR.flipX = false;
-            DoMove(direction * GetSPD()); 
-        }
+        
+        DoMove(direction * GetSPD()); 
+        
     }
     public void SetPlayerData(Transform tgt)
     {
@@ -34,6 +45,8 @@ public class Monster : Entity
     }
     void OnCollisionEnter2D(Collision2D collision) //모든 적은 플레이어와 충돌 시 플레이어에게 피해.
     {
+        if (isDead) return;
+
         if(collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Player>().HPChange(GetContactDMG() * -1);
@@ -42,35 +55,50 @@ public class Monster : Entity
     }
 
     void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.gameObject.CompareTag("PlayerBullet"))
     {
-        int dmg = collision.gameObject.GetComponent<ExampleBullet>().DMG;
-        TakeDamage(dmg); // 체력 감소 + 죽음 처리까지 포함됨
+        if (isDead) return;
 
-        Destroy(collision.gameObject); // 총알도 제거
+        if (collision.gameObject.CompareTag("PlayerBullet"))
+        {
+            int dmg = collision.gameObject.GetComponent<ExampleBullet>().DMG;
+            TakeDamage(dmg); // 체력 감소 + 죽음 처리까지 포함됨
+
+            Destroy(collision.gameObject); // 총알도 제거
+        }
     }
-}
 
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
+
         CurHP -= amount;
         Debug.Log("피격! 현재 체력: " + CurHP);
 
         if (CurHP <= 0)
         {
-            Die(); // 죽음 처리 함수
+            isDead = true;
+
+            Ani.ResetTrigger("Hurt");
+            Ani.Play("Death", 0, 0f);
+            StartCoroutine(DieCoroutine());
         }
         else
         {
-            // 피격 효과나 애니메이션
+            Ani.ResetTrigger("Hurt");
+            Ani.Play("Hurt", 0, 0f);
         }
     }
-    public void Die()
+
+    System.Collections.IEnumerator DieCoroutine()
     {
         Debug.Log("몬스터 사망!");
+
+        RD.linearVelocity = Vector2.zero;
+
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
+    
     void Init()
     {
         MaxHP = statData.baseMaxHP * muliplier;

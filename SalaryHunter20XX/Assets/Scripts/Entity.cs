@@ -25,7 +25,7 @@ public class Entity : MonoBehaviour
     protected Rigidbody2D RD; //물리엔진 접근을 위한 변수
     protected SpriteRenderer SR; //스프라이트 접근을 위한 변수
     protected Animator Ani; //애니메이션 접근을 위한 변수
-    virtual protected void Awake() 
+    protected virtual void Awake() 
     {
         RD = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();

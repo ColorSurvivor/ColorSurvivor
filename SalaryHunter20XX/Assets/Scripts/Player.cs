@@ -30,7 +30,6 @@ public class Player : Entity
         return Mag;
     }
     public Vector2 inputVec; // 이동방식 변경에 따른 추가
-    Animator Ani;
     void Start()
     {
         // 플레이어의 이동 속도 설정 (SPD는 Entity에서 상속받은 이동속도 변수)
