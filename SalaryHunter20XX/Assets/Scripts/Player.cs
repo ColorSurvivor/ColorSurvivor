@@ -3,7 +3,12 @@ using UnityEngine;
 public class Player : Entity
 {
     protected float ATSpd = 1f, HPReg =0f, DEF = 0f, EXPM = 1f, GOLDM = 1f, Mag = 1f; //공속, 체젠, 방어력, 경험치배율, 돈배율, 자석범위
-    float curEXP, MaxEXP;
+    float curEXP = 0, MaxEXP = 10;
+    int LV = 1;
+    public int GetLV()
+    {
+        return LV;
+    }
     public float GetATSpd()
     {
         return ATSpd;
@@ -30,6 +35,7 @@ public class Player : Entity
         return Mag;
     }
     public Vector2 inputVec; // 이동방식 변경에 따른 추가
+    public GameObject LevelUPOb;
     void Start()
     {
         // 플레이어의 이동 속도 설정 (SPD는 Entity에서 상속받은 이동속도 변수)
@@ -86,6 +92,49 @@ public class Player : Entity
     }
     public void getEXP(float amount)
     {
-        curEXP += amount;
+        curEXP += amount*EXPM;
+        if(curEXP>MaxEXP)
+        {
+            curEXP-=MaxEXP;
+            LV++;
+            MaxEXP = LV*10;
+            Instantiate(LevelUPOb,GameObject.Find("Canvas").transform);
+            Time.timeScale = 0;
+        }
+    }
+    public void SetStat(int what, int how)
+    {
+        switch(what)
+        {
+            case 1://HP상승
+                MaxHP += how;
+                CurHP += how;
+                break;
+            case 2://공격력 상승
+                ATK += how;
+                break;
+            case 3://이속상승
+                SPD += how;
+                break;
+            case 4://공속상승
+                ATSpd += how;
+                break;
+            case 5://체젠상승
+                HPReg += how;
+                break;
+            case 6://방어력상승
+                DEF += how;
+                break;
+            case 7://경험치배율
+                EXPM += how;
+                break;
+            case 8://돈배율
+                GOLDM += how;
+                break;
+            case 9://자석 범위
+                Mag += how;
+                break;
+        }
+        Debug.Log(what);
     }
 }

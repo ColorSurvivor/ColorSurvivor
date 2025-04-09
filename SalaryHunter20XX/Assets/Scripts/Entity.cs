@@ -33,7 +33,7 @@ public class Entity : MonoBehaviour
         Debug.Log(gameObject.name);
     }
 
-    public void HPChange(float How) //힐도 딜도 이걸로 통합 처리
+    public virtual void HPChange(float How) //힐도 딜도 이걸로 통합 처리
     {
         CurHP += How;
     }

@@ -54,20 +54,14 @@ public class Monster : Entity
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+
+    public override void HPChange(float How) //힐도 딜도 이걸로 통합 처리
     {
         if (isDead) return;
 
-        if (collision.gameObject.CompareTag("PlayerBullet"))
-        {
-            int dmg = collision.gameObject.GetComponent<ExampleBullet>().DMG;
-            TakeDamage(dmg); // 체력 감소 + 죽음 처리까지 포함됨
-
-            Destroy(collision.gameObject); // 총알도 제거
-        }
+        TakeDamage(How); // 체력 감소 + 죽음 처리까지 포함됨
     }
-
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         if (isDead) return;
 
@@ -94,9 +88,10 @@ public class Monster : Entity
         Debug.Log("몬스터 사망!");
 
         RD.linearVelocity = Vector2.zero;
-
         yield return new WaitForSeconds(0.5f);
+        Instantiate(expPrefab,transform.position,transform.rotation);
         gameObject.SetActive(false);
+        
     }
     
     void Init()
