@@ -3,7 +3,7 @@ using UnityEngine;
 public class Monster : Entity
 {
     public MonsterStat statData; //몬스터의 스탯을 인스펙터에서 지정.
-    public EXP expPrefab; // TODO: 비활성화 시 스폰되게 세팅해야함
+    public EXP expPrefab;
     public float muliplier; //시간이 지남에 따라 레벨이 상승하고 레벨에 따라 스탯이 증가.
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
@@ -43,7 +43,8 @@ public class Monster : Entity
     {
         target = tgt;
     }
-    void OnCollisionEnter2D(Collision2D collision) //모든 적은 플레이어와 충돌 시 플레이어에게 피해.
+
+    void OnCollisionEnter2D(Collision2D collision) //모든 적은 플레이어와 충돌 시 플레이어에게 피해. 나중에 STAY로 바꿀 것.
     {
         if (isDead) return;
 
@@ -54,14 +55,20 @@ public class Monster : Entity
         }
     }
 
-
-    public override void HPChange(float How) //힐도 딜도 이걸로 통합 처리
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
 
-        TakeDamage(How); // 체력 감소 + 죽음 처리까지 포함됨
+        if (collision.gameObject.CompareTag("PlayerBullet"))
+        {
+            int dmg = collision.gameObject.GetComponent<ExampleBullet>().DMG;
+            TakeDamage(dmg); // 체력 감소 + 죽음 처리까지 포함됨
+
+            Destroy(collision.gameObject); // 총알도 제거
+        }
     }
-    public void TakeDamage(float amount)
+
+    public void TakeDamage(int amount)
     {
         if (isDead) return;
 
@@ -88,10 +95,10 @@ public class Monster : Entity
         Debug.Log("몬스터 사망!");
 
         RD.linearVelocity = Vector2.zero;
+
         yield return new WaitForSeconds(0.5f);
         Instantiate(expPrefab,transform.position,transform.rotation);
         gameObject.SetActive(false);
-        
     }
     
     void Init()

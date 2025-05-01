@@ -3,6 +3,7 @@ using UnityEngine;
 public class SkeletonArcher : Monster
 {
     public GameObject bullet; // 발사할 총알 프리팹
+    float atkRange = 3.5f;
     float atkTime = 1.5f;
     float currentAtkTimer = 1.5f;
 
@@ -11,7 +12,7 @@ public class SkeletonArcher : Monster
         if (isDead || target == null) return;
 
         // 공격 쿨타임 체크 및 발사
-        if (Vector2.Distance(transform.position, target.position) <= 3.5f)
+        if (Vector2.Distance(transform.position, target.position) <= atkRange)
         {
             if (currentAtkTimer >= atkTime)
             {
