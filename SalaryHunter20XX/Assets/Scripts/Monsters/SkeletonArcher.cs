@@ -11,6 +11,8 @@ public class SkeletonArcher : Monster
     {
         if (isDead || target == null) return;
 
+        currentAtkTimer += Time.deltaTime;
+
         // 공격 쿨타임 체크 및 발사
         if (Vector2.Distance(transform.position, target.position) <= atkRange)
         {
@@ -27,10 +29,6 @@ public class SkeletonArcher : Monster
 
                 currentAtkTimer = 0f;
             }
-        }
-        else
-        {
-            currentAtkTimer += Time.deltaTime;
         }
     }
 
