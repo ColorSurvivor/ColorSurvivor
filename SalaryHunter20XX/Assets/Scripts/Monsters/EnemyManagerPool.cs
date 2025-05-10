@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class EnemyManagerPool : MonoBehaviour
@@ -49,6 +50,7 @@ public class EnemyManagerPool : MonoBehaviour
             int rand = Random.Range(0, EnemyType.Length); // 랜덤한 적 타입 선택
             GameObject enemy = Instantiate(EnemyType[rand], Vector3.zero, Quaternion.identity); // 적 생성
             enemy.transform.SetParent(transform); // Enemy_Manager 오브젝트의 자식으로 등록
+
             enemy.SetActive(false); // 비활성화하여 대기 상태로 전환
             enemyPool.Add(enemy); // 풀에 추가
         }
@@ -79,7 +81,7 @@ public class EnemyManagerPool : MonoBehaviour
 
         enemy.transform.position = new Vector2(x, y); // 위치 설정
         enemy.GetComponent<Monster>().SetPlayerData(player_pos); // 적에게 플레이어 위치 전달
-        enemy.GetComponent<Monster>().muliplier = Mathf.Pow(1.2f, level); //60초마다 1.2배씩 스탯이 증가.
+        enemy.GetComponent<Monster>().multiplier = Mathf.Pow(1.2f, level); //60초마다 1.2배씩 스탯이 증가.
         enemy.SetActive(true); // 활성화하여 게임에 등장
     }
 

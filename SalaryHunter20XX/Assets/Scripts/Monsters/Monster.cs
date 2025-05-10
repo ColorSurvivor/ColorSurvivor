@@ -1,10 +1,12 @@
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class Monster : Entity
 {
+    public ColorType monsterColor;
     public MonsterStat statData; //몬스터의 스탯을 인스펙터에서 지정.
     public EXP expPrefab;
-    public float muliplier; //시간이 지남에 따라 레벨이 상승하고 레벨에 따라 스탯이 증가.
+    public float multiplier; //시간이 지남에 따라 레벨이 상승하고 레벨에 따라 스탯이 증가.
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
 
@@ -55,19 +57,6 @@ public class Monster : Entity
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (isDead) return;
-
-        if (collision.gameObject.CompareTag("PlayerBullet"))
-        {
-            int dmg = collision.gameObject.GetComponent<ExampleBullet>().DMG;
-            TakeDamage(dmg); // 체력 감소 + 죽음 처리까지 포함됨
-
-            Destroy(collision.gameObject); // 총알도 제거
-        }
-    }
-
     public void TakeDamage(int amount)
     {
         if (isDead) return;
@@ -103,10 +92,34 @@ public class Monster : Entity
     
     void Init()
     {
-        MaxHP = statData.baseMaxHP * muliplier;
-        ATK = statData.baseATK * muliplier;
-        contactDMG = statData.baseContactDMG * muliplier;
+        MaxHP = statData.baseMaxHP * multiplier;
+        ATK = statData.baseATK * multiplier;
+        contactDMG = statData.baseContactDMG * multiplier;
         CurHP = MaxHP;
+        SetColor();
+    }
+
+    void SetColor()
+    {
+        int randomValue = Random.Range(0, 3);
+        switch (randomValue)
+        {
+            case 0:
+                monsterColor = ColorType.Red;
+                SR.color = new Color(1f, 0.25f, 0.25f);
+                break;
+            case 1:
+                monsterColor = ColorType.Green;
+                SR.color = new Color(0.4f, 1f, 0.4f);
+                break;
+            case 2:
+                monsterColor = ColorType.Blue;
+                SR.color = new Color(0.4f, 0.4f, 1f);
+                break;
+            default:
+                Debug.Log("Color init error!");
+                break;
+        }
     }
 
 }

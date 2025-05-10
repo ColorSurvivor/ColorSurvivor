@@ -152,12 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3119bf3de611d4eb98c3478d9a265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterColor: 0
   statData:
     baseMaxHP: 20
     baseATK: 4
     baseContactDMG: 3
   expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
-  muliplier: 0
+  multiplier: 0
 --- !u!70 &2627409163679574695
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

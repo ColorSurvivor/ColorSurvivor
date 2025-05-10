@@ -121,16 +121,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52c3799eb2873948b1d9863394681c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Buttons:
-  - {fileID: 6015731964272083032, guid: d11f101709f03fe438f1a176caabeab1, type: 3}
-  - {fileID: 4243684499190314629, guid: d47b676efe4e9e64ba0cf0905a74a418, type: 3}
-  - {fileID: 1063558004467713330, guid: bc08037a754f5fe4eaf3ba828b23625c, type: 3}
-  - {fileID: 5905912500530264819, guid: b60b1abdcace1754fbfba9cde1f5fc18, type: 3}
-  - {fileID: 1428631775471956295, guid: ea4918e090c201b4f956e0d12c52c7a6, type: 3}
-  - {fileID: 166042561270090062, guid: 793e23b746d70464e96a7709c0256e27, type: 3}
-  - {fileID: 8441415898652760066, guid: 8dcff932ed6273344bab710bf3690f53, type: 3}
-  - {fileID: 8450106152606366713, guid: ce6177315924b1f48bcd44dc4597dfc3, type: 3}
-  - {fileID: 6165093795332197004, guid: 8a487138bb0f8d74c821cdae32c70e19, type: 3}
+  gunStats:
+  - GunName: Bow
+    WeaponSprite: {fileID: 7775967760938375176, guid: 9d0b638b8a3f50b469664a2e581d4e29, type: 3}
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 0.9
+    - 0.8
+    - 0.7
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  - GunName: Bow2
+    WeaponSprite: {fileID: -2278440341621924931, guid: 95d1a5419b2bb4343adb5183d2ced476, type: 3}
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 0.9
+    - 0.8
+    - 0.7
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  - GunName: Bow3
+    WeaponSprite: {fileID: -2281458042351831758, guid: 86e6cc8eb10012b449fa0c18efdab1fb, type: 3}
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 0.9
+    - 0.8
+    - 0.7
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  - GunName: Bow4
+    WeaponSprite: {fileID: 4968295190091404838, guid: 683f69d05ef18b64b9cc2b5ed7fc3b53, type: 3}
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 0.9
+    - 0.8
+    - 0.7
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  WeaponPickUp: {fileID: 6015731964272083032, guid: d11f101709f03fe438f1a176caabeab1, type: 3}
   Pos:
   - {fileID: 7093241665375466000}
   - {fileID: 3633472840304517347}
