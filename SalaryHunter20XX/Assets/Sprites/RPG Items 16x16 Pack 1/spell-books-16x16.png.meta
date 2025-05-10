@@ -697,7 +697,30 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spell-books-16x16_0: -6751017496135124142
+      spell-books-16x16_1: -7129651247364487645
+      spell-books-16x16_10: 3547252090820177602
+      spell-books-16x16_11: 546061769194238198
+      spell-books-16x16_12: 6171869821479677305
+      spell-books-16x16_13: -8844135577414249669
+      spell-books-16x16_14: 2505538528288384844
+      spell-books-16x16_15: -1413268279495791320
+      spell-books-16x16_16: 3211469460930242951
+      spell-books-16x16_17: 7037309931222210144
+      spell-books-16x16_18: 937506345723796045
+      spell-books-16x16_19: -2416705069237757388
+      spell-books-16x16_2: -5926423285004166509
+      spell-books-16x16_20: 7991816745748391132
+      spell-books-16x16_21: 4558328157082805911
+      spell-books-16x16_22: -2799914031068688302
+      spell-books-16x16_3: -9062159298646925636
+      spell-books-16x16_4: 4250056627188438401
+      spell-books-16x16_5: 4530164015332843303
+      spell-books-16x16_6: 4942931498032971810
+      spell-books-16x16_7: -6873774473993575733
+      spell-books-16x16_8: -8906489234423806449
+      spell-books-16x16_9: 7278730631394298734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
