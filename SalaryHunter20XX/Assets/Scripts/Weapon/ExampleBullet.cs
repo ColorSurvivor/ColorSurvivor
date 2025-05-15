@@ -28,7 +28,7 @@ public class ExampleBullet : MonoBehaviour
         var enemy = collision.GetComponent<Monster>();
         if (enemy != null)
         {
-            enemy.TakeDamage(DMG); // ← 맞은 적이 스스로 처리함
+             enemy.TakeDamage(DMG, ColorType.Red); // ← 맞은 적이 스스로 처리함
         }
 
         Destroy(gameObject);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bow : BaseGun
+public class BossMonster : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

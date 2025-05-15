@@ -12,20 +12,33 @@ public class BaseGun : MonoBehaviour
     public float MaxPenetrate;
     public ColorType WeaponColor;
 
+    float curWaitTime = 0f;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //마우스 위치 받기
         Vector2 LookVec = mouseWorldPos-new Vector2(transform.position.x,transform.position.y); //마우스 위치 바라보는 방향 얻기
         transform.rotation = quaternion.EulerXYZ(0,0,Mathf.Atan2(LookVec.y,LookVec.x)); //바라보기
-        if(CanShot) //마우스가 눌려있고, 쏠 수 있다면
+
+        if(curWaitTime >= (1f / shootSpeed)) //무기 발사 가능여부 체크
+        {
+            CanShot = true;
+        }
+        else
+        {
+            curWaitTime += Time.deltaTime;
+        } 
+
+        if(CanShot) //쏠 수 있다면
         {
             CanShot=false; //일단 방아쇠 당겼음
+            curWaitTime = 0f;
+
             GameObject temp = Instantiate(ExampleBullet); //총알 생성
             temp.transform.rotation = transform.rotation; //바라보는 방향으로 돌리기
             temp.transform.parent = transform; //위치지정의 편의성을 위해 자식 오브젝트로 편입
@@ -33,12 +46,6 @@ public class BaseGun : MonoBehaviour
             temp.transform.parent = null; //편입했던거 팽하기
             temp.GetComponent<ExampleBullet>().GoVec = LookVec; //날아갈 방향 지정
             temp.GetComponent<ExampleBullet>().Shot(); //쏘기
-            StartCoroutine(CoolDown()); //다음 발사 쿨다운
         }
-    }
-    IEnumerator CoolDown()
-    {
-        yield return new WaitForSeconds(0.5f);
-        CanShot = true;
     }
 }

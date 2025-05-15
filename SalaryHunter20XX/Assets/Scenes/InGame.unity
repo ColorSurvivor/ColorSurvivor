@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
   LevelUPOb: {fileID: 5931168889038912932, guid: 33bf96265230a5a4d8cbfb96ff544ae3, type: 3}
+  weaponHanger: {fileID: 2075831472}
 --- !u!70 &116440258
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -313,56 +314,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &120232930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 120232931}
-  - component: {fileID: 120232932}
-  m_Layer: 0
-  m_Name: Bow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &120232931
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120232930}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2075831473}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &120232932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120232930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703ad80eacafbda45a7a8d2a55fd1295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExampleBullet: {fileID: 3652846841097578714, guid: 77d01e6f67ba8d046b5b63bd23e8f392, type: 3}
-  bulletDamage: 0
-  bulletSpeed: 0
-  shootSpeed: 0
-  MaxPenetrate: 0
-  WeaponColor: 0
 --- !u!1 &208234762
 GameObject:
   m_ObjectHideFlags: 0
@@ -27434,56 +27385,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692110845}
   m_CullTransparentMesh: 1
---- !u!1 &702658096
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 702658097}
-  - component: {fileID: 702658098}
-  m_Layer: 0
-  m_Name: CrossBow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &702658097
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702658096}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2075831473}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &702658098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702658096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703ad80eacafbda45a7a8d2a55fd1295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExampleBullet: {fileID: 3652846841097578714, guid: 77d01e6f67ba8d046b5b63bd23e8f392, type: 3}
-  bulletDamage: 0
-  bulletSpeed: 0
-  shootSpeed: 0
-  MaxPenetrate: 0
-  WeaponColor: 0
 --- !u!1 &791755269
 GameObject:
   m_ObjectHideFlags: 0
@@ -28055,8 +27956,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174020099}
+  - component: {fileID: 1174020100}
   m_Layer: 0
-  m_Name: WeaponManager
+  m_Name: ItemPoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28077,6 +27979,186 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174020100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174020098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec817393f04d0b44f95c4eb02f5660d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWeapon: {fileID: 3022827651622837205, guid: 218b2be7febd1aa45a7bad95038f9cff, type: 3}
+  weaponList:
+  - weaponPrefab: {fileID: 3022827651622837205, guid: 218b2be7febd1aa45a7bad95038f9cff, type: 3}
+    weaponSprite: {fileID: 7775967760938375176, guid: 9d0b638b8a3f50b469664a2e581d4e29, type: 3}
+    itemName: Bow
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 1.1
+    - 1.2
+    - 1.3
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  - weaponPrefab: {fileID: 1446450722008764384, guid: 8592629adee80ce419103f1e8d6f2043, type: 3}
+    weaponSprite: {fileID: -5967562619467940673, guid: d91e8f5f823037942b3763c7ab1fc98c, type: 3}
+    itemName: CrossBow
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 1.1
+    - 1.2
+    - 1.3
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  - weaponPrefab: {fileID: 7291746019053340251, guid: df532b07ecf3d2248b1e4ab9a9a391de, type: 3}
+    weaponSprite: {fileID: -5081024937720140688, guid: 69e7282206fb82f47b88ce23486f9a8d, type: 3}
+    itemName: PlaceHolder 1
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 1.1
+    - 1.2
+    - 1.3
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  - weaponPrefab: {fileID: 990869804270699053, guid: a4158168ad4dba346aef9cc5b7740a90, type: 3}
+    weaponSprite: {fileID: -6982104778697299700, guid: 2dbf2ec4ac2837341b8c04409ccf3360, type: 3}
+    itemName: PlaceHolder 2
+    bulletDamage:
+    - 5
+    - 6
+    - 7
+    - 8
+    bulletSpeed:
+    - 10
+    - 11
+    - 12
+    - 13
+    ShootingSpeed:
+    - 1
+    - 1.1
+    - 1.2
+    - 1.3
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 1
+  curWeapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentChoice:
+  - weaponPrefab: {fileID: 0}
+    weaponSprite: {fileID: 0}
+    itemName: 
+    bulletDamage:
+    - 0
+    - 0
+    - 0
+    - 0
+    bulletSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    ShootingSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 0
+  - weaponPrefab: {fileID: 0}
+    weaponSprite: {fileID: 0}
+    itemName: 
+    bulletDamage:
+    - 0
+    - 0
+    - 0
+    - 0
+    bulletSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    ShootingSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 0
+  - weaponPrefab: {fileID: 0}
+    weaponSprite: {fileID: 0}
+    itemName: 
+    bulletDamage:
+    - 0
+    - 0
+    - 0
+    - 0
+    bulletSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    ShootingSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    MaxPenetrate:
+    - 0
+    - 0
+    - 0
+    - 0
 --- !u!1 &1194159402
 GameObject:
   m_ObjectHideFlags: 0
@@ -41490,56 +41572,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587076404}
   m_CullTransparentMesh: 1
---- !u!1 &1692198321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1692198322}
-  - component: {fileID: 1692198323}
-  m_Layer: 0
-  m_Name: Dagger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1692198322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692198321}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2075831473}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1692198323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692198321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703ad80eacafbda45a7a8d2a55fd1295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExampleBullet: {fileID: 3652846841097578714, guid: 77d01e6f67ba8d046b5b63bd23e8f392, type: 3}
-  bulletDamage: 0
-  bulletSpeed: 0
-  shootSpeed: 0
-  MaxPenetrate: 0
-  WeaponColor: 0
 --- !u!1 &1728750516
 GameObject:
   m_ObjectHideFlags: 0
@@ -41876,9 +41908,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 116440257}
-  pool: {fileID: 0}
+  itemPool: {fileID: 1174020100}
   curGameTime: 0
-  maxGameTime: 300
+  maxGameTime: 900
 --- !u!4 &2019787109
 Transform:
   m_ObjectHideFlags: 0
@@ -41969,56 +42001,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059699135}
   m_CullTransparentMesh: 1
---- !u!1 &2063768132
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2063768133}
-  - component: {fileID: 2063768134}
-  m_Layer: 0
-  m_Name: Staff
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2063768133
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063768132}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2075831473}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2063768134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063768132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 703ad80eacafbda45a7a8d2a55fd1295, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExampleBullet: {fileID: 3652846841097578714, guid: 77d01e6f67ba8d046b5b63bd23e8f392, type: 3}
-  bulletDamage: 0
-  bulletSpeed: 0
-  shootSpeed: 0
-  MaxPenetrate: 0
-  WeaponColor: 0
 --- !u!1 &2075831472
 GameObject:
   m_ObjectHideFlags: 0
@@ -42030,7 +42012,7 @@ GameObject:
   - component: {fileID: 2075831473}
   - component: {fileID: 2075831474}
   m_Layer: 0
-  m_Name: WeapownHanger
+  m_Name: WeaponHanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42048,11 +42030,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 120232931}
-  - {fileID: 702658097}
-  - {fileID: 1692198322}
-  - {fileID: 2063768133}
+  m_Children: []
   m_Father: {fileID: 116440256}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2075831474
