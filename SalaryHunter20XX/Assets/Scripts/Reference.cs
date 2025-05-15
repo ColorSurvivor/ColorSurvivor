@@ -4,8 +4,7 @@ public enum ColorType
 {
     Red,
     Green,
-    Blue,
-    None
+    Blue
 }
 
 public enum WeaponGrade
