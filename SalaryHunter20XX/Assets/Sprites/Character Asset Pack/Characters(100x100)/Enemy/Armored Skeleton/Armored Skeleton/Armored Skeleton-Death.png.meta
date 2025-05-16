@@ -139,7 +139,7 @@ TextureImporter:
         width: 20
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -156,10 +156,10 @@ TextureImporter:
       name: Armored Skeleton-Death_1
       rect:
         serializedVersion: 2
-        x: 143
-        y: 42
-        width: 21
-        height: 18
+        x: 144
+        y: 43
+        width: 28
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: Armored Skeleton-Death_2
       rect:
         serializedVersion: 2
-        x: 163
-        y: 52
-        width: 10
-        height: 16
+        x: 244
+        y: 43
+        width: 29
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +200,10 @@ TextureImporter:
       name: Armored Skeleton-Death_3
       rect:
         serializedVersion: 2
-        x: 243
-        y: 42
-        width: 20
-        height: 14
+        x: 344
+        y: 43
+        width: 29
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,77 +218,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Armored Skeleton-Death_4
-      rect:
-        serializedVersion: 2
-        x: 264
-        y: 44
-        width: 10
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e26bafd996d8eb280800000000000000
-      internalID: -9025621118442359250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Armored Skeleton-Death_5
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 42
-        width: 20
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 565d981f7b5f39170800000000000000
-      internalID: 8184155118242485605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Armored Skeleton-Death_6
-      rect:
-        serializedVersion: 2
-        x: 364
-        y: 42
-        width: 10
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3aec7cd92d0d7a0d0800000000000000
-      internalID: -3411528589701034333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ea6c9148086f94c49a4a508075e9937d
     internalID: 0
     vertices: []
     indices: 

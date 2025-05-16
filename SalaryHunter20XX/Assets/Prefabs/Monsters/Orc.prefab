@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 5120410236738981136, guid: 6814653f385c0654d91fa50aad022a88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3119bf3de611d4eb98c3478d9a265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColor: 0
+  monsterColor: 3
   statData:
     baseMaxHP: 20
     baseATK: 4

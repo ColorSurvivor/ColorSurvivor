@@ -3443,7 +3443,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 6
   m_Sprite: {fileID: -7978735674136817684, guid: 3de5c4b2e1fe10949bbbbd543ffc9fde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95393,6 +95393,9 @@ MonoBehaviour:
   - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
   - {fileID: 7226282234714050665, guid: ef7dfe8af8cc08f4881e37c50b00a4db, type: 3}
   - {fileID: 1074862943714267448, guid: eda58601e92ea2a47a2dc142d70fb7a5, type: 3}
+  - {fileID: 1010366251915549738, guid: 2ef4db13f0f7646438bd0150841f173c, type: 3}
+  - {fileID: 9048379050998339012, guid: 32b2559d0c7fee04d81d96c574a7d823, type: 3}
+  - {fileID: 1536969901965268913, guid: b3161a469f7cf584ebcf94db7ff774a9, type: 3}
   level: 0
   poolSize: 20
   spawnTime: 1
