@@ -24,21 +24,21 @@ public class GameManager : MonoBehaviour
         curGameTime += Time.deltaTime;
 
         // 3분 엘리트
-        if (!elite3minSpawned && curGameTime >= 180f)
+        if (!elite3minSpawned && curGameTime >= 1f)
         {
             EliteMonster.instance.SpawnElite(1);
             elite3minSpawned = true;
         }
 
         // 7분 엘리트
-        if (!elite7minSpawned && curGameTime >= 420f)
+        if (!elite7minSpawned && curGameTime >= 2f)
         {
             EliteMonster.instance.SpawnElite(2);
             elite7minSpawned = true;
         }
 
         // 11분 엘리트
-        if (!elite11minSpawned && curGameTime >= 660f)
+        if (!elite11minSpawned && curGameTime >= 3f)
         {
             EliteMonster.instance.SpawnElite(3);
             elite11minSpawned = true;

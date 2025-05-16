@@ -1,5 +1,6 @@
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using System.Collections;
 
 public class Monster : Entity
 {
@@ -73,7 +74,7 @@ public class Monster : Entity
         }
     }
 
-    public void TakeDamage(int amount, ColorType attackColor)
+    public override void TakeDamage(int amount, ColorType attackColor)
     {
         if (isDead) return;
 
@@ -107,7 +108,7 @@ public class Monster : Entity
         Ani.Play("Hurt", 0, 0f);
     }
 
-    System.Collections.IEnumerator DieCoroutine()
+    protected virtual IEnumerator DieCoroutine()
     {
         Debug.Log("몬스터 사망!");
 
@@ -125,7 +126,7 @@ public class Monster : Entity
         CurHP = MaxHP;
     }
 
-    void InitStats()
+    protected virtual void InitStats()
     {
         MaxHP = statData.baseMaxHP * multiplier;
         ATK = statData.baseATK * multiplier;

@@ -7,34 +7,35 @@ public class ExampleBullet : MonoBehaviour
     int SPD = 10; //탄막의 속도
     Rigidbody2D RD;
     public Vector2 GoVec; //날아갈 방향
+    public ColorType bulletColor = ColorType.Red; // 임시 설정
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         RD = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    public void Shot() //발사
+    public void Shot()
     {
         RD = GetComponent<Rigidbody2D>();
-        RD.linearVelocity = GoVec.normalized*SPD; //날아갈 방향 * 속도
-        StartCoroutine(Timer()); //자괴
+        RD.linearVelocity = GoVec.normalized * SPD;
+        StartCoroutine(Timer());
     }
-    void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.CompareTag("Enemy"))
-    {
-        var enemy = collision.GetComponent<Monster>();
-        if (enemy != null)
-        {
-             enemy.TakeDamage(DMG, ColorType.Red); // ← 맞은 적이 스스로 처리함
-        }
 
-        Destroy(gameObject);
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            var target = collision.GetComponent<Entity>();
+            if (target != null)
+            {
+                target.TakeDamage(DMG, bulletColor);
+            }
+
+            Destroy(gameObject);
+        }
     }
-}
-    IEnumerator Timer() //너무 멀리 날아가면 자괴
+
+    IEnumerator Timer()
     {
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);

@@ -95413,9 +95413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d937e5299e0a140b93cf55e189781f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elite3minPrefab: {fileID: 0}
-  elite7minPrefab: {fileID: 0}
-  elite11minPrefab: {fileID: 0}
+  elite3minPrefab: {fileID: 1468705467444847978, guid: 21b75b9f43fe51747aff27a20b0694a1, type: 3}
+  elite7minPrefab: {fileID: 1010366251915549738, guid: 431474345c7f9c04fa62cb5d92493a10, type: 3}
+  elite11minPrefab: {fileID: 1536969901965268913, guid: 6a82561fd6669d645a15bb69714aa03e, type: 3}
+  playerTransform: {fileID: 116440256}
+  radiusX: 22
+  radiusY: 14
 --- !u!1001 &1956038241
 PrefabInstance:
   m_ObjectHideFlags: 0

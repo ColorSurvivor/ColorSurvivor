@@ -33,6 +33,11 @@ public class Entity : MonoBehaviour
         Debug.Log(gameObject.name);
     }
 
+    public virtual void TakeDamage(int amount, ColorType attackColor)
+    {
+        Debug.LogWarning($"{name}: TakeDamage not implemented.");
+    }
+
     public virtual void HPChange(float How) //힐도 딜도 이걸로 통합 처리
     {
         CurHP += How;
