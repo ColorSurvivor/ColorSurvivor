@@ -107,7 +107,7 @@ public class Player : Entity
             curEXP-=MaxEXP;
             LV++;
             MaxEXP = LV*10;
-            Instantiate(LevelUPOb,GameObject.Find("Canvas").transform);
+            Instantiate(LevelUPOb, GameObject.Find("Canvas").transform);
             Time.timeScale = 0;
         }
     }

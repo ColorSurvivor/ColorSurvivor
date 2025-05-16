@@ -6,9 +6,8 @@ public class ItemPoolManager : MonoBehaviour
     public GameObject startWeapon; //시작무기. Inspector에서 지정.
     public WeaponData[] weaponList; //모든 무기정보가 들어있는 배열.
     [SerializeField]
-    BaseGun[] curWeapons = new BaseGun[3];
+    BaseGun[] curWeapons;
     public WeaponData[] currentChoice = new WeaponData[3];
-    int weaponIndex = 0;
 
     void Start()
     {
@@ -41,13 +40,7 @@ public class ItemPoolManager : MonoBehaviour
 
     public int GetWeaponCount()
     {
-        return weaponIndex;
-    }
-
-    public void AddWeaponToEmptySlot(GameObject newWeaponData)
-    {
-        // weapons[weaponIndex] = newWeaponData;
-        if(weaponIndex < 2) weaponIndex += 1;
+        return curWeapons.Length;
     }
 }
 

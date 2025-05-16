@@ -20,20 +20,20 @@ public class LevelUPStatButton : MonoBehaviour
         Destroy(transform.parent.gameObject);//UI는 역할을 다했으니 제거
     }
 
-    public void Init(WeaponData itemStats, bool isGun, int grade)
+    public void Init(WeaponData itemStats, bool isGun, int grade, int weaponColor)
     {
         itemSprite.sprite = itemStats.weaponSprite;
         itemName.text = itemStats.itemName;
 
-        switch(grade){
-            case 1:
-                GetComponent<Image>().color = new Color(0.4f, 0.4f, 1f);
+        switch(weaponColor){
+            case 0:
+                GetComponent<Image>().color = new Color(1f, 0.25f, 0.25f);
                 break;
-            case 2:
+            case 1:
                 GetComponent<Image>().color = new Color(0.4f, 1f, 0.4f);
                 break;
-            case 3:
-                GetComponent<Image>().color = new Color(1f, 0.25f, 0.25f);
+            case 2:
+                GetComponent<Image>().color = new Color(0.4f, 0.4f, 1f);
                 break;
             default:
                 break;

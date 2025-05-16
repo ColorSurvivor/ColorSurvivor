@@ -3487,7 +3487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
-  LevelUPOb: {fileID: 5931168889038912932, guid: 33bf96265230a5a4d8cbfb96ff544ae3, type: 3}
+  LevelUPOb: {fileID: 1588398042028582365, guid: 159c471b3789895479a7fd1cb0e87c47, type: 3}
   weaponHanger: {fileID: 2075831472}
 --- !u!70 &116440258
 CapsuleCollider2D:
@@ -49316,8 +49316,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'LV: 999'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 53061cdcdac652e488a0586c410eae70, type: 2}
+  m_sharedMaterial: {fileID: 7978623042684153962, guid: 53061cdcdac652e488a0586c410eae70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -49341,8 +49341,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -60448,6 +60448,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: 0505844a909d2ea4996c19b67b2a40b9, type: 3}
   m_PrefabInstance: {fileID: 1249162436}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1187001273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187001275}
+  - component: {fileID: 1187001274}
+  m_Layer: 0
+  m_Name: DamageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187001274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187001273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c863c9dd86d4e5478987e086aff8d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 8826805926164136508, guid: d10f92ef096a9144aba74952b9159b69, type: 3}
+--- !u!4 &1187001275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187001273}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187054226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114655,6 +114700,7 @@ SceneRoots:
   - {fileID: 2019787109}
   - {fileID: 1953592721}
   - {fileID: 1174020099}
+  - {fileID: 1187001275}
   - {fileID: 116440256}
   - {fileID: 927517448}
   - {fileID: 1072891637}
