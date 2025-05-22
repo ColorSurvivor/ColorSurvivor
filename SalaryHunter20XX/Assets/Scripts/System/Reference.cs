@@ -2,18 +2,18 @@ using UnityEngine;
 
 public enum ColorType
 {
-    Red,
-    Green,
-    Blue,
-    None
+    None = 0,
+    Red = 1,
+    Green = 2,
+    Blue = 3
 }
 
 public enum WeaponGrade
 {
-    Common,
-    Rare,
-    Epic,
-    Legendary
+    Common = 0,
+    Rare = 1,
+    Epic = 2,
+    Legendary = 3
 }
 
 public enum WeaponType

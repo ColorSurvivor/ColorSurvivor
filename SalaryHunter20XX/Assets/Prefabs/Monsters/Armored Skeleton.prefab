@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterColor: 3
   statData:
-    baseMaxHP: 0
+    baseMaxHP: 1
     baseATK: 0
     baseContactDMG: 0
   expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
