@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class Player : Entity
 {
     protected float ATSpd = 1f, HPReg =0f, DEF = 0f, EXPM = 1f, GOLDM = 1f, Mag = 1f; //공속, 체젠, 방어력, 경험치배율, 돈배율, 자석범위
     float curEXP = 0, MaxEXP = 10;
     int LV = 1;
+    protected bool isDead;
     public int GetLV()
     {
         return LV;
@@ -49,6 +51,7 @@ public class Player : Entity
         // 플레이어의 이동 속도 설정 (SPD는 Entity에서 상속받은 이동속도 변수)
         SPD = 3;
         Ani = GetComponent<Animator>();
+        isDead = false;
     }
 
     void Update()
@@ -89,24 +92,49 @@ public class Player : Entity
     }
     new public void HPChange(float How) //힐도 딜도 이걸로 통합 처리. 플레이어의 데미지는 방어력을 계산해서 적용.
     {
-        if(How < 0) //데미지의 경우
+        if (How < 0) //데미지의 경우
         {
             CurHP += How - GetDEF() * 0.5f; //방어력 * 0.5 만큼 데미지를 덜받음. 방어력이 2면 1데미지 경감.
-            print(CurHP);
+
+            if (CurHP > 0)
+            {
+                Ani.SetTrigger("Hurt");
+                print(CurHP);
+            }
+            else
+            {
+                CurHP = 0;
+                Dead();
+            }
         }
         else
         {
             CurHP += How; //회복은 그대로 적용.
         }
     }
+    
+    protected void Dead()
+    {
+        isDead = true;
+
+        Ani.SetTrigger("Death");
+
+        StartCoroutine(DieCoroutine());
+    }
+
+    protected virtual IEnumerator DieCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+    }
+
     public void getEXP(float amount)
     {
-        curEXP += amount*EXPM;
-        if(curEXP>MaxEXP)
+        curEXP += amount * EXPM;
+        if (curEXP > MaxEXP)
         {
-            curEXP-=MaxEXP;
+            curEXP -= MaxEXP;
             LV++;
-            MaxEXP = LV*10;
+            MaxEXP = LV * 10;
             Instantiate(LevelUPOb, GameObject.Find("Canvas").transform);
             Time.timeScale = 0;
         }

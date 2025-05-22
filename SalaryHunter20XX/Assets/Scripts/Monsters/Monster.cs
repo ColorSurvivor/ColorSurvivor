@@ -112,12 +112,6 @@ public class Monster : Entity
     {
         Debug.Log("몬스터 사망!");
 
-        Transform shadow = transform.Find("Shadow");
-        if (shadow != null)
-        {
-            shadow.gameObject.SetActive(false);
-        }
-
         RD.linearVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(0.5f);
