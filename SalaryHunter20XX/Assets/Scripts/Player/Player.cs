@@ -56,8 +56,13 @@ public class Player : Entity
 
     void Update()
     {
+        if (isDead)
+        {
+            DoMove(Vector2.zero);
+            return;
+        }
         // 매 프레임마다 입력 벡터를 초기화 (이전 프레임의 방향을 제거)
-        inputVec = Vector2.zero;
+            inputVec = Vector2.zero;
 
         // 마우스 위치를 받아옴
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -92,6 +97,11 @@ public class Player : Entity
     }
     new public void HPChange(float How) //힐도 딜도 이걸로 통합 처리. 플레이어의 데미지는 방어력을 계산해서 적용.
     {
+        if (isDead)
+        {
+            return;
+        }
+        
         if (How < 0) //데미지의 경우
         {
             CurHP += How - GetDEF() * 0.5f; //방어력 * 0.5 만큼 데미지를 덜받음. 방어력이 2면 1데미지 경감.
@@ -117,7 +127,7 @@ public class Player : Entity
     {
         isDead = true;
 
-        Ani.SetTrigger("Death");
+        Ani.SetBool("Death",true);
 
         StartCoroutine(DieCoroutine());
     }

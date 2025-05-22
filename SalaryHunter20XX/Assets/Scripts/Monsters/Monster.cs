@@ -10,6 +10,8 @@ public class Monster : Entity
     public float multiplier; //시간이 지남에 따라 레벨이 상승하고 레벨에 따라 스탯이 증가.
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
+    float contactDMGCooldown = 0.3f; // 충돌 피해 간격 (초)
+    float lastContactTime = -999f;
 
     protected bool isDead = false;
 
@@ -63,14 +65,17 @@ public class Monster : Entity
         target = tgt;
     }
 
-    void OnCollisionEnter2D(Collision2D collision) //모든 적은 플레이어와 충돌 시 플레이어에게 피해. 나중에 STAY로 바꿀 것.
+    void OnCollisionStay2D(Collision2D collision) //모든 적은 플레이어와 충돌 시 플레이어에게 피해. 나중에 STAY로 바꿀 것.
     {
         if (isDead) return;
 
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().HPChange(GetContactDMG() * -1);
-            //충돌 딜레이도 변수로 선언해야함 
+            if (Time.time - lastContactTime >= contactDMGCooldown)
+            {
+                collision.gameObject.GetComponent<Player>().HPChange(GetContactDMG() * -1);
+                lastContactTime = Time.time;
+            }
         }
     }
 
