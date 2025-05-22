@@ -5,6 +5,7 @@ using UnityEngine;
 public class BaseGun : MonoBehaviour
 {
     public GameObject ExampleBullet;
+    public Sprite weaponSprite;
     bool CanShot = true;
     public float bulletDamage;
     public float bulletSpeed;

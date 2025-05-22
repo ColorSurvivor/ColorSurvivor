@@ -111,9 +111,10 @@ public class Player : Entity
             Time.timeScale = 0;
         }
     }
-   public void GetWeapon(GameObject newWeapon)
+   public void GetWeapon(WeaponData newWeapon)
     {
-        GameObject temp = Instantiate(newWeapon);
+        GameObject temp = Instantiate(newWeapon.weaponPrefab);
+        temp.GetComponent<BaseGun>().Init(newWeapon);
         temp.transform.SetParent(GameManager.instance.player.GetComponent<Player>().weaponHanger.transform);
         temp.transform.position = transform.position;
     }
