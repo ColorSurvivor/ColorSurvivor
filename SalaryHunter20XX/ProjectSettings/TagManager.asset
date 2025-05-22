@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Tile
   - Area
+  - Enemy
+  - EXP
+  - PlayerBullet
+  - Decorations
   layers:
   - Default
   - TransparentFX
@@ -20,7 +24,7 @@ TagManager:
   - Bullet
   - 
   - Background
-  - 
+  - Props
   - 
   - 
   - 
