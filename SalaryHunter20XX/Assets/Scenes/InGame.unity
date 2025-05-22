@@ -27153,7 +27153,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 2.605107
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -59619,10 +59619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec817393f04d0b44f95c4eb02f5660d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWeapon: {fileID: 3022827651622837205, guid: 218b2be7febd1aa45a7bad95038f9cff, type: 3}
   weaponList:
   - weaponPrefab: {fileID: 3022827651622837205, guid: 218b2be7febd1aa45a7bad95038f9cff, type: 3}
     weaponSprite: {fileID: 7775967760938375176, guid: 9d0b638b8a3f50b469664a2e581d4e29, type: 3}
+    rarity: 0
+    weaponcolor: 0
     itemName: Bow
     bulletDamage:
     - 5
@@ -59646,6 +59647,8 @@ MonoBehaviour:
     - 1
   - weaponPrefab: {fileID: 1446450722008764384, guid: 8592629adee80ce419103f1e8d6f2043, type: 3}
     weaponSprite: {fileID: -5967562619467940673, guid: d91e8f5f823037942b3763c7ab1fc98c, type: 3}
+    rarity: 0
+    weaponcolor: 0
     itemName: CrossBow
     bulletDamage:
     - 5
@@ -59669,6 +59672,8 @@ MonoBehaviour:
     - 1
   - weaponPrefab: {fileID: 7291746019053340251, guid: df532b07ecf3d2248b1e4ab9a9a391de, type: 3}
     weaponSprite: {fileID: -5081024937720140688, guid: 69e7282206fb82f47b88ce23486f9a8d, type: 3}
+    rarity: 0
+    weaponcolor: 0
     itemName: PlaceHolder 1
     bulletDamage:
     - 5
@@ -59692,6 +59697,8 @@ MonoBehaviour:
     - 1
   - weaponPrefab: {fileID: 990869804270699053, guid: a4158168ad4dba346aef9cc5b7740a90, type: 3}
     weaponSprite: {fileID: -6982104778697299700, guid: 2dbf2ec4ac2837341b8c04409ccf3360, type: 3}
+    rarity: 0
+    weaponcolor: 0
     itemName: PlaceHolder 2
     bulletDamage:
     - 5
@@ -59713,13 +59720,12 @@ MonoBehaviour:
     - 0
     - 0
     - 1
-  curWeapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  curWeapons: []
   currentChoice:
   - weaponPrefab: {fileID: 0}
     weaponSprite: {fileID: 0}
+    rarity: 0
+    weaponcolor: 0
     itemName: 
     bulletDamage:
     - 0
@@ -59743,6 +59749,8 @@ MonoBehaviour:
     - 0
   - weaponPrefab: {fileID: 0}
     weaponSprite: {fileID: 0}
+    rarity: 0
+    weaponcolor: 0
     itemName: 
     bulletDamage:
     - 0
@@ -59766,6 +59774,8 @@ MonoBehaviour:
     - 0
   - weaponPrefab: {fileID: 0}
     weaponSprite: {fileID: 0}
+    rarity: 0
+    weaponcolor: 0
     itemName: 
     bulletDamage:
     - 0
@@ -60448,51 +60458,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2055102311959635375, guid: 0505844a909d2ea4996c19b67b2a40b9, type: 3}
   m_PrefabInstance: {fileID: 1249162436}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1187001273
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1187001275}
-  - component: {fileID: 1187001274}
-  m_Layer: 0
-  m_Name: DamageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1187001274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187001273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c863c9dd86d4e5478987e086aff8d3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageText: {fileID: 8826805926164136508, guid: d10f92ef096a9144aba74952b9159b69, type: 3}
---- !u!4 &1187001275
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187001273}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187054226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115438,7 +115403,6 @@ SceneRoots:
   - {fileID: 2019787109}
   - {fileID: 1953592721}
   - {fileID: 1174020099}
-  - {fileID: 1187001275}
   - {fileID: 1536658117}
   - {fileID: 116440256}
   - {fileID: 927517448}
