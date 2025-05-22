@@ -304,8 +304,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelUPStatButton, Assembly-CSharp
+      - m_Target: {fileID: -7892662829799450294}
+        m_TargetAssemblyTypeName: CurrentWeaponSlot, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 1
         m_Arguments:

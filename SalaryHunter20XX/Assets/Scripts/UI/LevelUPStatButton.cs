@@ -16,12 +16,7 @@ public class LevelUPStatButton : MonoBehaviour
 
     public void Select() //클릭되면 실행 
     {
-        if (GameManager.instance.itemPool.IsHaveEmptySlot())
-        {
-            GameManager.instance.itemPool.TakeItemToEmptySlot(slotNumber); //슬롯에 빈칸이 있으면 바로 획득
-        }
-        Time.timeScale = 1;
-        Destroy(transform.parent.gameObject);//UI는 역할을 다했으니 제거
+        transform.parent.GetComponent<LevelUpButtonOb>().NewItemSelected(slotNumber);
     }
 
     public void Init(WeaponData itemStats, bool isGun, int grade, int newWeaponColor)

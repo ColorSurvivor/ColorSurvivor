@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class ItemPoolManager : MonoBehaviour
 {
-    public GameObject startWeapon; //시작무기. Inspector에서 지정.
     public WeaponData[] weaponList; //모든 무기정보가 들어있는 배열.
     public List<GameObject> curWeapons; //장비하고 있는 무기.
     public WeaponData[] currentChoice = new WeaponData[3]; //선택지를 담는 배열.
 
     void Start()
     {
-        // GameManager.instance.player.GetWeapon(startWeapon);
-        print(curWeapons.Count);
-        curWeapons.Add(startWeapon);
+        weaponList[0].rarity = WeaponGrade.Common;
+        weaponList[0].weaponcolor = ColorType.None;
+
+        GameManager.instance.player.GetWeapon(weaponList[0]);
     }
 
     public void MakeNewChoices()
@@ -26,8 +26,10 @@ public class ItemPoolManager : MonoBehaviour
             int n = Random.Range(0, availables.Count);
             randoms.Add(availables[n]);
             availables.Remove(availables[n]);
-            
+
             currentChoice[i] = weaponList[randoms[i]]; //숫자 3개로 선택지를 고름.
+            currentChoice[i].rarity = (WeaponGrade)Random.Range(0, 4);
+            currentChoice[i].weaponcolor = (ColorType)Random.Range(1, 4);
         }
     }
 

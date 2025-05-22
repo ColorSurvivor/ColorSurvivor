@@ -115,6 +115,7 @@ public class Player : Entity
     {
         GameObject temp = Instantiate(newWeapon.weaponPrefab);
         temp.GetComponent<BaseGun>().Init(newWeapon);
+        // GameManager.instance.itemPool.curWeapons.Add(temp);
         temp.transform.SetParent(GameManager.instance.player.GetComponent<Player>().weaponHanger.transform);
         temp.transform.position = transform.position;
     }

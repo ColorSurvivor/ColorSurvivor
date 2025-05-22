@@ -7,11 +7,9 @@ public class CurrentWeaponSlot : MonoBehaviour
     public Image weaponColor;
     public int slotNumber;
 
-    void Select()
+    public void Select()
     {
-        transform.parent.GetComponent<LevelUpButtonOb>().selectedSlotNumber = slotNumber;
-        transform.parent.GetComponent<LevelUpButtonOb>().setArrowPos();
-        //선택됐을 경우 할 행동.
+        transform.parent.GetComponent<LevelUpButtonOb>().CurrentItemSelected(slotNumber);
     }
 
     public void Init(Sprite weaponSprite)
