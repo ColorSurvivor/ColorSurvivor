@@ -19,11 +19,8 @@ public class LevelUpButtonOb : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            int rarity = Random.Range(0, 4);
-            int weaponColor = Random.Range(0, 3);
-
             GameObject temp = Instantiate(weaponPickUp);
-            temp.GetComponent<LevelUPStatButton>().Init(GameManager.instance.itemPool.currentChoice[i], true, rarity, weaponColor);
+            temp.GetComponent<LevelUPStatButton>().Init(GameManager.instance.itemPool.currentChoice[i], true);
             temp.GetComponent<LevelUPStatButton>().slotNumber = i;
             temp.transform.SetParent(transform);
             temp.transform.position = Pos[i];
@@ -41,7 +38,10 @@ public class LevelUpButtonOb : MonoBehaviour
             if (i< GameManager.instance.itemPool.curWeapons.Count)
             {
                 GameObject weaponObj = GameManager.instance.itemPool.curWeapons[i];
-                temp.GetComponent<CurrentWeaponSlot>().Init(weaponObj.GetComponent<BaseGun>().weaponSprite);
+                temp.GetComponent<CurrentWeaponSlot>().Init(
+                    weaponObj.GetComponent<BaseGun>().weaponSprite,
+                    weaponObj.GetComponent<BaseGun>().rarity,
+                    weaponObj.GetComponent<BaseGun>().weaponColor);
             }
         }
     }

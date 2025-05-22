@@ -12,6 +12,7 @@ public class BaseGun : MonoBehaviour
     public float shootSpeed;
     public float MaxPenetrate;
     public ColorType weaponColor;
+    public WeaponGrade rarity;
 
     float curWaitTime = 0f;
 
@@ -53,5 +54,6 @@ public class BaseGun : MonoBehaviour
         shootSpeed = weapondata.ShootingSpeed[(int)weapondata.rarity];
         MaxPenetrate = weapondata.MaxPenetrate[(int)weapondata.rarity];
         weaponColor = weapondata.weaponcolor;
+        rarity = weapondata.rarity;
     }
 }

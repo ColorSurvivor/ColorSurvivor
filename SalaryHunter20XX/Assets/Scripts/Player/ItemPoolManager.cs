@@ -36,13 +36,14 @@ public class ItemPoolManager : MonoBehaviour
     public void TakeItemToEmptySlot(int number)
     {
         GameManager.instance.player.GetWeapon(currentChoice[number]);
-        curWeapons.Add(currentChoice[number].weaponPrefab);
+        // curWeapons.Add(currentChoice[number].weaponPrefab);
     }
     public void OverwriteItemToSlot(int number)
     {
         Destroy(curWeapons[number]);
+        curWeapons.RemoveAt(number);
         GameManager.instance.player.GetWeapon(currentChoice[number]);
-        curWeapons[number] = currentChoice[number].weaponPrefab;
+        // curWeapons[number] = currentChoice[number].weaponPrefab;
     }
 
     public bool IsHaveEmptySlot()

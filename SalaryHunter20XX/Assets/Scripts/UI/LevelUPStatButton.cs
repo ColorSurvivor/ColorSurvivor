@@ -19,35 +19,35 @@ public class LevelUPStatButton : MonoBehaviour
         transform.parent.GetComponent<LevelUpButtonOb>().NewItemSelected(slotNumber);
     }
 
-    public void Init(WeaponData itemStats, bool isGun, int grade, int newWeaponColor)
+    public void Init(WeaponData itemStats, bool isGun)
     {
         itemSprite.sprite = itemStats.weaponSprite;
         itemName.text = itemStats.itemName;
 
-        switch (grade)
+        switch (itemStats.rarity)
         {
-            case 0:
+            case WeaponGrade.Common:
                 break;
-            case 1:
+            case WeaponGrade.Rare:
                 GetComponent<Image>().color = new Color(0.3f, 0.3f, 1f); //희귀 등급 하늘색 배경
                 break;
-            case 2:
+            case WeaponGrade.Epic:
                 GetComponent<Image>().color = new Color(0.8f, 0f, 1f); //레어 등급 보라색 배경
                 break;
-            case 3:
+            case WeaponGrade.Legendary:
                 GetComponent<Image>().color = new Color(1f, 0.4f, 0f); //전설? 등급 붉은색 배경
                 break;
         }
 
-        switch (newWeaponColor)
+        switch (itemStats.weaponcolor)
         {
-            case 0:
+            case ColorType.Red:
                 weaponColor.GetComponent<Image>().color = new Color(1f, 0.25f, 0.25f);
                 break;
-            case 1:
+            case ColorType.Green:
                 weaponColor.GetComponent<Image>().color = new Color(0.4f, 1f, 0.4f);
                 break;
-            case 2:
+            case ColorType.Blue:
                 weaponColor.GetComponent<Image>().color = new Color(0.4f, 0.4f, 1f);
                 break;
         }
@@ -56,9 +56,9 @@ public class LevelUPStatButton : MonoBehaviour
         {
             itemSort.text = "Weapon";
 
-            weaponDamage.text = "Damage: " + itemStats.bulletDamage[grade];
-            weaponSpeed.text = "Speed: " + itemStats.bulletSpeed[grade];
-            weaponPenetration.text = "Penetration: " + itemStats.MaxPenetrate[grade];
+            weaponDamage.text = "Damage: " + itemStats.bulletDamage[(int)itemStats.rarity];
+            weaponSpeed.text = "Speed: " + itemStats.bulletSpeed[(int)itemStats.rarity];
+            weaponPenetration.text = "Penetration: " + itemStats.MaxPenetrate[(int)itemStats.rarity];
         }
         else
         {
