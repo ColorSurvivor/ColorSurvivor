@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource PlayerHurt;
     public AudioSource PlayerDead;
+    public AudioSource ExpCollect;
     public AudioSource PlayerLevelUp;
     public AudioSource PlayerAttack;
     public AudioSource MonsterHurt;
@@ -38,6 +39,14 @@ public class AudioManager : MonoBehaviour
         if (PlayerDead != null)
         {
             PlayerDead.Play();
+        }
+    }
+
+    public void PlayExpCollect()
+    {
+        if (ExpCollect != null)
+        {
+            ExpCollect.Play();
         }
     }
 

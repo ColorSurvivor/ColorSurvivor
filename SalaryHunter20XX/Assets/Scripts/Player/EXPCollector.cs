@@ -15,6 +15,7 @@ public class EXPCollector : MonoBehaviour
     {
         if(other.transform.CompareTag("EXP"))
         {
+            AudioManager.instance.PlayExpCollect();
             playerData.getEXP(other.gameObject.GetComponent<EXP>().expAmount);
             Destroy(other.gameObject);
         }

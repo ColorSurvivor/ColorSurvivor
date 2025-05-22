@@ -70441,10 +70441,10 @@ GameObject:
   - component: {fileID: 1536658116}
   - component: {fileID: 1536658124}
   - component: {fileID: 1536658123}
+  - component: {fileID: 1536658119}
   - component: {fileID: 1536658122}
   - component: {fileID: 1536658121}
   - component: {fileID: 1536658120}
-  - component: {fileID: 1536658119}
   - component: {fileID: 1536658118}
   m_Layer: 0
   m_Name: AudioManager
@@ -70467,6 +70467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerHurt: {fileID: 1536658124}
   PlayerDead: {fileID: 1536658123}
+  ExpCollect: {fileID: 1536658119}
   PlayerLevelUp: {fileID: 1536658122}
   PlayerAttack: {fileID: 0}
   MonsterHurt: {fileID: 1536658121}
@@ -70594,9 +70595,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: b6a218239b8f62040803174825077371, type: 3}
+  m_Resource: {fileID: 8300000, guid: b6a218239b8f62040803174825077371, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
