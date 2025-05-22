@@ -1,10 +1,19 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon12_no_effect.png.meta
 guid: 378595bbaa68e214584ed7c63bdc6cdb
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4110541913549588651
     second: Icon12_no_effect_0
+========
+guid: 9512d6759b7d7a644920b4f39e160a0a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -578973563036285282
+    second: Icon13_no_effect_0
+>>>>>>>> GATE_Slots:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon13_no_effect.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +122,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<<< HEAD:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon12_no_effect.png.meta
       name: Icon12_no_effect_0
+========
+      name: Icon13_no_effect_0
+>>>>>>>> GATE_Slots:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon13_no_effect.png.meta
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +141,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<<< HEAD:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon12_no_effect.png.meta
       spriteID: 557b58088eb64f6c0800000000000000
       internalID: -4110541913549588651
+========
+      spriteID: e9641e8ac9217f7f0800000000000000
+      internalID: -578973563036285282
+>>>>>>>> GATE_Slots:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon13_no_effect.png.meta
       vertices: []
       indices: 
       edges: []
@@ -148,7 +166,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+<<<<<<<< HEAD:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon12_no_effect.png.meta
       Icon12_no_effect_0: -4110541913549588651
+========
+      Icon13_no_effect_0: -578973563036285282
+>>>>>>>> GATE_Slots:SalaryHunter20XX/Assets/Sprites/Weapons/Bow_Background/Icon13_no_effect.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

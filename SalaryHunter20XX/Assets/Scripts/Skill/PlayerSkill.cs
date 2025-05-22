@@ -9,7 +9,7 @@ public class PlayerSkill : MonoBehaviour
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            ColorType CT = transform.GetChild(i).GetComponent<BaseGun>().WeaponColor;
+            ColorType CT = transform.GetChild(i).GetComponent<BaseGun>().weaponColor;
             switch (CT)
             {
                 case ColorType.Red:

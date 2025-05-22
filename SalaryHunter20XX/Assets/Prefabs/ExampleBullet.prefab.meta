@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:SalaryHunter20XX/Assets/Prefabs/ExampleBullet.prefab.meta
 guid: 77d01e6f67ba8d046b5b63bd23e8f392
+========
+guid: a484f8b9371c2494080ed32bf4d815db
+>>>>>>>> GATE_Slots:SalaryHunter20XX/Assets/Prefabs/EXP.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
