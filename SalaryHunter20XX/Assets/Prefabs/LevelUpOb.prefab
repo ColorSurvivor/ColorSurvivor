@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPickUp: {fileID: 8347181690475937925, guid: 41f17c56f6d4119438783d6c3b3fb3e0, type: 3}
-  currentWeaponSlot: {fileID: 8347181690475937925, guid: ea179a798b43ce049b8d787030dea74e, type: 3}
+  currentWeaponSlot: {fileID: 8347181690475937925, guid: e3b55dca0cd850c42a93e3cca50e24ed, type: 3}
   slotArrow: {fileID: 6541540331483568990}
   Pos:
   - {x: 250, y: 790}
