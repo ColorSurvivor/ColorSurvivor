@@ -85,6 +85,7 @@ public class Monster : Entity
 
         float colormultiplier = ColorBaseDamage(attackColor);
         int finalDamage = Mathf.RoundToInt(amount * colormultiplier);
+        AudioManager.instance.PlayMonsterHurt();
         CurHP -= finalDamage;
 
         Debug.Log($"피격! 몬스터색: {monsterColor}, 공격색: {attackColor}, 배율: {colormultiplier}, 실제 데미지: {finalDamage}, 현재 체력: {CurHP}");
@@ -102,6 +103,7 @@ public class Monster : Entity
     protected virtual void Die()
     {
         isDead = true;
+        AudioManager.instance.PlayMonsterDead();
         Ani.ResetTrigger("Hurt");
         Ani.Play("Death", 0, 0f);
         StartCoroutine(DieCoroutine());

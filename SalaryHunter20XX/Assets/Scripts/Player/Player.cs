@@ -108,6 +108,7 @@ public class Player : Entity
 
             if (CurHP > 0)
             {
+                AudioManager.instance.PlayPlayerHurt();
                 Ani.SetTrigger("Hurt");
                 print(CurHP);
             }
@@ -127,6 +128,8 @@ public class Player : Entity
     {
         isDead = true;
 
+        AudioManager.instance.PlayPlayerDead();
+
         Ani.SetBool("Death",true);
 
         StartCoroutine(DieCoroutine());
@@ -145,6 +148,7 @@ public class Player : Entity
             curEXP -= MaxEXP;
             LV++;
             MaxEXP = LV * 10;
+            AudioManager.instance.PlayPlayerLevelUp();
             Instantiate(LevelUPOb, GameObject.Find("Canvas").transform);
             Time.timeScale = 0;
         }
