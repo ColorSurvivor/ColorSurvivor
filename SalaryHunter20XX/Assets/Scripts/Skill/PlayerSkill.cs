@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
+    public float DamageMul = 1; // 데미지 배율
+    public float ATKSpeedMul = 1; // 공격속도 배율
+    public bool ShotLock = false; // 공격 봉인 여부
+    public GameObject[] SkillPrefabs; // 스킬 프리팹 배열
+
     public void UseSkill()
     {
         int R = 0, G = 0, B = 0;
@@ -69,74 +74,91 @@ public class PlayerSkill : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void RRRSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[0], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void RRBSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[1], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void RRGSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[2], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
 
     void BBBSkill()
     {
-        
+        GameObject temp = Instantiate(SkillPrefabs[3], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void BBRSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[4], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void BBGSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[5], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
 
     void GGGSkill()
     {
-        
+        GameObject temp = Instantiate(SkillPrefabs[6], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정        
     }
     void GGRSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[7], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void GGBSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[8], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
 
     void RGBSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[9], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
 
     void RGSkill()
     {
-        
+        GameObject temp = Instantiate(SkillPrefabs[10], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정       
     }
     void RBSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[11], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void GBSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[12], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void RSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[13], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void GSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[14], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void BSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[15], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
     void NoneSkill()
     {
-
+        GameObject temp = Instantiate(SkillPrefabs[16], transform);
+        temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
     }
 }

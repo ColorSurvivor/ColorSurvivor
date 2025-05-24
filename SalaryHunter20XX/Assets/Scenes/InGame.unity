@@ -27153,7 +27153,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 2.605107
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -99935,6 +99935,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97b8a933eecf5bf4db0879107bbaaa47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageMul: 1
+  ATKSpeedMul: 1
+  ShotLock: 0
+  SkillPrefabs:
+  - {fileID: 7769090254720331638, guid: 7abda9cf0d0324b4eb2b49049724dcab, type: 3}
+  - {fileID: 6049501513234962340, guid: 79423bd7e1976fc46ae7cd2651e88e2d, type: 3}
 --- !u!4 &2076621069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8848819282490232040, guid: 1dc4948f20ddc324f84c815af63aa6a9, type: 3}

@@ -28,6 +28,10 @@ public class ExampleBullet : MonoBehaviour
             var target = collision.GetComponent<Entity>();
             if (target != null)
             {
+                if (collision.GetComponent<Monster>().monsterColor == bulletColor)
+                    DMG = (int)(DMG*1.5f);
+                else
+                    DMG = (int)(DMG*0.75f);
                 target.TakeDamage(DMG, bulletColor);
             }
 

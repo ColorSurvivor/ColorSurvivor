@@ -13,8 +13,13 @@ public class BaseGun : MonoBehaviour
     public float MaxPenetrate;
     public ColorType weaponColor;
     public WeaponGrade rarity;
+    PlayerSkill WeaponHanger;
 
     float curWaitTime = 0f;
+    void Awake()
+    {
+        WeaponHanger = transform.parent.gameObject.GetComponent<PlayerSkill>();
+    }
 
     void Update()
     {
@@ -22,7 +27,7 @@ public class BaseGun : MonoBehaviour
         Vector2 LookVec = mouseWorldPos - new Vector2(transform.position.x, transform.position.y); //마우스 위치 바라보는 방향 얻기
         transform.rotation = quaternion.EulerXYZ(0, 0, Mathf.Atan2(LookVec.y, LookVec.x)); //바라보기
 
-        if (curWaitTime >= (1f / shootSpeed)) //무기 발사 가능여부 체크
+        if (curWaitTime*WeaponHanger.ATKSpeedMul >= (1f / shootSpeed)) //무기 발사 가능여부 체크
         {
             CanShot = true;
         }
@@ -31,7 +36,7 @@ public class BaseGun : MonoBehaviour
             curWaitTime += Time.deltaTime;
         }
 
-        if (CanShot) //쏠 수 있다면
+        if (CanShot&&!WeaponHanger.ShotLock) //쏠 수 있다면
         {
             CanShot = false; //일단 방아쇠 당겼음
             curWaitTime = 0f;
@@ -43,6 +48,8 @@ public class BaseGun : MonoBehaviour
             temp.transform.parent = null; //편입했던거 팽하기
             temp.GetComponent<ExampleBullet>().GoVec = LookVec; //날아갈 방향 지정
             temp.GetComponent<ExampleBullet>().Shot(); //쏘기
+            temp.GetComponent<ExampleBullet>().DMG = (int)(bulletDamage*WeaponHanger.DamageMul); //데미지 지정
+            temp.GetComponent<ExampleBullet>().bulletColor = weaponColor; //총알 색상 지정
         }
     }
 
