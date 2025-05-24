@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
-    PlayerSkill weaponHanger;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    protected PlayerSkill weaponHanger;
+
     public virtual void Awake()
     {
         weaponHanger = transform.parent.GetComponent<PlayerSkill>();
         StartCoroutine(Skill());
     }
 
-    // Update is called once per frame
     public virtual IEnumerator Skill()
     {
         print("RRR");

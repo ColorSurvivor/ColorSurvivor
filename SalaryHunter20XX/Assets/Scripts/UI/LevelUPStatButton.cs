@@ -58,7 +58,7 @@ public class LevelUPStatButton : MonoBehaviour
 
             weaponDamage.text = "Damage: " + itemStats.bulletDamage[(int)itemStats.rarity];
             weaponSpeed.text = "Speed: " + itemStats.bulletSpeed[(int)itemStats.rarity];
-            weaponPenetration.text = "Penetration: " + itemStats.MaxPenetrate[(int)itemStats.rarity];
+            weaponPenetration.text = "Penetration: " + itemStats.MaxPenetration[(int)itemStats.rarity];
         }
         else
         {

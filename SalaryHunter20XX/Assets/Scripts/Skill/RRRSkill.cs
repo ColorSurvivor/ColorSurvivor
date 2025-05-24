@@ -3,16 +3,7 @@ using UnityEngine;
 
 public class RRRSkill : Skills
 {
-    PlayerSkill weaponHanger;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public override IEnumerator Skill()
     {
         weaponHanger.DamageMul = 2;

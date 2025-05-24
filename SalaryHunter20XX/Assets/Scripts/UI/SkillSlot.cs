@@ -34,14 +34,6 @@ public class SkillSlot : MonoBehaviour
     // 스킬 사용 시 호출
     public void UseSkill()
     {
-        if (currentCooldownTime >= Skillcooltime)
-        {
-            Debug.Log("스킬 사용!");
-            currentCooldownTime = 0f; // 쿨타임 초기화
-        }
-        else
-        {
-            Debug.Log("스킬이 쿨타임 중입니다!");
-        }
+        GameManager.instance.playerSkill.UseSkill();
     }
 }

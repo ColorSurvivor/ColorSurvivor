@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Player player;
     public ItemPoolManager itemPool;
+    public PlayerSkill playerSkill;
 
     public float curGameTime; //현재 게임 시간
     public float maxGameTime = 900f; // 최대게임진행시간

@@ -21,6 +21,7 @@ public class SkeletonArcher : Monster
                 Vector2 fireDir = (target.position - transform.position).normalized;
 
                 GameObject spawnBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                spawnBullet.GetComponent<MonsterBullet>().bulletDMG = GetATK();
 
                 float angle = Mathf.Atan2(fireDir.y, fireDir.x) * Mathf.Rad2Deg;
                 spawnBullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);

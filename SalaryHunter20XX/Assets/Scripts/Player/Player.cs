@@ -95,7 +95,7 @@ public class Player : Entity
         // 애니메이션 설정
         Ani.SetFloat("Move", inputVec.magnitude);
     }
-    new public void HPChange(float How) //힐도 딜도 이걸로 통합 처리. 플레이어의 데미지는 방어력을 계산해서 적용.
+    public override void HPChange(float How) //힐도 딜도 이걸로 통합 처리. 플레이어의 데미지는 방어력을 계산해서 적용.
     {
         if (isDead)
         {
@@ -141,19 +141,29 @@ public class Player : Entity
     }
 
     public void getEXP(float amount)
-    {
+    {   
         curEXP += amount * EXPM;
-        if (curEXP > MaxEXP)
+        if (curEXP > MaxEXP) //경험치 초과
         {
-            curEXP -= MaxEXP;
+            curEXP -= MaxEXP; //최대치만큼 소거
             LV++;
-            MaxEXP = LV * 10;
+            MaxEXP = SetMaxEXP();
             AudioManager.instance.PlayPlayerLevelUp();
             Instantiate(LevelUPOb, GameObject.Find("Canvas").transform);
             Time.timeScale = 0;
         }
     }
-   public void GetWeapon(WeaponData newWeapon)
+
+    float SetMaxEXP()
+    {
+        if (LV < 5) return MaxEXP *= 1.3f;
+        else if (LV < 15) return MaxEXP *= 1.5f;
+        else if (LV < 25) return MaxEXP *= 1.7f;
+        else return MaxEXP *= 1.1f;
+        
+        
+    }
+    public void GetWeapon(WeaponData newWeapon)
     {
         GameObject temp = Instantiate(newWeapon.weaponPrefab);
         temp.GetComponent<BaseGun>().Init(newWeapon);

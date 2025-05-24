@@ -71,7 +71,6 @@ public class PlayerSkill : MonoBehaviour
             NoneSkill();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void RRRSkill()
     {
         GameObject temp = Instantiate(SkillPrefabs[0], transform);

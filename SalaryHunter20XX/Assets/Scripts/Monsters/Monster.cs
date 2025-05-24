@@ -72,7 +72,7 @@ public class Monster : Entity
         {
             if (Time.time - lastContactTime >= contactDMGCooldown)
             {
-                collision.gameObject.GetComponent<Player>().HPChange(GetContactDMG() * -1);
+                collision.gameObject.GetComponent<Player>().HPChange(GetContactDMG() * -1); //TODO
                 lastContactTime = Time.time;
             }
         }
@@ -121,7 +121,8 @@ public class Monster : Entity
         RD.linearVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(0.5f);
-        Instantiate(expPrefab,transform.position,transform.rotation);
+        EXP expOBJ = Instantiate(expPrefab,transform.position,transform.rotation);
+        expOBJ.SetFinalEXP();
         gameObject.SetActive(false);
     }
     

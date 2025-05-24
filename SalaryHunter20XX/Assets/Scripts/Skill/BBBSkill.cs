@@ -3,12 +3,6 @@ using UnityEngine;
 
 public class BBBSkill : Skills
 {
-    PlayerSkill weaponHanger;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-
-    // Update is called once per frame
     void Update()
     {
 
