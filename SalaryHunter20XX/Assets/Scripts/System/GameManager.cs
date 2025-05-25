@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         curGameTime += Time.deltaTime;
