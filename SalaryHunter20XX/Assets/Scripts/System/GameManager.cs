@@ -51,6 +51,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+        // 에디터에서 테스트 시 확인용 로그
+        Debug.Log("게임 종료");
+    }
+
     void Update()
     {
         curGameTime += Time.deltaTime;
