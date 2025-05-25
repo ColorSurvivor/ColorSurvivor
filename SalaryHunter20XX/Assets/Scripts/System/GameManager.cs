@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +11,10 @@ public class GameManager : MonoBehaviour
     public GameObject mainMenuCanvas;
     public GameObject inGameCanvas;
     public GameObject playerObject;
+    public static bool isRestarting = false;
 
-    public float curGameTime; //현재 게임 시간
-    public float maxGameTime = 900f; // 최대게임진행시간
+    public float curGameTime; // 현재 게임 시간
+    public float maxGameTime = 900f; // 최대 게임 진행 시간
 
     private bool elite3minSpawned = false;
     private bool elite7minSpawned = false;
@@ -33,15 +35,37 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0f;
-        mainMenuCanvas.SetActive(true);
-        if (inGameCanvas != null)
+        if (isRestarting)
         {
-            inGameCanvas.SetActive(false);
+            isRestarting = false; // 재시작 플래그 리셋
+            curGameTime = 0f;
+            elite3minSpawned = false;
+            elite7minSpawned = false;
+            elite11minSpawned = false;
+            bossSpawned = false;
+
+            Time.timeScale = 1f;
+
+            if (mainMenuCanvas != null)
+                mainMenuCanvas.SetActive(false);
+
+            if (inGameCanvas != null)
+                inGameCanvas.SetActive(true);
+
+            if (playerObject != null)
+                playerObject.SetActive(true);
         }
-        if (playerObject != null)
+        else
         {
-            playerObject.SetActive(false);
+            Time.timeScale = 0f;
+            if (mainMenuCanvas != null)
+                mainMenuCanvas.SetActive(true);
+
+            if (inGameCanvas != null)
+                inGameCanvas.SetActive(false);
+
+            if (playerObject != null)
+                playerObject.SetActive(false);
         }
     }
 
@@ -60,39 +84,50 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
+    public void RestartGame()
+    {
+        isRestarting = true; // 재시작 플래그 설정
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BackToMain()
+    {
+        isRestarting = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void ExitGame()
     {
         Application.Quit();
-        // 에디터에서 테스트 시 확인용 로그
         Debug.Log("게임 종료");
     }
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+
         curGameTime += Time.deltaTime;
 
-        // 3분 엘리트
         if (!elite3minSpawned && curGameTime >= 180f)
         {
             EliteMonster.instance.SpawnElite(1);
             elite3minSpawned = true;
         }
 
-        // 7분 엘리트
         if (!elite7minSpawned && curGameTime >= 420f)
         {
             EliteMonster.instance.SpawnElite(2);
             elite7minSpawned = true;
         }
 
-        // 11분 엘리트
         if (!elite11minSpawned && curGameTime >= 660f)
         {
             EliteMonster.instance.SpawnElite(3);
             elite11minSpawned = true;
         }
 
-        // 15분 보스
         if (!bossSpawned && curGameTime >= 900f)
         {
             // SpawnBoss();
