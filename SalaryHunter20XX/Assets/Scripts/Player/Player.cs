@@ -7,6 +7,7 @@ public class Player : Entity
     float curEXP = 0, MaxEXP = 10;
     int LV = 1;
     protected bool isDead;
+    public GameObject gameOverCanvas;
     public int GetLV()
     {
         return LV;
@@ -137,7 +138,13 @@ public class Player : Entity
 
     protected virtual IEnumerator DieCoroutine()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(2.0f);
+
+        Time.timeScale = 0f;
+        if (gameOverCanvas != null)
+        {
+            gameOverCanvas.SetActive(true);
+        }
     }
 
     public void getEXP(float amount)
