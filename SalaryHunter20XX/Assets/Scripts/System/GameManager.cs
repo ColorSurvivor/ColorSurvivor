@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public ItemPoolManager itemPool;
     public PlayerSkill playerSkill;
 
+    public GameObject mainMenuCanvas;
+    public GameObject inGameCanvas;
+
     public float curGameTime; //현재 게임 시간
     public float maxGameTime = 900f; // 최대게임진행시간
 
@@ -17,12 +20,35 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
     {
-        Cursor.visible = false;
+        Time.timeScale = 0f;
+        mainMenuCanvas.SetActive(true);
+        if (inGameCanvas != null)
+        {
+            inGameCanvas.SetActive(false);
+        }
+    }
+
+    public void StartGame()
+    {
+        mainMenuCanvas.SetActive(false);
+        if (inGameCanvas != null)
+        {
+            inGameCanvas.SetActive(true);
+        }
+
+        Time.timeScale = 1f;
     }
 
     void Update()
