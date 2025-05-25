@@ -196,7 +196,7 @@ MonoBehaviour:
     baseContactDMG: 10
   PassivePrefab: {fileID: 0}
   passiveDropTable: []
-  fixedColor: 0
+  fixedColor: 3
   multiplier: 2
 --- !u!1 &3509566696564670812
 GameObject:
