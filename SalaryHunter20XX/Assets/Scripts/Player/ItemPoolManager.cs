@@ -67,11 +67,13 @@ public class ItemPoolManager : MonoBehaviour
         GameManager.instance.player.GetWeapon(currentChoice[number]);
         // curWeapons.Add(currentChoice[number].weaponPrefab);
     }
-    public void OverwriteItemToSlot(int number)
+    public void OverwriteItemToSlot(int curslot, int rewardN)
     {
-        Destroy(curWeapons[number]);
-        curWeapons.RemoveAt(number);
-        GameManager.instance.player.GetWeapon(currentChoice[number]);
+        GameObject temp = curWeapons[curslot]; //삭제할 무기 임시 저장
+        curWeapons.RemoveAt(curslot);
+        GameManager.instance.player.GetWeapon(currentChoice[rewardN]);
+
+        Destroy(temp);
         // curWeapons[number] = currentChoice[number].weaponPrefab;
     }
 

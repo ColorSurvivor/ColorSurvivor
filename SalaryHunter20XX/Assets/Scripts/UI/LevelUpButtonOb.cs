@@ -20,7 +20,7 @@ public class LevelUpButtonOb : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             GameObject temp = Instantiate(weaponPickUp);
-            temp.GetComponent<LevelUPStatButton>().Init(GameManager.instance.itemPool.currentChoice[i], true);
+            temp.GetComponent<LevelUPStatButton>().Init(GameManager.instance.itemPool.currentChoice[i]);
             temp.GetComponent<LevelUPStatButton>().slotNumber = i;
             temp.transform.SetParent(transform);
             temp.transform.position = Pos[i];
@@ -68,7 +68,7 @@ public class LevelUpButtonOb : MonoBehaviour
         }
         else
         {
-            GameManager.instance.itemPool.OverwriteItemToSlot(slotN);
+            GameManager.instance.itemPool.OverwriteItemToSlot(slotN, selectedSlotNumber);
             Time.timeScale = 1;
             Destroy(gameObject); //UI 제거
         }

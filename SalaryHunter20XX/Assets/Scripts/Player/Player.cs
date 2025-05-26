@@ -105,13 +105,12 @@ public class Player : Entity
         
         if (How < 0) //데미지의 경우
         {
-            CurHP += How - GetDEF() * 0.5f; //방어력 * 0.5 만큼 데미지를 덜받음. 방어력이 2면 1데미지 경감.
+            CurHP += How;   
 
             if (CurHP > 0)
             {
                 AudioManager.instance.PlayPlayerHurt();
                 Ani.SetTrigger("Hurt");
-                print(CurHP);
             }
             else
             {
@@ -167,8 +166,6 @@ public class Player : Entity
         else if (LV < 15) return MaxEXP *= 1.5f;
         else if (LV < 25) return MaxEXP *= 1.7f;
         else return MaxEXP *= 1.1f;
-        
-        
     }
     public void GetWeapon(WeaponData newWeapon)
     {

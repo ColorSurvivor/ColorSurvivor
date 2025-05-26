@@ -8,7 +8,6 @@ public class LevelUPStatButton : MonoBehaviour
     public Image itemSprite;// 아이템 이미지
     public TextMeshProUGUI itemName;// 아이템 이름 
     public Image weaponColor; //무기 색 표시.
-    public TextMeshProUGUI itemSort;// 아이템 분류 무기/패시브 
     public TextMeshProUGUI weaponDamage;// 무기 공격력
     public TextMeshProUGUI weaponSpeed;// 무기 공격속도 
     public TextMeshProUGUI weaponPenetration;// 무기 적 관통 수
@@ -19,7 +18,7 @@ public class LevelUPStatButton : MonoBehaviour
         transform.parent.GetComponent<LevelUpButtonOb>().NewItemSelected(slotNumber);
     }
 
-    public void Init(WeaponData itemStats, bool isGun)
+    public void Init(WeaponData itemStats)
     {
         itemSprite.sprite = itemStats.weaponSprite;
         itemName.text = itemStats.itemName;
@@ -51,22 +50,8 @@ public class LevelUPStatButton : MonoBehaviour
                 weaponColor.GetComponent<Image>().color = new Color(0.4f, 0.4f, 1f);
                 break;
         }
-
-        if(isGun)
-        {
-            itemSort.text = "Weapon";
-
-            weaponDamage.text = "Damage: " + itemStats.bulletDamage[(int)itemStats.rarity];
-            weaponSpeed.text = "Speed: " + itemStats.bulletSpeed[(int)itemStats.rarity];
-            weaponPenetration.text = "Penetration: " + itemStats.MaxPenetration[(int)itemStats.rarity];
-        }
-        else
-        {
-            itemSort.text = "Item";
-
-            weaponDamage.text = "";
-            weaponSpeed.text = "";
-            weaponPenetration.text = "";
-        }
+        weaponDamage.text = "Damage: " + itemStats.bulletDamage[(int)itemStats.rarity];
+        weaponSpeed.text = "Speed: " + itemStats.bulletSpeed[(int)itemStats.rarity];
+        weaponPenetration.text = "Penetration: " + itemStats.MaxPenetration[(int)itemStats.rarity];
     }
 }
