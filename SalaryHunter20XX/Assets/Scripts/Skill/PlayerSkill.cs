@@ -30,7 +30,7 @@ public class PlayerSkill : MonoBehaviour
         }
 
         // 3개짜리 조합
-        if (R == 3)
+        /*if (R == 3)
             RRRSkill();
         else if (G == 3)
             GGGSkill();
@@ -68,7 +68,9 @@ public class PlayerSkill : MonoBehaviour
             BSkill();
         // 아무것도 없는 경우
         else
-            NoneSkill();
+            NoneSkill();*/
+
+        RRRSkill();//테스트용
     }
 
     void RRRSkill()
