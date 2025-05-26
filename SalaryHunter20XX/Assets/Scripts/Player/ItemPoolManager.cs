@@ -10,10 +10,10 @@ public class ItemPoolManager : MonoBehaviour
 
     void Start()
     {
-        weaponList[3].rarity = WeaponGrade.Common;
-        weaponList[3].weaponcolor = ColorType.None;
+        weaponList[0].rarity = WeaponGrade.Common;
+        weaponList[0].weaponcolor = ColorType.None;
 
-        GameManager.instance.player.GetWeapon(weaponList[3]); //TODO
+        GameManager.instance.player.GetWeapon(weaponList[0]); //TODO
         UpdateHUDSlot(0); // 게임 시작시 HUD 0번 슬롯 동기화
     }
 
