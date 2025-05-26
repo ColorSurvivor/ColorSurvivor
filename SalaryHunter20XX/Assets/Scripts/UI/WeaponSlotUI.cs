@@ -38,17 +38,18 @@ public class WeaponSlotUI : MonoBehaviour
         switch (gun.weaponColor)
         {
             case ColorType.Red:
-                colorIndicator.color = Color.red;
+                colorIndicator.color = new Color(1f, 0f, 0f, 1f);   // Color.red, 알파 1
                 break;
             case ColorType.Green:
-                colorIndicator.color = Color.green;
+                colorIndicator.color = new Color(0f, 1f, 0f, 1f);   // Color.green, 알파 1
                 break;
             case ColorType.Blue:
-                colorIndicator.color = Color.blue;
+                colorIndicator.color = new Color(0f, 0f, 1f, 1f);   // Color.blue, 알파 1
                 break;
             default:
-                colorIndicator.color = Color.clear;
+                colorIndicator.color = new Color(0f, 0f, 0f, 0f);   // 완전 투명
                 break;
         }
+
     }
 }
