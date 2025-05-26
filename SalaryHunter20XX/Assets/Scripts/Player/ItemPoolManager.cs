@@ -3,114 +3,78 @@ using UnityEngine;
 
 public class ItemPoolManager : MonoBehaviour
 {
-    public WeaponData[] weaponList; // 모든 무기정보
-    public List<GameObject> curWeapons; // 장비하고 있는 무기 (슬롯별)
-    public WeaponData[] currentChoice = new WeaponData[3]; // 선택지
-    public WeaponSlotUI[] hudSlots = new WeaponSlotUI[3];  // HUD 슬롯(에디터에서 드래그!)
+    public WeaponData[] weaponList; //모든 무기정보가 들어있는 배열.
+    public List<GameObject> curWeapons; //장비하고 있는 무기.
+    public WeaponData[] currentChoice = new WeaponData[3]; //선택지를 담는 배열.
 
     void Start()
     {
-        weaponList[0].rarity = WeaponGrade.Common;
-        weaponList[0].weaponcolor = ColorType.None;
+        weaponList[3].rarity = WeaponGrade.Common;
+        weaponList[3].weaponcolor = ColorType.None;
 
-        GameManager.instance.player.GetWeapon(weaponList[0]);
-        UpdateHUDSlot(0); // 게임 시작시 HUD 0번 슬롯 동기화
+        GameManager.instance.player.GetWeapon(weaponList[3]); //TODO
     }
 
     public void MakeNewChoices()
     {
         List<int> availables = new List<int>();
-        for (int i = 0; i < weaponList.Length; i++) availables.Add(i);
+        for(int i=0; i<weaponList.Length; i++) availables.Add(i); //가능한 모든 숫자 리스트.
 
+        List<int> randoms = new List<int>(); //그 중에서 선택지가 될 3개를 뽑음.
         for (int i = 0; i < 3; i++)
         {
             int n = Random.Range(0, availables.Count);
-            currentChoice[i] = weaponList[availables[n]];
+            randoms.Add(availables[n]);
+            availables.Remove(availables[n]);
+
+            currentChoice[i] = weaponList[randoms[i]]; //숫자 3개로 선택지를 고름.
             currentChoice[i].rarity = GetWeaponGrade();
             currentChoice[i].weaponcolor = (ColorType)Random.Range(1, 4);
-            availables.RemoveAt(n);
         }
     }
 
     public WeaponGrade GetWeaponGrade()
     {
         int rand = Random.Range(0, 100);
-        int lv = GameManager.instance.player.GetLV();
 
-        if (lv <= 3) return WeaponGrade.Common;
-        else if (lv <= 8)
+        if (GameManager.instance.player.GetLV() <= 3) return WeaponGrade.Common; //3레벨까지는 일반만.
+        else if (GameManager.instance.player.GetLV() <= 8) //4~8은 희귀/일반 25/75
         {
             if (rand < 25) return WeaponGrade.Rare;
             else return WeaponGrade.Common;
         }
-        else if (lv <= 18)
+        else if (GameManager.instance.player.GetLV() <= 18) //11~18은 에픽/희귀/일반 20/70/10
         {
             if (rand < 20) return WeaponGrade.Epic;
             else if (rand < 70) return WeaponGrade.Rare;
             else return WeaponGrade.Common;
         }
-        else if (lv <= 30)
+        else if (GameManager.instance.player.GetLV() <= 30) //19 ~ 30 전설/에펙/희귀 25/50/25
         {
             if (rand < 25) return WeaponGrade.Legendary;
             else if (rand < 70) return WeaponGrade.Epic;
             else return WeaponGrade.Rare;
         }
-        else
+        else //31~ 전설/에픽 60/40
         {
             if (rand < 60) return WeaponGrade.Legendary;
             else return WeaponGrade.Epic;
         }
     }
 
-    public void AssignWeaponToSlot(int slotN, int choiceN)
+    public void TakeItemToEmptySlot(int number)
     {
-        WeaponData chosenWeapon = currentChoice[choiceN];
-
-        // 기존 무기 삭제(슬롯에 이미 무기가 있다면)
-        if (curWeapons.Count > slotN && curWeapons[slotN] != null)
-        {
-            Destroy(curWeapons[slotN]);
-            curWeapons[slotN] = null;
-        }
-
-        // 새 무기 생성 및 슬롯에 넣기
-        GameObject newWpn = Instantiate(chosenWeapon.weaponPrefab);
-        var gun = newWpn.GetComponent<BaseGun>();
-        gun.Init(chosenWeapon);
-
-        newWpn.transform.SetParent(GameManager.instance.player.weaponHanger.transform, false);
-        newWpn.transform.position = GameManager.instance.player.transform.position;
-
-        if (curWeapons.Count > slotN)
-            curWeapons[slotN] = newWpn;
-        else
-        {
-            while (curWeapons.Count < slotN)
-                curWeapons.Add(null);
-            curWeapons.Add(newWpn);
-        }
-
-        // HUD 해당 슬롯 갱신
-        UpdateHUDSlot(slotN);
+        GameManager.instance.player.GetWeapon(currentChoice[number]);
+        // curWeapons.Add(currentChoice[number].weaponPrefab);
     }
-
-    // HUD 개별 슬롯 업데이트 (curWeapons → BaseGun)
-    public void UpdateHUDSlot(int slotN)
+    public void OverwriteItemToSlot(int curslot, int rewardN)
     {
-        if (hudSlots != null && slotN < hudSlots.Length && hudSlots[slotN] != null)
-        {
-            BaseGun gun = (curWeapons.Count > slotN && curWeapons[slotN] != null)
-                ? curWeapons[slotN].GetComponent<BaseGun>()
-                : null;
-            hudSlots[slotN].UpdateSlot(gun);
-        }
-    }
+        GameObject temp = curWeapons[curslot]; //삭제할 무기 임시 저장
+        curWeapons.RemoveAt(curslot);
+        GameManager.instance.player.GetWeapon(currentChoice[rewardN]);
 
-    // 전체 HUD를 한 번에 갱신하고 싶을 때
-    public void UpdateAllHUDSlots()
-    {
-        for (int i = 0; i < hudSlots.Length; i++)
-            UpdateHUDSlot(i);
+        Destroy(temp);
+        // curWeapons[number] = currentChoice[number].weaponPrefab;
     }
 
     public bool IsHaveEmptySlot()

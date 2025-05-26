@@ -105,6 +105,7 @@ public class Monster : Entity
         AudioManager.instance.PlayMonsterDead();
         Ani.ResetTrigger("Hurt");
         Ani.Play("Death", 0, 0f);
+        GetComponent<Collider2D>().isTrigger = true;
         StartCoroutine(DieCoroutine());
     }
 

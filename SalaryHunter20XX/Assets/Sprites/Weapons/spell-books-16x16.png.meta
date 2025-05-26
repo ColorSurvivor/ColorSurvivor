@@ -182,10 +182,10 @@ TextureImporter:
       name: spell-books-16x16_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
+        x: 1
+        y: 65
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: spell-books-16x16_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 17
+        x: 17
+        y: 65
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,10 +226,10 @@ TextureImporter:
       name: spell-books-16x16_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 64
-        width: 16
-        height: 16
+        x: 33
+        y: 65
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,10 +248,10 @@ TextureImporter:
       name: spell-books-16x16_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 17
+        x: 49
+        y: 65
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: spell-books-16x16_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 16
-        height: 16
+        x: 65
+        y: 65
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,10 +292,10 @@ TextureImporter:
       name: spell-books-16x16_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 17
+        x: 81
+        y: 65
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +314,10 @@ TextureImporter:
       name: spell-books-16x16_6
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
-        width: 16
-        height: 16
+        x: 1
+        y: 49
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +336,10 @@ TextureImporter:
       name: spell-books-16x16_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 17
+        x: 17
+        y: 49
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,10 +358,10 @@ TextureImporter:
       name: spell-books-16x16_8
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 16
-        height: 16
+        x: 33
+        y: 49
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -380,10 +380,10 @@ TextureImporter:
       name: spell-books-16x16_9
       rect:
         serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 17
+        x: 49
+        y: 49
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: spell-books-16x16_10
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
-        width: 16
-        height: 16
+        x: 65
+        y: 49
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,10 +424,10 @@ TextureImporter:
       name: spell-books-16x16_11
       rect:
         serializedVersion: 2
-        x: 80
-        y: 48
-        width: 16
-        height: 17
+        x: 81
+        y: 49
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -446,10 +446,10 @@ TextureImporter:
       name: spell-books-16x16_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 17
+        x: 1
+        y: 33
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,10 +468,10 @@ TextureImporter:
       name: spell-books-16x16_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 17
+        x: 17
+        y: 33
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,10 +490,10 @@ TextureImporter:
       name: spell-books-16x16_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 17
+        x: 33
+        y: 33
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,10 +512,10 @@ TextureImporter:
       name: spell-books-16x16_15
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 17
+        x: 49
+        y: 33
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -534,10 +534,10 @@ TextureImporter:
       name: spell-books-16x16_16
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 17
+        x: 65
+        y: 33
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -556,10 +556,10 @@ TextureImporter:
       name: spell-books-16x16_17
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 17
+        x: 81
+        y: 33
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,10 +578,10 @@ TextureImporter:
       name: spell-books-16x16_18
       rect:
         serializedVersion: 2
-        x: 47
-        y: 0
-        width: 49
-        height: 33
+        x: 1
+        y: 17
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -600,10 +600,10 @@ TextureImporter:
       name: spell-books-16x16_19
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 17
+        x: 17
+        y: 17
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -622,10 +622,10 @@ TextureImporter:
       name: spell-books-16x16_20
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 17
+        x: 33
+        y: 17
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,10 +644,10 @@ TextureImporter:
       name: spell-books-16x16_21
       rect:
         serializedVersion: 2
-        x: 80
-        y: 32
-        width: 16
-        height: 17
+        x: 49
+        y: 17
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -666,10 +666,10 @@ TextureImporter:
       name: spell-books-16x16_22
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 17
+        x: 65
+        y: 17
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -684,11 +684,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: spell-books-16x16_23
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 17
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1648ac48f0329794bbfb5ade787cffbf
+      internalID: -1585161142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-books-16x16_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a263aaa000af594b8800f3988332adb
+      internalID: -1655776936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-books-16x16_25
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8640d5298de2484182d609e308955ac
+      internalID: -1711373387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-books-16x16_26
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6b6f8b25f63994796413ed9b4f6334
+      internalID: -861957921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spell-books-16x16_27
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 1
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21458560c7cd0c545b577db3deb4c3c8
+      internalID: -1985069246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5a5f35b8155b86e40bc8af415ee21349
     internalID: 0
     vertices: []
     indices: 
@@ -714,6 +824,11 @@ TextureImporter:
       spell-books-16x16_20: 7991816745748391132
       spell-books-16x16_21: 4558328157082805911
       spell-books-16x16_22: -2799914031068688302
+      spell-books-16x16_23: -1585161142
+      spell-books-16x16_24: -1655776936
+      spell-books-16x16_25: -1711373387
+      spell-books-16x16_26: -861957921
+      spell-books-16x16_27: -1985069246
       spell-books-16x16_3: -9062159298646925636
       spell-books-16x16_4: 4250056627188438401
       spell-books-16x16_5: 4530164015332843303

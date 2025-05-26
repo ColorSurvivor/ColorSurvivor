@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5668938435708220301}
   - component: {fileID: 6812654944267103813}
   m_Layer: 0
-  m_Name: Staff
+  m_Name: FireStaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703ad80eacafbda45a7a8d2a55fd1295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExampleBullet: {fileID: 3652846841097578714, guid: 77d01e6f67ba8d046b5b63bd23e8f392, type: 3}
+  ExampleBullet: {fileID: 3652846841097578714, guid: c32a3a3b282dbf641bde4aa06d11b195, type: 3}
+  weaponSprite: {fileID: 0}
   bulletDamage: 0
   bulletSpeed: 0
   shootSpeed: 0
-  MaxPenetrate: 0
-  WeaponColor: 0
+  MaxPenetration: 0
+  weaponColor: 0
+  rarity: 0

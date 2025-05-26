@@ -13,7 +13,7 @@ public class BaseGun : MonoBehaviour
     public int MaxPenetration;
     public ColorType weaponColor;
     public WeaponGrade rarity;
-    PlayerSkill WeaponHanger;
+    protected PlayerSkill WeaponHanger;
 
     float curWaitTime = 0f;
     void Start()
@@ -36,30 +36,34 @@ public class BaseGun : MonoBehaviour
             curWaitTime += Time.deltaTime;
         }
 
-        if (CanShot&&!WeaponHanger.ShotLock) //쏠 수 있다면
+        if (CanShot && !WeaponHanger.ShotLock) //쏠 수 있다면
         {
             CanShot = false; //일단 방아쇠 당겼음
             curWaitTime = 0f;
 
-            GameObject temp = Instantiate(ExampleBullet); //총알 생성
-            temp.transform.rotation = transform.rotation; //바라보는 방향으로 돌리기
-            temp.transform.parent = transform; //위치지정의 편의성을 위해 자식 오브젝트로 편입
-            temp.transform.localPosition = new Vector3(0.3f, 0, 0); //위치지정
-            temp.transform.parent = null; //편입했던거 팽하기
-            temp.GetComponent<ExampleBullet>().InitBullet((int)(bulletDamage*WeaponHanger.DamageMul), bulletSpeed, MaxPenetration, LookVec); //총알 설정.
-            temp.GetComponent<ExampleBullet>().Shot(); //쏘기
-            temp.GetComponent<ExampleBullet>().bulletColor = weaponColor; //총알 색상 지정
+            FireBullets(LookVec);
         }
+    }
+
+    virtual protected void FireBullets(Vector2 lookvec)
+    {
+        GameObject temp = Instantiate(ExampleBullet); //총알 생성
+        temp.transform.rotation = transform.rotation; //바라보는 방향으로 돌리기
+        temp.transform.parent = transform; //위치지정의 편의성을 위해 자식 오브젝트로 편입
+        temp.transform.localPosition = new Vector3(0.3f, 0, 0); //위치지정
+        temp.transform.parent = null; //편입했던거 팽하기
+        temp.GetComponent<BulletBase>().InitBullet((int)(bulletDamage*WeaponHanger.DamageMul),
+                                                         bulletSpeed, MaxPenetration, lookvec, weaponColor); //총알 설정 및 발사
     }
 
     public void Init(WeaponData weapondata)
     {
         weaponSprite = weapondata.weaponSprite;
-        bulletDamage = weapondata.bulletDamage[(int)weapondata.rarity];
-        bulletSpeed = weapondata.bulletSpeed[(int)weapondata.rarity];
-        shootSpeed = weapondata.ShootingSpeed[(int)weapondata.rarity];
-        MaxPenetration = weapondata.MaxPenetration[(int)weapondata.rarity];
-        weaponColor = weapondata.weaponcolor;
         rarity = weapondata.rarity;
+        bulletDamage = weapondata.bulletDamage[(int)rarity];
+        bulletSpeed = weapondata.bulletSpeed[(int)rarity];
+        shootSpeed = weapondata.ShootingSpeed[(int)rarity];
+        MaxPenetration = weapondata.MaxPenetration[(int)rarity];
+        weaponColor = weapondata.weaponcolor;
     }
 }

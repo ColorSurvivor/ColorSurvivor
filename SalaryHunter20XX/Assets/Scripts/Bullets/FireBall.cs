@@ -1,0 +1,50 @@
+using System.Collections;
+using UnityEngine;
+
+public class FireBall : BulletBase
+{
+    Animator Ani;
+    bool canExplode = true;
+
+    void Awake()
+    {
+        Ani = GetComponent<Animator>();
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy") || collision.CompareTag("Decorations"))
+        {
+            explode();
+        }
+    }
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(3f);
+        explode();
+    }
+
+    void explode()
+    {
+        if (canExplode)
+        {
+            Ani.SetTrigger("explode");
+            canExplode = false;
+
+            Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(transform.position, 1f);
+
+            foreach (Collider2D collider in collidersInRange)
+            {
+                if (collider.CompareTag("Enemy"))
+                {
+                    collider.GetComponent<Entity>().TakeDamage(DMG, bulletColor);
+                }
+            }
+            RD.linearVelocity = Vector2.zero;
+        }
+    }
+
+    void DestroySelf()
+    {
+        Destroy(gameObject);
+    }
+}
