@@ -9,6 +9,7 @@ public class BBBSkill : Skills
     }
     public override IEnumerator Skill()
     {
+        SkillEnd(10,3); // 스킬 지속시간 및 쿨다운 자동시전
         weaponHanger.ATKSpeedMul = 2;
         yield return new WaitForSeconds(10f);
         GetComponent<Animator>().SetTrigger("Change");

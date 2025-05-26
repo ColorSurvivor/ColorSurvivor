@@ -16,4 +16,8 @@ public class Skills : MonoBehaviour
         print("RRR");
         yield return new WaitForSeconds(0.5f);
     }
+    protected virtual void SkillEnd(float GoOnTime, float DebuffTime)
+    {
+        GameObject.Find("SkillSlot").GetComponent<SkillSlot>().OnSkill(GoOnTime, DebuffTime);
+    }
 }

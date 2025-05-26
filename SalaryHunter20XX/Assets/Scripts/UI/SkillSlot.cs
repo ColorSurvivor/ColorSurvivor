@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,8 +6,9 @@ public class SkillSlot : MonoBehaviour
 {
     public Image skillImage;  // 스킬 아이콘 이미지
     public Image cooldownImage;  // 쿨타임 표시용 원형 이미지
-    public float Skillcooltime = 5f;  // 스킬의 전체 쿨타임 시간
+    public float Skillcooltime = 10f;  // 스킬의 전체 쿨타임 시간
     private float currentCooldownTime = 0f;  // 현재 쿨타임 시간
+    bool isSkillReady = true; // 스킬 사용 가능 여부
 
     void Start()
     {
@@ -15,25 +17,52 @@ public class SkillSlot : MonoBehaviour
 
     void Update()
     {
-        if (currentCooldownTime < Skillcooltime) //아직 쿨다운 중
+        if (Input.GetKeyDown(KeyCode.Space) && isSkillReady)
         {
-            currentCooldownTime += Time.deltaTime;
-            cooldownImage.fillAmount = 1f - currentCooldownTime / Skillcooltime; //1에서 0으로 감소
-        }
-        else //사용가능하면 0으로 고정.
-        {
-            cooldownImage.fillAmount = 0f;
-        }
-
-         if (Input.GetKeyDown(KeyCode.Space) && (currentCooldownTime > Skillcooltime))
-         {
+            isSkillReady = false; // 스킬 사용 불가 상태로 변경
             UseSkill();
-         }
+        }
     }
 
     // 스킬 사용 시 호출
     public void UseSkill()
     {
-        GameManager.instance.playerSkill.UseSkill();
+        GameObject.Find("WeaponHanger").GetComponent<PlayerSkill>().UseSkill();
+    }
+    public void OnSkill(float Skilltime, float DebuffTime)
+    {
+        StartCoroutine(CoolDown(Skilltime, DebuffTime, Skillcooltime));
+    }
+    IEnumerator CoolDown(float Skilltime, float DebuffTime, float Cooldown)
+    {
+        currentCooldownTime = 0;
+        while (currentCooldownTime < Skilltime)
+        {
+            currentCooldownTime += Time.deltaTime;
+            cooldownImage.fillClockwise = true; // 원형 이미지가 시계 방향으로 채워짐
+            cooldownImage.fillAmount = currentCooldownTime / Skilltime;
+            yield return new WaitForEndOfFrame();
+        }
+        Debug.Log(currentCooldownTime);
+        currentCooldownTime = 0; // 이제 디버프 시간 계산
+        while (currentCooldownTime < DebuffTime)
+        {
+            currentCooldownTime += Time.deltaTime;
+            skillImage.color = new Color(1, 0,0); // 스킬 시뻘겋게
+            cooldownImage.fillAmount = currentCooldownTime / DebuffTime;
+            yield return new WaitForEndOfFrame();
+        }
+        skillImage.color = new Color(1, 1,1); // 스킬 복구
+        currentCooldownTime = 0; // 이제 쿨탐 계산
+        while (currentCooldownTime < Cooldown)
+        {
+            currentCooldownTime += Time.deltaTime;
+            cooldownImage.fillClockwise = false; // 원형 이미지가 반시계 방향으로 채워짐
+            cooldownImage.fillAmount = 1 - (currentCooldownTime / Skillcooltime);
+            yield return new WaitForEndOfFrame();
+        }
+        isSkillReady = true; // 스킬 사용 가능 상태로 변경
+        cooldownImage.fillAmount = 0; // 쿨타임 이미지 초기화
+
     }
 }
