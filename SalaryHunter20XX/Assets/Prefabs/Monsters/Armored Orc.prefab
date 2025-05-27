@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa5cd81a92e5374cb3f784878a7a911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColor: 3
+  monsterColor: 0
   statData:
     baseMaxHP: 0
     baseATK: 0

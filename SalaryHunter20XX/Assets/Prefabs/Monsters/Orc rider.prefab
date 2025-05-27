@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1113575672252792811}
   - component: {fileID: 1320228983095376746}
   - component: {fileID: 5327967145752774801}
-  - component: {fileID: 6527763285699187356}
-  - component: {fileID: 6004263082149568379}
+  - component: {fileID: 5588142663934176334}
+  - component: {fileID: 9217986941287945829}
   m_Layer: 0
   m_Name: Orc rider
   m_TagString: Enemy
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8026929282551857027}
@@ -141,7 +141,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6527763285699187356
+--- !u!114 &5588142663934176334
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,17 +150,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1074862943714267448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 729dc4441b9421746a72cf9ad41ddcc1, type: 3}
+  m_Script: {fileID: 11500000, guid: b2004ec0382749d4084852f58963d449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColor: 3
   statData:
-    baseMaxHP: 25
-    baseATK: 5
+    baseMaxHP: 100
+    baseATK: 0
     baseContactDMG: 3
-  expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
-  multiplier: 0
---- !u!60 &6004263082149568379
+  fixedColor: 0
+  possibleColors: 010000000200000003000000
+  multiplier: 2
+  colorChangeInterval: 10
+--- !u!60 &9217986941287945829
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

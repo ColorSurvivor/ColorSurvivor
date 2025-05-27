@@ -128,9 +128,9 @@ public class GameManager : MonoBehaviour
             elite11minSpawned = true;
         }
 
-        if (!bossSpawned && curGameTime >= 900f)
+        if (!bossSpawned && curGameTime >= 1f)
         {
-            // SpawnBoss();
+            EliteMonster.instance.SpawnBoss();
             bossSpawned = true;
         }
     }

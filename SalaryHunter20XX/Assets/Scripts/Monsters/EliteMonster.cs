@@ -9,6 +9,10 @@ public class EliteMonster : MonoBehaviour
     public GameObject elite7minPrefab;
     public GameObject elite11minPrefab;
 
+    [Header("보스 몬스터 프리팹")]
+    public GameObject bossPrefab;
+
+    [Header("스폰 위치 정보")]
     public Transform playerTransform;
 
     public float radiusX = 22f;
@@ -46,6 +50,18 @@ public class EliteMonster : MonoBehaviour
         if (elite != null)
         {
             elite.SetPlayerData(playerTransform);
+        }
+    }
+
+    public void SpawnBoss()
+    {
+        Vector2 spawnPos = GetSpawnPosition();
+        GameObject bossObj = Instantiate(bossPrefab, spawnPos, Quaternion.identity);
+
+        var boss = bossObj.GetComponent<BossMonster>();
+        if (boss != null)
+        {
+            boss.SetPlayerData(playerTransform);
         }
     }
 

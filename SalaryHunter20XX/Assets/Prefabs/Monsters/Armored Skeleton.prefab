@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb257e74f112e743852997653609b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterColor: 3
+  monsterColor: 0
   statData:
     baseMaxHP: 0
     baseATK: 0
