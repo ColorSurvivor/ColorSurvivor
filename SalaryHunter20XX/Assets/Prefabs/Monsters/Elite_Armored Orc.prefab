@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4349707359615357217}
   - component: {fileID: -8987257946262744787}
   - component: {fileID: -6386851537532327891}
-  - component: {fileID: -1752319393929444122}
   - component: {fileID: 5206696956629998964}
+  - component: {fileID: 8797641607708317382}
   m_Layer: 0
   m_Name: Elite_Armored Orc
   m_TagString: Enemy
@@ -141,8 +141,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &-1752319393929444122
-CapsuleCollider2D:
+--- !u!114 &5206696956629998964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010366251915549738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d18d46aaebaa4f48a4e4096a7a21497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statData:
+    baseMaxHP: 200
+    baseATK: 20
+    baseContactDMG: 20
+  PassivePrefab: {fileID: 0}
+  passiveDropTable: []
+  fixedColor: 1
+  multiplier: 2
+--- !u!58 &8797641607708317382
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,29 +195,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.2, y: 0}
-  m_Size: {x: 1, y: 1.3125}
-  m_Direction: 0
---- !u!114 &5206696956629998964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010366251915549738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d18d46aaebaa4f48a4e4096a7a21497, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statData:
-    baseMaxHP: 200
-    baseATK: 20
-    baseContactDMG: 20
-  PassivePrefab: {fileID: 0}
-  passiveDropTable: []
-  fixedColor: 1
-  multiplier: 2
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.6
 --- !u!1 &5794305650890268033
 GameObject:
   m_ObjectHideFlags: 0

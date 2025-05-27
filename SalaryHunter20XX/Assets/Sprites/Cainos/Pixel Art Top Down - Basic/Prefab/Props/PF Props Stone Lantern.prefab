@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7947911505737750448}
   - component: {fileID: 7947911505737750450}
-  - component: {fileID: 2393967728453671181}
+  - component: {fileID: 981812891239409431}
   m_Layer: 0
   m_Name: PF Props Stone Lantern
   m_TagString: Decorations
@@ -89,8 +89,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &2393967728453671181
-BoxCollider2D:
+--- !u!70 &981812891239409431
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,18 +123,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0028136373, y: 0.23360598}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.6875, y: 1.1875}
-    newSize: {x: 0.8125, y: 1.625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.61997306, y: 0.3434131}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0.25}
+  m_Size: {x: 0.6, y: 0.4}
+  m_Direction: 1
 --- !u!1 &7947911505844789836
 GameObject:
   m_ObjectHideFlags: 0

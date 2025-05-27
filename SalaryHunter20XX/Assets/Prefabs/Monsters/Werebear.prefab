@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5329674565784678039}
   - component: {fileID: 2567743947468585677}
   - component: {fileID: 8717082240572008066}
-  - component: {fileID: 7752777667223611867}
   - component: {fileID: 8023962929333658010}
+  - component: {fileID: 859988657019737496}
   m_Layer: 0
   m_Name: Werebear
   m_TagString: Enemy
@@ -141,8 +141,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &7752777667223611867
-CapsuleCollider2D:
+--- !u!114 &8023962929333658010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536969901965268913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4685bc6d77e30664f9a0c164d0e259a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterColor: 0
+  statData:
+    baseMaxHP: 0
+    baseATK: 0
+    baseContactDMG: 0
+  expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
+  multiplier: 0
+--- !u!58 &859988657019737496
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,27 +195,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.8, y: 1.1}
-  m_Direction: 0
---- !u!114 &8023962929333658010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536969901965268913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4685bc6d77e30664f9a0c164d0e259a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterColor: 0
-  statData:
-    baseMaxHP: 0
-    baseATK: 0
-    baseContactDMG: 0
-  expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
-  multiplier: 0
+  m_Radius: 0.5
 --- !u!1 &4687101114506881375
 GameObject:
   m_ObjectHideFlags: 0

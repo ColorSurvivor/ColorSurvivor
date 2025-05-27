@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7429446216049452587}
   - component: {fileID: 4935428665536135029}
   - component: {fileID: 6172261414085082541}
-  - component: {fileID: 1207892117793429871}
   - component: {fileID: 6306882284469381952}
   - component: {fileID: -1780969633767194682}
+  - component: {fileID: 2395020864063808263}
   m_Layer: 9
   m_Name: Skeleton Archer
   m_TagString: Enemy
@@ -119,43 +119,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1207892117793429871
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3063265522720094109}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.01, y: 0}
-  m_Size: {x: 0.8, y: 1.2}
-  m_Direction: 0
 --- !u!95 &6306882284469381952
 Animator:
   serializedVersion: 7
@@ -198,6 +161,42 @@ MonoBehaviour:
   expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
   multiplier: 0
   bullet: {fileID: 1800189191439712385, guid: f16e0a5eb3a21764a9c45d85196c0a52, type: 3}
+--- !u!58 &2395020864063808263
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063265522720094109}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.05}
+  m_Radius: 0.5
 --- !u!1 &6094927243553432659
 GameObject:
   m_ObjectHideFlags: 0

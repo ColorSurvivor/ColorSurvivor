@@ -81,6 +81,7 @@ public class EnemyManagerPool : MonoBehaviour
         enemy.transform.position = new Vector2(x, y); // 위치 설정
         enemy.GetComponent<Monster>().SetPlayerData(player_pos); // 적에게 플레이어 위치 전달
         enemy.GetComponent<Monster>().multiplier = Mathf.Pow(1.2f, level); //60초마다 1.2배씩 스탯이 증가.
+        enemy.GetComponent<Collider2D>().isTrigger = false;
         enemy.SetActive(true); // 활성화하여 게임에 등장
     }
 
