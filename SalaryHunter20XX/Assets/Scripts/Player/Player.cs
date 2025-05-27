@@ -63,7 +63,7 @@ public class Player : Entity
             return;
         }
         // 매 프레임마다 입력 벡터를 초기화 (이전 프레임의 방향을 제거)
-            inputVec = Vector2.zero;
+        inputVec = Vector2.zero;
 
         // 마우스 위치를 받아옴
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -76,7 +76,7 @@ public class Player : Entity
 
         // 대각선 입력 시 이동 속도 보정을 위해 방향 벡터를 정규화 (길이를 1로 맞춤)
         inputVec = inputVec.normalized;
-        Ani.SetFloat("Move",inputVec.magnitude);
+        Ani.SetFloat("Move", inputVec.magnitude);
 
         // Entity에서 정의한 DoMove() 함수 호출 → Rigidbody2D의 linearVelocity에 적용됨
         // 최종적으로 (방향 * 속도)로 이동이 실행됨
@@ -95,6 +95,12 @@ public class Player : Entity
 
         // 애니메이션 설정
         Ani.SetFloat("Move", inputVec.magnitude);
+
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            print("!");
+            getEXP(1500);
+        }
     }
     public override void HPChange(float How) //힐도 딜도 이걸로 통합 처리. 플레이어의 데미지는 방어력을 계산해서 적용.
     {
@@ -147,8 +153,13 @@ public class Player : Entity
     }
 
     public void getEXP(float amount)
-    {   
+    {
         curEXP += amount * EXPM;
+        CheckLevelup();
+    }
+
+    public void CheckLevelup()
+    {
         if (curEXP > MaxEXP) //경험치 초과
         {
             curEXP -= MaxEXP; //최대치만큼 소거

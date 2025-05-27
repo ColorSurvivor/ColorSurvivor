@@ -69,12 +69,14 @@ public class LevelUpButtonOb : MonoBehaviour
             GameManager.instance.itemPool.AssignWeaponToSlot(slotN, selectedChoiceNumber);
             Time.timeScale = 1;
             Destroy(gameObject); // UI 닫기
+            GameManager.instance.player.CheckLevelup();
         }
     }
 
-    public void setArrowPos(int n)
+    public void SkipChoice()
     {
-        slotArrow.gameObject.SetActive(true);
-        slotArrow.transform.position = new Vector2(1385, 790 - 260 * n);
+        Time.timeScale = 1;
+        Destroy(gameObject); // UI 닫기
+        GameManager.instance.player.CheckLevelup();
     }
 }

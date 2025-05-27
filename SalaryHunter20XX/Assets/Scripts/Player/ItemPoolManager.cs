@@ -13,7 +13,7 @@ public class ItemPoolManager : MonoBehaviour
         weaponList[0].rarity = WeaponGrade.Common;
         weaponList[0].weaponcolor = ColorType.None;
 
-        GameManager.instance.player.GetWeapon(weaponList[0]); //TODO
+        GameManager.instance.player.GetWeapon(weaponList[5]); //TODO
         UpdateHUDSlot(0); // 게임 시작시 HUD 0번 슬롯 동기화
     }
 
@@ -127,6 +127,7 @@ public class WeaponData
     public WeaponGrade rarity;
     public ColorType weaponcolor;
     public string itemName;
+    public string description;
     public float[] bulletDamage = new float[4];
     public float[] bulletSpeed = new float[4];
     public float[] ShootingSpeed = new float[4];

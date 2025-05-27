@@ -6,7 +6,7 @@ public class BaseGun : MonoBehaviour
 {
     public GameObject ExampleBullet;
     public Sprite weaponSprite;
-    bool CanShot = true;
+    protected bool CanShot = true;
     public float bulletDamage;
     public float bulletSpeed;
     public float shootSpeed;
@@ -15,13 +15,13 @@ public class BaseGun : MonoBehaviour
     public WeaponGrade rarity;
     protected PlayerSkill WeaponHanger;
 
-    float curWaitTime = 0f;
+    protected float curWaitTime = 0f;
     void Start()
     {
         WeaponHanger = transform.parent.gameObject.GetComponent<PlayerSkill>();
     }
 
-    void Update()
+    virtual protected void Update()
     {
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //마우스 위치 받기
         Vector2 LookVec = mouseWorldPos - new Vector2(transform.position.x, transform.position.y); //마우스 위치 바라보는 방향 얻기

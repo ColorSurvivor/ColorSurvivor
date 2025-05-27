@@ -7,10 +7,11 @@ public class LevelUPStatButton : MonoBehaviour
 {
     public Image itemSprite;// 아이템 이미지
     public TextMeshProUGUI itemName;// 아이템 이름 
+    public TextMeshProUGUI weaponDescription;// 무기 설명.
     public Image weaponColor; //무기 색 표시.
     public TextMeshProUGUI weaponDamage;// 무기 공격력
     public TextMeshProUGUI weaponSpeed;// 무기 공격속도 
-    public TextMeshProUGUI weaponPenetration;// 무기 적 관통 수
+    
     public int slotNumber = 0;
 
     public void Select() //클릭되면 실행 
@@ -22,6 +23,7 @@ public class LevelUPStatButton : MonoBehaviour
     {
         itemSprite.sprite = itemStats.weaponSprite;
         itemName.text = itemStats.itemName;
+        weaponDescription.text = "* " + itemStats.description;
 
         switch (itemStats.rarity)
         {
@@ -52,6 +54,5 @@ public class LevelUPStatButton : MonoBehaviour
         }
         weaponDamage.text = "Damage: " + itemStats.bulletDamage[(int)itemStats.rarity];
         weaponSpeed.text = "Speed: " + itemStats.bulletSpeed[(int)itemStats.rarity];
-        weaponPenetration.text = "Penetration: " + itemStats.MaxPenetration[(int)itemStats.rarity];
     }
 }

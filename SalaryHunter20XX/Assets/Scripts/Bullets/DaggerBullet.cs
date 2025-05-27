@@ -12,7 +12,7 @@ public class DaggerBullet : BulletBase
             {
                 target.TakeDamage(DMG, bulletColor);
             }
-            Destroy(gameObject); //관통이 남아있는지 검사.
+            Destroy(gameObject);
         }
         if (collision.CompareTag("Decorations")) Destroy(gameObject); //장식물에 부딪히면 삭제
     }

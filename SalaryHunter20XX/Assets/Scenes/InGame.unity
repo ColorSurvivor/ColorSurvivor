@@ -29598,7 +29598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 880, y: 390}
+  m_AnchoredPosition: {x: 885, y: 385}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &533798842
@@ -57745,7 +57745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 780, y: 390}
+  m_AnchoredPosition: {x: 785, y: 385}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963784996
@@ -64726,6 +64726,7 @@ MonoBehaviour:
     rarity: 0
     weaponcolor: 0
     itemName: Bow
+    description: Shoots arrow.
     bulletDamage:
     - 5
     - 6
@@ -64747,6 +64748,7 @@ MonoBehaviour:
     rarity: 0
     weaponcolor: 0
     itemName: CrossBow
+    description: Arrow Penetrate Enemy.
     bulletDamage:
     - 5
     - 6
@@ -64764,10 +64766,11 @@ MonoBehaviour:
     - 1.3
     MaxPenetration: 01000000020000000200000003000000
   - weaponPrefab: {fileID: 990869804270699053, guid: a4158168ad4dba346aef9cc5b7740a90, type: 3}
-    weaponSprite: {fileID: -1306465024998205560, guid: 0e48a24da6cdbd74e82d442571841f7f, type: 3}
+    weaponSprite: {fileID: -5732831717495796295, guid: 0e48a24da6cdbd74e82d442571841f7f, type: 3}
     rarity: 0
     weaponcolor: 0
     itemName: Fire Staff
+    description: Make small explosion.
     bulletDamage:
     - 7
     - 8
@@ -64788,7 +64791,8 @@ MonoBehaviour:
     weaponSprite: {fileID: 1876318564, guid: ac5a08435d21ac04fa080a901d792289, type: 3}
     rarity: 0
     weaponcolor: 0
-    itemName: Throwing knifes
+    itemName: Throwing knives
+    description: Scatters 5 knives.
     bulletDamage:
     - 1.5
     - 1.75
@@ -64805,6 +64809,50 @@ MonoBehaviour:
     - 1.2
     - 1.3
     MaxPenetration: 00000000000000000000000000000000
+  - weaponPrefab: {fileID: 3022827651622837205, guid: a9461f5990005f84e945071506a5e19a, type: 3}
+    weaponSprite: {fileID: 7991816745748391132, guid: 1faf3f9f5b0a8574680b97c761adffc0, type: 3}
+    rarity: 0
+    weaponcolor: 0
+    itemName: Bible
+    description: Strikes an random enemy.
+    bulletDamage:
+    - 7
+    - 8
+    - 9
+    - 10
+    bulletSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    ShootingSpeed:
+    - 0.8
+    - 0.9
+    - 1
+    - 1.1
+    MaxPenetration: 00000000000000000000000000000000
+  - weaponPrefab: {fileID: 3022827651622837205, guid: 9695a9f80f829f14ba3bdcc2f5fac939, type: 3}
+    weaponSprite: {fileID: 1075056441852591851, guid: ac5a08435d21ac04fa080a901d792289, type: 3}
+    rarity: 0
+    weaponcolor: 0
+    itemName: Sword
+    description: Sweeps forward and backward.
+    bulletDamage:
+    - 7
+    - 8
+    - 9
+    - 10
+    bulletSpeed:
+    - 0
+    - 0
+    - 0
+    - 0
+    ShootingSpeed:
+    - 0.8
+    - 0.9
+    - 1
+    - 1.1
+    MaxPenetration: 00000000000000000000000000000000
   curWeapons: []
   currentChoice:
   - weaponPrefab: {fileID: 0}
@@ -64812,6 +64860,7 @@ MonoBehaviour:
     rarity: 0
     weaponcolor: 0
     itemName: 
+    description: 
     bulletDamage:
     - 0
     - 0
@@ -64833,6 +64882,7 @@ MonoBehaviour:
     rarity: 0
     weaponcolor: 0
     itemName: 
+    description: 
     bulletDamage:
     - 0
     - 0
@@ -64854,6 +64904,7 @@ MonoBehaviour:
     rarity: 0
     weaponcolor: 0
     itemName: 
+    description: 
     bulletDamage:
     - 0
     - 0
@@ -95943,7 +95994,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 680, y: 390}
+  m_AnchoredPosition: {x: 685, y: 385}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712773266
