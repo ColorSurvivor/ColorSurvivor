@@ -175,9 +175,9 @@ public class Player : Entity
     float SetMaxEXP()
     {
         if (LV < 5) return MaxEXP *= 1.3f;
-        else if (LV < 15) return MaxEXP *= 1.5f;
-        else if (LV < 25) return MaxEXP *= 1.7f;
-        else return MaxEXP *= 1.1f;
+        else if (LV < 15) return MaxEXP *= 1.4f;
+        else if (LV < 25) return MaxEXP *= 1.5f;
+        else return MaxEXP *= 1.05f;
     }
     public void GetWeapon(WeaponData newWeapon)
     {

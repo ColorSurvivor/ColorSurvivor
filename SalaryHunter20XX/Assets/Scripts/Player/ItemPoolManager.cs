@@ -13,7 +13,7 @@ public class ItemPoolManager : MonoBehaviour
         weaponList[0].rarity = WeaponGrade.Common;
         weaponList[0].weaponcolor = ColorType.None;
 
-        GameManager.instance.player.GetWeapon(weaponList[5]); //TODO
+        GameManager.instance.player.GetWeapon(weaponList[0]); //TODO
         UpdateHUDSlot(0); // 게임 시작시 HUD 0번 슬롯 동기화
     }
 
@@ -37,25 +37,25 @@ public class ItemPoolManager : MonoBehaviour
         int rand = Random.Range(0, 100);
         int lv = GameManager.instance.player.GetLV();
 
-        if (lv <= 3) return WeaponGrade.Common; //3레벨까지는 일반만.
-        else if (lv <= 8) //4~8은 희귀/일반 25/75
+        if (lv <= 5) return WeaponGrade.Common; //5레벨까지는 일반만.
+        else if (lv <= 14) //6~14은 희귀/일반 25/75
         {
             if (rand < 25) return WeaponGrade.Rare;
             else return WeaponGrade.Common;
         }
-        else if (lv <= 18) //11~18은 에픽/희귀/일반 20/70/10
+        else if (lv <= 23) //14~23은 에픽/희귀/일반 20/60/20
         {
             if (rand < 20) return WeaponGrade.Epic;
-            else if (rand < 70) return WeaponGrade.Rare;
+            else if (rand < 80) return WeaponGrade.Rare;
             else return WeaponGrade.Common;
         }
-        else if (lv <= 30) //19 ~ 30 전설/에펙/희귀 25/50/25
+        else if (lv <= 32) //24 ~ 32 전설/에펙/희귀 25/50/25
         {
             if (rand < 25) return WeaponGrade.Legendary;
             else if (rand < 70) return WeaponGrade.Epic;
             else return WeaponGrade.Rare;
         }
-        else //31~ 전설/에픽 60/40
+        else //33~ 전설/에픽 60/40
         {
             if (rand < 60) return WeaponGrade.Legendary;
             else return WeaponGrade.Epic;
