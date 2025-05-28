@@ -14,6 +14,8 @@ public class Monster : Entity
     float lastContactTime = -999f;
 
     protected bool isDead = false;
+    protected bool isKnockback = false;
+    protected float knockbackTimer = 0f;
 
     protected override void Awake()
     {
@@ -49,6 +51,16 @@ public class Monster : Entity
     protected virtual void FixedUpdate()
     {
         if (isDead || target == null) return; //죽은 상태이거나 플레이어 데이터가 없는 경우에는 이동 X(오류 상황)
+
+        if (isKnockback)
+        {
+            knockbackTimer -= Time.fixedDeltaTime;
+            if (knockbackTimer <= 0f)
+            {
+                isKnockback = false;
+            }
+            return;
+        }
 
         Vector2 direction = (target.position - transform.position).normalized;
 
@@ -102,6 +114,13 @@ public class Monster : Entity
 
     protected virtual void Die()
     {
+        if (slowCoroutine != null)
+        {
+            StopCoroutine(slowCoroutine);
+            SPD = GetSPD();
+            slowCoroutine = null;
+        }
+
         isDead = true;
         AudioManager.instance.PlayMonsterDead();
         Ani.ResetTrigger("Hurt");
@@ -209,7 +228,16 @@ public class Monster : Entity
 
         slowCoroutine = StartCoroutine(SlowCoroutine(duration, slowRate));
     }
-    
+
+    public void ApplyKnockback(Vector2 direction, float force, float duration)
+    {
+        RD.linearVelocity = Vector2.zero;
+        RD.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+
+        isKnockback = true;
+        knockbackTimer = duration;
+    }
+
     private IEnumerator SlowCoroutine(float duration, float slowRate)
     {
         float originalSPD = SPD;
@@ -221,6 +249,16 @@ public class Monster : Entity
         SPD = originalSPD; // 원래 속도로 복구
         slowCoroutine = null;
         // 슬로우 해제 이펙트 처리도 여기
+    }
+
+    void OnDisable()
+    {
+        if (slowCoroutine != null)
+        {
+            StopCoroutine(slowCoroutine);
+            SPD = GetSPD();
+            slowCoroutine = null;
+        }
     }
 }
 

@@ -37,6 +37,14 @@ public class SkeletonArcher : Monster
     {
         if (isDead || target == null) return;
 
+        if (isKnockback)
+        {
+            knockbackTimer -= Time.fixedDeltaTime;
+            if (knockbackTimer <= 0f)
+                isKnockback = false;
+            return;
+        }
+
         Vector2 direction = (target.position - transform.position).normalized;
         SR.flipX = direction.x < 0;
 

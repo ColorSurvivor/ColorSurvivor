@@ -30,6 +30,8 @@ public class FireBall : BulletBase
             Ani.SetTrigger("explode");
             canExplode = false;
 
+            bool healApplied = false;
+
             Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(transform.position, 1f);
 
             foreach (Collider2D collider in collidersInRange)
@@ -37,6 +39,12 @@ public class FireBall : BulletBase
                 if (collider.CompareTag("Enemy"))
                 {
                     collider.GetComponent<Entity>().TakeDamage(DMG, bulletColor);
+
+                    if (bulletColor == ColorType.Green && !healApplied)
+                    {
+                        GameManager.instance.player.HPChange(1f);
+                        healApplied = true;
+                    }
                 }
             }
             RD.linearVelocity = Vector2.zero;
