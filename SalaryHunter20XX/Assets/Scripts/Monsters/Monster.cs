@@ -265,6 +265,7 @@ public class Monster : Entity
 [System.Serializable]
 public class MonsterStat
 {
+    public int code;
     public float baseMaxHP;
     public float baseATK;
     public float baseContactDMG;

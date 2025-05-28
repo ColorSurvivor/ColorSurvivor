@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1780969633767194682}
   - component: {fileID: 2395020864063808263}
   m_Layer: 9
-  m_Name: Skeleton Archer
+  m_Name: 3_Skeleton Archer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterColor: 0
   statData:
+    code: 3
     baseMaxHP: 20
     baseATK: 2
     baseContactDMG: 1

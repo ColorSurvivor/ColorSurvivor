@@ -108,10 +108,10 @@ public class Player : Entity
         {
             return;
         }
-        
+
         if (How < 0) //데미지의 경우
         {
-            CurHP += How;   
+            CurHP += How;
 
             if (CurHP > 0)
             {
@@ -126,7 +126,7 @@ public class Player : Entity
         }
         else
         {
-            if (CurHP + How >= MaxHP) CurHP = MaxHP; //최대체력까지 회복.
+            if (CurHP + How >= MaxHP) CurHP = MaxHP; //최대체력까지만 회복
             else CurHP += How; //회복은 그대로 적용.
         }
     }

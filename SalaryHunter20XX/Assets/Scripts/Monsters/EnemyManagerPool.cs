@@ -4,9 +4,12 @@ using UnityEngine;
 public class EnemyManagerPool : MonoBehaviour
 {
     public Transform player_pos; // 플레이어 위치를 참조할 Transform
-    public GameObject[] EnemyType; // 다양한 적 프리팹 배열
-    public int level;
-    public int poolSize = 20; // 오브젝트 풀의 초기 크기
+    [Header("웨이브 구성")]
+    public WaveMonsters[] wave; // 다양한 적 프리팹 배열
+    public float[] waveTime;
+    public int waveLevel;
+    [Header("오브젝트 풀링")]
+    public int PoolSize = 20; // 오브젝트 풀의 초기 크기
     public float spawnTime, currentTime; // 스폰 간격 및 현재 시간 누적용 변수
 
     // 스폰에 사용될 타원의 반지름 (작은 타원)
@@ -22,13 +25,13 @@ public class EnemyManagerPool : MonoBehaviour
 
     void Start()
     {
-        CreatePool(); // 시작 시 오브젝트 풀 생성
+        // CreatePool(); // 시작 시 오브젝트 풀 생성
+        waveLevel = 0;
     }
 
     void Update()
     {
         currentTime += Time.deltaTime; // 프레임마다 시간 누적
-        level = Mathf.FloorToInt(GameManager.instance.curGameTime / 60f); //60초마다 레벨 증가.
 
         // 스폰 시간 도달 시 적 생성
         if (currentTime >= spawnTime)
@@ -36,41 +39,33 @@ public class EnemyManagerPool : MonoBehaviour
             Spawn();
             currentTime = 0f; // 타이머 초기화
         }
+        if (GameManager.instance.curGameTime > waveTime[waveLevel + 1]) waveLevel++; //다음 웨이브시간 넘기면 웨이브레벨 증가.
 
         // 너무 멀리 벗어난 적들을 재배치
         RepositionFarEnemies();
     }
 
-    // 적 오브젝트 풀 생성 (비활성화 상태로 저장)
-    void CreatePool()
-    {
-        for (int i = 0; i < poolSize; i++)
-        {
-            int rand = Random.Range(0, EnemyType.Length); // 랜덤한 적 타입 선택
-            GameObject enemy = Instantiate(EnemyType[rand], Vector3.zero, Quaternion.identity); // 적 생성
-            enemy.transform.SetParent(transform); // Enemy_Manager 오브젝트의 자식으로 등록
-
-            enemy.SetActive(false); // 비활성화하여 대기 상태로 전환
-            enemyPool.Add(enemy); // 풀에 추가
-        }
-    }
-
-    // 비활성화된 적을 풀에서 꺼내 재사용
-    GameObject GetEnemyFromPool()
-    {
-        foreach (GameObject e in enemyPool)
-        {
-            if (!e.activeInHierarchy) return e;
-        }
-        return null; // 남는 오브젝트가 없으면 null 반환
-    }
+    // void CreatePool()// 적 오브젝트 풀 생성 (게임 시작 1회만 풀 채우기 용)
+    // {
+    //     for (int i = 0; i < PoolSize; i++)
+    //     {
+    //         CreateEnemy();
+    //     }
+    // }
 
     // 새로운 적을 타원 외곽에 스폰
     void Spawn()
     {
-        GameObject enemy = GetEnemyFromPool();
-        if (enemy == null) return;
+        GameObject enemy = GetEnemyFromPool(); //풀에서 적을 검색
+        if (enemy == null) //풀풀에서 적을 찾을 수 없으면 새로 생성.
+        {
+            PoolSize++;
+            CreateEnemy();
+            Spawn();
+            return;
+        }
 
+        //풀에서 적을 찾으면 instantiate.
         Vector2 center = player_pos.position; // 타원의 중심은 플레이어 위치
         float angle = Random.Range(0f, 2f * Mathf.PI); // 0~360도 사이 랜덤 각도
 
@@ -80,9 +75,42 @@ public class EnemyManagerPool : MonoBehaviour
 
         enemy.transform.position = new Vector2(x, y); // 위치 설정
         enemy.GetComponent<Monster>().SetPlayerData(player_pos); // 적에게 플레이어 위치 전달
-        enemy.GetComponent<Monster>().multiplier = Mathf.Pow(1.2f, level); //60초마다 1.2배씩 스탯이 증가.
-        enemy.GetComponent<Collider2D>().isTrigger = false;
+        // enemy.GetComponent<Monster>().multiplier = Mathf.Pow(1.2f, level); //60초마다 1.2배씩 스탯이 증가.
         enemy.SetActive(true); // 활성화하여 게임에 등장
+    }
+
+    void CreateEnemy()
+    {
+        int rand = Random.Range(0, wave[waveLevel].wavemonster.Length); // 웨이브 구성몹 중 하나의 번호를 뽑음
+
+        GameObject enemy = Instantiate(wave[waveLevel].wavemonster[rand], Vector3.zero, Quaternion.identity); // 적 생성
+        enemy.transform.SetParent(transform); // Enemy_Manager 오브젝트의 자식으로 등록
+
+        enemy.SetActive(false); // 비활성화하여 대기 상태로 전환
+        enemyPool.Add(enemy); // 풀에 추가
+    }
+
+    // 비활성화 된 적 중 웨이브에 해당하는 적을 풀에서 꺼내 재사용
+    GameObject GetEnemyFromPool()
+    {
+        foreach (GameObject e in enemyPool)
+        {
+            if (!e.activeInHierarchy && IsCurrentWaveMonster(e.GetComponent<Monster>().statData.code)) //현재 웨이브몬스터에 해당 몬스터가 있는지 검사.
+            {
+                return e; //비활성화 되어 있다면
+            }
+        }
+        return null; // 남는 오브젝트가 없으면 null 반환
+    }
+
+    bool IsCurrentWaveMonster(int n)
+    {
+        foreach (GameObject monsterData in wave[waveLevel].wavemonster)
+        {
+            if (monsterData.GetComponent<Monster>().statData.code == n) return true;
+            else continue;
+        }
+        return false;
     }
 
     // 너무 멀리 벗어난 적을 다시 스폰 범위 안으로 재배치
@@ -118,4 +146,10 @@ public class EnemyManagerPool : MonoBehaviour
             }
         }
     }
+}
+
+[System.Serializable]
+public class WaveMonsters
+{
+    public GameObject[] wavemonster;
 }

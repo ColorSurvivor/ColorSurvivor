@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -311056187557412296}
   - component: {fileID: 7948813297815131741}
   m_Layer: 0
-  m_Name: Armored Orc
+  m_Name: 6_Armored Orc
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterColor: 0
   statData:
+    code: 6
     baseMaxHP: 0
     baseATK: 0
     baseContactDMG: 0

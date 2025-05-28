@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 4367967287019287307}
   - component: {fileID: 3054328211659888504}
   m_Layer: 0
-  m_Name: Armored Skeleton
+  m_Name: 1_Armored Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterColor: 0
   statData:
+    code: 1
     baseMaxHP: 0
     baseATK: 0
     baseContactDMG: 0
