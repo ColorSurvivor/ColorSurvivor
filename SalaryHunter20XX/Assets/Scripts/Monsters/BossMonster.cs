@@ -126,6 +126,7 @@ public class BossMonster : Entity
     {
         RD.linearVelocity = Vector2.zero;
         yield return new WaitForSeconds(0.5f);
+        GameManager.instance.CallGameClearCanvas();
 
         gameObject.SetActive(false);
     }

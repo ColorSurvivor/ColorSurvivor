@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statData:
-    baseMaxHP: 100
+    baseMaxHP: 20
     baseATK: 0
     baseContactDMG: 3
   fixedColor: 0

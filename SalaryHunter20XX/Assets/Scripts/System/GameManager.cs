@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject mainMenuCanvas;
     public GameObject inGameCanvas;
+    public GameObject gameClearCanvas;
     public GameObject playerObject;
     public static bool isRestarting = false;
 
@@ -104,6 +106,22 @@ public class GameManager : MonoBehaviour
         Debug.Log("게임 종료");
     }
 
+    public void CallGameClearCanvas()
+    {
+        StartCoroutine(CallGameClearCoroutine());
+    }
+
+    private IEnumerator CallGameClearCoroutine()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        Time.timeScale = 0f;
+        if (gameClearCanvas != null)
+        {
+            gameClearCanvas.SetActive(true);
+        }
+    }
+
     void Update()
     {
         if (Time.timeScale == 0f) return;
@@ -128,7 +146,7 @@ public class GameManager : MonoBehaviour
             elite11minSpawned = true;
         }
 
-        if (!bossSpawned && curGameTime >= 1f)
+        if (!bossSpawned && curGameTime >= 900f)
         {
             EliteMonster.instance.SpawnBoss();
             bossSpawned = true;
