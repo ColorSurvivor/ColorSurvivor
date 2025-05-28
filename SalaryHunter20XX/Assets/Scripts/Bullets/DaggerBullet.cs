@@ -11,6 +11,12 @@ public class DaggerBullet : BulletBase
             if (target != null)
             {
                 target.TakeDamage(DMG, bulletColor);
+
+                // 색상이 초록색이면 회복
+                if (bulletColor == ColorType.Green)
+                {
+                    GameManager.instance.player.HPChange(0.2f); // 5발 * 0.2 = 최대 1
+                }
             }
             Destroy(gameObject);
         }

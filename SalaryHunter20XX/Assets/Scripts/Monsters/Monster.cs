@@ -9,6 +9,7 @@ public class Monster : Entity
     public float multiplier; //시간이 지남에 따라 레벨이 상승하고 레벨에 따라 스탯이 증가.
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
+    private Coroutine slowCoroutine;
     float contactDMGCooldown = 0.3f; // 충돌 피해 간격 (초)
     float lastContactTime = -999f;
 
@@ -29,7 +30,7 @@ public class Monster : Entity
     {
         return contactDMG;
     }
-    
+
     public float ColorBaseDamage(ColorType attackColor)
     {
         if (monsterColor == ColorType.None)
@@ -44,7 +45,7 @@ public class Monster : Entity
 
         return GameConstants.DifferentColorPenaltyMultiplier;
     }
-    
+
     protected virtual void FixedUpdate()
     {
         if (isDead || target == null) return; //죽은 상태이거나 플레이어 데이터가 없는 경우에는 이동 X(오류 상황)
@@ -122,11 +123,11 @@ public class Monster : Entity
         RD.linearVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(0.5f);
-        EXP expOBJ = Instantiate(expPrefab,transform.position,transform.rotation);
+        EXP expOBJ = Instantiate(expPrefab, transform.position, transform.rotation);
         expOBJ.SetFinalEXP();
         gameObject.SetActive(false);
     }
-    
+
     protected virtual void Init()
     {
         InitStats();
@@ -163,7 +164,7 @@ public class Monster : Entity
     void InitColor()
     {
         float chance = GetColorAppearanceChance(); //시간에 따른 확률을 가져옴
-        float roll = Random.Range(0f, 1f); 
+        float roll = Random.Range(0f, 1f);
 
         if (roll > chance) //확률보다 크면 무색.
         {
@@ -199,6 +200,27 @@ public class Monster : Entity
                 SR.color = Color.white;
                 break;
         }
+    }
+
+    public void ApplySlow(float duration, float slowRate)
+    {
+        if (slowCoroutine != null)
+            StopCoroutine(slowCoroutine);
+
+        slowCoroutine = StartCoroutine(SlowCoroutine(duration, slowRate));
+    }
+    
+    private IEnumerator SlowCoroutine(float duration, float slowRate)
+    {
+        float originalSPD = SPD;
+        SPD *= slowRate; // 예: slowRate = 0.5f면 속도 50%
+        // 시각 효과 추가하고 싶으면 여기서 처리
+
+        yield return new WaitForSeconds(duration);
+
+        SPD = originalSPD; // 원래 속도로 복구
+        slowCoroutine = null;
+        // 슬로우 해제 이펙트 처리도 여기
     }
 }
 
