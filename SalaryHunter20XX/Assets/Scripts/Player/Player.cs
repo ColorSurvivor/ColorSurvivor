@@ -126,7 +126,8 @@ public class Player : Entity
         }
         else
         {
-            CurHP += How; //회복은 그대로 적용.
+            if (CurHP + How >= MaxHP) CurHP = MaxHP; //최대체력까지 회복.
+            else CurHP += How; //회복은 그대로 적용.
         }
     }
     

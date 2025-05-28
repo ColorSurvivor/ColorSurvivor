@@ -55,17 +55,20 @@ public class Bible : BaseGun
 
             float bibleDamage = GetColorBuffedDamage() * WeaponHanger.DamageMul;
 
-            GameObject temp = Instantiate(ExampleBullet); //총알 생성
-            temp.transform.position = target.transform.position;
-            target.TakeDamage((int)bibleDamage, weaponColor);
+            if (target != null)
+            {
+                target.TakeDamage((int)bibleDamage, weaponColor);
+                GameObject temp = Instantiate(ExampleBullet); //총알 생성
+                temp.transform.position = target.transform.position;
 
-            if (weaponColor == ColorType.Blue)
-            {
-                target.ApplySlow(1f, 0.75f);
-            }
-            if (weaponColor == ColorType.Green)
-            {
-                GameManager.instance.player.HPChange(0.1f);
+                if (weaponColor == ColorType.Blue)
+                {
+                    target.ApplySlow(1f, 0.75f);
+                }
+                else if (weaponColor == ColorType.Green)
+                {
+                    GameManager.instance.player.HPChange(0.1f);
+                }
             }
         }
     }

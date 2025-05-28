@@ -15,13 +15,12 @@ public class SwordBullet : BulletBase
             }
         }
     }
-    public void InitBullet(int damage, float bulletSPD, int PNT, ColorType bulletcolor)
+
+        override public void Shot()
     {
-        DMG = damage;
-        SPD = bulletSPD;
-        penetration = PNT;
-        bulletColor = bulletcolor;
+        return;
     }
+
     void DestroySelf()
     {
         Destroy(gameObject);
