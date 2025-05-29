@@ -37,7 +37,7 @@ public class BulletBase : MonoBehaviour
         if (collision.CompareTag("Decorations")) Destroy(gameObject); //장식물에 부딪히면 삭제
     }
 
-    IEnumerator Timer()
+    virtual protected IEnumerator Timer()
     {
         yield return new WaitForSeconds(1.5f);
         Destroy(gameObject);

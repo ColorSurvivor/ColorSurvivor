@@ -103246,23 +103246,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_pos: {fileID: 116440256}
-  wave:
+  waveData:
   - wavemonster:
     - {fileID: 1468705467444847978, guid: e40aa78fa1e487940a6f81a7118002d4, type: 3}
+    endTime: 60
+    canColoredEnemySpawn: 0
+    spawnTime: 1
   - wavemonster:
-    - {fileID: 7226282234714050665, guid: ef7dfe8af8cc08f4881e37c50b00a4db, type: 3}
-    - {fileID: 9048379050998339012, guid: 32b2559d0c7fee04d81d96c574a7d823, type: 3}
+    - {fileID: 1468705467444847978, guid: e40aa78fa1e487940a6f81a7118002d4, type: 3}
+    endTime: 151
+    canColoredEnemySpawn: 1
+    spawnTime: 0.8
+  - wavemonster:
+    - {fileID: 1536969901965268913, guid: b3161a469f7cf584ebcf94db7ff774a9, type: 3}
+    endTime: 210
+    canColoredEnemySpawn: 0
+    spawnTime: 1
+  - wavemonster:
+    - {fileID: 1536969901965268913, guid: b3161a469f7cf584ebcf94db7ff774a9, type: 3}
+    endTime: 301
+    canColoredEnemySpawn: 1
+    spawnTime: 0.8
   - wavemonster:
     - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
-    - {fileID: 1536969901965268913, guid: b3161a469f7cf584ebcf94db7ff774a9, type: 3}
-  waveTime:
-  - 0
-  - 10
-  - 20
-  - 9999
+    - {fileID: 9048379050998339012, guid: 32b2559d0c7fee04d81d96c574a7d823, type: 3}
+    endTime: 360
+    canColoredEnemySpawn: 0
+    spawnTime: 1
+  - wavemonster:
+    - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
+    - {fileID: 9048379050998339012, guid: 32b2559d0c7fee04d81d96c574a7d823, type: 3}
+    endTime: 451
+    canColoredEnemySpawn: 1
+    spawnTime: 0.8
+  - wavemonster:
+    - {fileID: 7226282234714050665, guid: ef7dfe8af8cc08f4881e37c50b00a4db, type: 3}
+    - {fileID: 1010366251915549738, guid: 2ef4db13f0f7646438bd0150841f173c, type: 3}
+    endTime: 510
+    canColoredEnemySpawn: 0
+    spawnTime: 1
+  - wavemonster:
+    - {fileID: 7226282234714050665, guid: ef7dfe8af8cc08f4881e37c50b00a4db, type: 3}
+    - {fileID: 1010366251915549738, guid: 2ef4db13f0f7646438bd0150841f173c, type: 3}
+    endTime: 999
+    canColoredEnemySpawn: 1
+    spawnTime: 0.8
   waveLevel: 0
   PoolSize: 20
-  spawnTime: 1
   currentTime: 0
 --- !u!114 &1953592723
 MonoBehaviour:
@@ -103276,10 +103306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d937e5299e0a140b93cf55e189781f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elite3minPrefab: {fileID: 1468705467444847978, guid: 21b75b9f43fe51747aff27a20b0694a1, type: 3}
-  elite7minPrefab: {fileID: 1010366251915549738, guid: 431474345c7f9c04fa62cb5d92493a10, type: 3}
-  elite11minPrefab: {fileID: 1536969901965268913, guid: 6a82561fd6669d645a15bb69714aa03e, type: 3}
-  bossPrefab: {fileID: 0}
+  currentColor: 0
+  wave1Elite: {fileID: 1468705467444847978, guid: 21b75b9f43fe51747aff27a20b0694a1, type: 3}
+  wave2Elite: {fileID: 1536969901965268913, guid: 6a82561fd6669d645a15bb69714aa03e, type: 3}
+  wave3Elite: {fileID: 1010366251915549738, guid: 431474345c7f9c04fa62cb5d92493a10, type: 3}
+  bossPrefab: {fileID: 1074862943714267448, guid: eda58601e92ea2a47a2dc142d70fb7a5, type: 3}
   playerTransform: {fileID: 116440256}
   radiusX: 22
   radiusY: 14
@@ -105203,6 +105234,7 @@ MonoBehaviour:
   playerObject: {fileID: 116440252}
   curGameTime: 0
   maxGameTime: 900
+  canFlowGameTime: 1
 --- !u!4 &2019787109
 Transform:
   m_ObjectHideFlags: 0

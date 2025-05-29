@@ -22,7 +22,7 @@ public class DaggerBullet : BulletBase
         }
         if (collision.CompareTag("Decorations")) Destroy(gameObject); //장식물에 부딪히면 삭제
     }
-    IEnumerator Timer()
+    override protected IEnumerator Timer()
     {
         yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);

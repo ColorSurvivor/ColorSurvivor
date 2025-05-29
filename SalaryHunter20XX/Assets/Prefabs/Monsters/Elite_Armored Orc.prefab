@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1.4999999}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6830435120525704994}
@@ -153,14 +153,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d18d46aaebaa4f48a4e4096a7a21497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHP: 10
+  monsterColor: 0
   statData:
+    code: 0
     baseMaxHP: 200
     baseATK: 20
     baseContactDMG: 20
-  PassivePrefab: {fileID: 0}
-  passiveDropTable: []
-  fixedColor: 1
-  multiplier: 2
+  expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
+  multiplier: 0.5
 --- !u!58 &8797641607708317382
 CircleCollider2D:
   m_ObjectHideFlags: 0

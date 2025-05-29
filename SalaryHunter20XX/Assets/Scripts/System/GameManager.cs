@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public float curGameTime; // 현재 게임 시간
     public float maxGameTime = 900f; // 최대 게임 진행 시간
+    public bool canFlowGameTime = true; //엘리트 스폰 시 시간 고정 여부
 
     private bool elite3minSpawned = false;
     private bool elite7minSpawned = false;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
             elite7minSpawned = false;
             elite11minSpawned = false;
             bossSpawned = false;
+            canFlowGameTime = true;
 
             Time.timeScale = 1f;
 
@@ -125,31 +127,35 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Time.timeScale == 0f) return;
+        
+        if (canFlowGameTime) curGameTime += 3 *Time.deltaTime;
 
-        curGameTime += Time.deltaTime;
-
-        if (!elite3minSpawned && curGameTime >= 180f)
+        if (!elite3minSpawned && curGameTime >= 150f)
         {
             EliteMonster.instance.SpawnElite(1);
             elite3minSpawned = true;
+            canFlowGameTime = false;
         }
 
-        if (!elite7minSpawned && curGameTime >= 420f)
+        if (!elite7minSpawned && curGameTime >= 300f)
         {
             EliteMonster.instance.SpawnElite(2);
             elite7minSpawned = true;
+            canFlowGameTime = false;
         }
 
-        if (!elite11minSpawned && curGameTime >= 660f)
+        if (!elite11minSpawned && curGameTime >= 450f)
         {
             EliteMonster.instance.SpawnElite(3);
             elite11minSpawned = true;
+            canFlowGameTime = false;
         }
 
-        if (!bossSpawned && curGameTime >= 900f)
+        if (!bossSpawned && curGameTime >= 600f)
         {
             EliteMonster.instance.SpawnBoss();
             bossSpawned = true;
+            canFlowGameTime = false;
         }
     }
 }

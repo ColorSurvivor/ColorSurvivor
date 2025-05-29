@@ -3,13 +3,12 @@ using UnityEngine;
 public class EliteMonster : MonoBehaviour
 {
     public static EliteMonster instance;
+    public ColorType currentColor = ColorType.None;
 
     [Header("각 시간대별 엘리트 프리팹")]
-    public GameObject elite3minPrefab;
-    public GameObject elite7minPrefab;
-    public GameObject elite11minPrefab;
-
-    [Header("보스 몬스터 프리팹")]
+    public GameObject wave1Elite;
+    public GameObject wave2Elite;
+    public GameObject wave3Elite;
     public GameObject bossPrefab;
 
     [Header("스폰 위치 정보")]
@@ -30,13 +29,13 @@ public class EliteMonster : MonoBehaviour
         switch (waveIndex)
         {
             case 1:
-                prefabToSpawn = elite3minPrefab;
+                prefabToSpawn = wave1Elite;
                 break;
             case 2:
-                prefabToSpawn = elite7minPrefab;
+                prefabToSpawn = wave2Elite;
                 break;
             case 3:
-                prefabToSpawn = elite11minPrefab;
+                prefabToSpawn = wave3Elite;
                 break;
             default:
                 Debug.LogWarning("잘못된 waveIndex!");
@@ -49,7 +48,9 @@ public class EliteMonster : MonoBehaviour
         var elite = eliteObj.GetComponent<EliteMonsterUnit>();
         if (elite != null)
         {
+            elite.monsterColor = currentColor;
             elite.SetPlayerData(playerTransform);
+            elite.ApplyColorVisual();
         }
     }
 
