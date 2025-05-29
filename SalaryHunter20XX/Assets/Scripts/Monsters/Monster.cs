@@ -9,7 +9,7 @@ public class Monster : Entity
     public float multiplier; //시간이 지남에 따라 레벨이 상승하고 레벨에 따라 스탯이 증가.
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
-    private Coroutine slowCoroutine;
+    protected Coroutine slowCoroutine;
     float contactDMGCooldown = 0.3f; // 충돌 피해 간격 (초)
     float lastContactTime = -999f;
 
@@ -63,12 +63,7 @@ public class Monster : Entity
         }
 
         Vector2 direction = (target.position - transform.position).normalized;
-
-        if (direction.x < 0)//플레이어 방향 바라보기
-            SR.flipX = true;
-        else
-            SR.flipX = false;
-
+        SR.flipX = direction.x < 0;
         DoMove(direction * GetSPD());
 
     }
@@ -137,8 +132,6 @@ public class Monster : Entity
 
     protected virtual IEnumerator DieCoroutine()
     {
-        Debug.Log("몬스터 사망!");
-
         RD.linearVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(0.5f);
@@ -152,7 +145,7 @@ public class Monster : Entity
     protected virtual void Init()
     {
         InitStats();
-        InitColor();
+        ApplyColorVisual();
         CurHP = MaxHP;
     }
 
@@ -163,50 +156,9 @@ public class Monster : Entity
         contactDMG = statData.baseContactDMG * multiplier;
     }
 
-    float GetColorAppearanceChance()
+    public void ApplyColorVisual()
     {
-        float t = GameManager.instance.curGameTime;
-
-        if (t < 120f)
-            return 0f;
-
-        if (t < 360f) // 3~6분: 0 → 20%
-            return Mathf.Lerp(0f, 0.2f, (t - 120f) / 240f);
-
-        if (t < 600f) // 7~10분: 20% → 40%
-            return Mathf.Lerp(0.2f, 0.4f, (t - 360f) / 240f);
-
-        if (t < 900f) // 11~15분: 40% → 75%
-            return Mathf.Lerp(0.4f, 0.75f, (t - 600f) / 300f);
-
-        return 0.75f; // 15분 이후 고정
-    }
-
-    void InitColor()
-    {
-        float chance = GetColorAppearanceChance(); //시간에 따른 확률을 가져옴
-        float roll = Random.Range(0f, 1f);
-
-        if (roll > chance) //확률보다 크면 무색.
-        {
-            SetColor(ColorType.None); // 무색
-            return;
-        }
-
-        int randomValue = Random.Range(0, 3); //확률보다 작으면 색을 가짐.
-        ColorType randomColor = (ColorType)randomValue;
-        SetColor(randomColor);
-    }
-
-    protected void SetColor(ColorType color) //todo: 다른 곳에서 호출 하는 데가 없으니 initcolor 안으로 이동제안
-    {
-        monsterColor = color;
-        ApplyColorVisual(color);
-    }
-
-    protected void ApplyColorVisual(ColorType color)
-    {
-        switch (color)
+        switch (monsterColor)
         {
             case ColorType.Red:
                 SR.color = new Color(1f, 0.25f, 0.25f);

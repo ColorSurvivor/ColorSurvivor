@@ -5,12 +5,12 @@ public class EnemyManagerPool : MonoBehaviour
 {
     public Transform player_pos; // 플레이어 위치를 참조할 Transform
     [Header("웨이브 구성")]
-    public WaveMonsters[] wave; // 다양한 적 프리팹 배열
-    public float[] waveTime;
+    public WaveMonsters[] waveData; // 다양한 적 프리팹 배열
+    List<ColorType> validColor = new List<ColorType>();
     public int waveLevel;
     [Header("오브젝트 풀링")]
     public int PoolSize = 20; // 오브젝트 풀의 초기 크기
-    public float spawnTime, currentTime; // 스폰 간격 및 현재 시간 누적용 변수
+    public float currentTime; // 스폰 간격 및 현재 시간 누적용 변수
 
     // 스폰에 사용될 타원의 반지름 (작은 타원)
     float radiusX = 20f;
@@ -25,8 +25,10 @@ public class EnemyManagerPool : MonoBehaviour
 
     void Start()
     {
-        // CreatePool(); // 시작 시 오브젝트 풀 생성
         waveLevel = 0;
+        validColor.Add(ColorType.Red);
+        validColor.Insert(Random.Range(0, 2), ColorType.Blue);
+        validColor.Insert(Random.Range(0, 3), ColorType.Green);
     }
 
     void Update()
@@ -34,24 +36,20 @@ public class EnemyManagerPool : MonoBehaviour
         currentTime += Time.deltaTime; // 프레임마다 시간 누적
 
         // 스폰 시간 도달 시 적 생성
-        if (currentTime >= spawnTime)
+        if (currentTime >= waveData[waveLevel].spawnTime)
         {
             Spawn();
             currentTime = 0f; // 타이머 초기화
         }
-        if (GameManager.instance.curGameTime > waveTime[waveLevel + 1]) waveLevel++; //다음 웨이브시간 넘기면 웨이브레벨 증가.
-
+        if (GameManager.instance.curGameTime > waveData[waveLevel].endTime)
+        {
+            waveLevel++;
+            if(waveLevel < 7) EliteMonster.instance.currentColor = validColor[(waveLevel - 1) / 2]; //다음 웨이브시간 넘기면 웨이브레벨 증가.
+        }
+        
         // 너무 멀리 벗어난 적들을 재배치
         RepositionFarEnemies();
     }
-
-    // void CreatePool()// 적 오브젝트 풀 생성 (게임 시작 1회만 풀 채우기 용)
-    // {
-    //     for (int i = 0; i < PoolSize; i++)
-    //     {
-    //         CreateEnemy();
-    //     }
-    // }
 
     // 새로운 적을 타원 외곽에 스폰
     void Spawn()
@@ -74,16 +72,23 @@ public class EnemyManagerPool : MonoBehaviour
         float y = center.y + radiusY * Mathf.Sin(angle);
 
         enemy.transform.position = new Vector2(x, y); // 위치 설정
-        enemy.GetComponent<Monster>().SetPlayerData(player_pos); // 적에게 플레이어 위치 전달
-        // enemy.GetComponent<Monster>().multiplier = Mathf.Pow(1.2f, level); //60초마다 1.2배씩 스탯이 증가.
+        Monster enemyComponent = enemy.GetComponent<Monster>();
+
+        enemyComponent.SetPlayerData(player_pos); // 적에게 플레이어 위치 전달
+        enemyComponent.multiplier = 1f;
+
+        if (waveLevel == 7) enemyComponent.monsterColor = (ColorType)Random.Range(1, 4); //마지막 라운드는 색 랜덤으로 소환.
+        else if (waveData[waveLevel].canColoredEnemySpawn) enemyComponent.monsterColor = validColor[(waveLevel-1) / 2]; //몬스터 색을 라운드에 맞게 설정.
+        else enemyComponent.monsterColor = ColorType.None;
+
         enemy.SetActive(true); // 활성화하여 게임에 등장
     }
 
     void CreateEnemy()
     {
-        int rand = Random.Range(0, wave[waveLevel].wavemonster.Length); // 웨이브 구성몹 중 하나의 번호를 뽑음
+        int rand = Random.Range(0, waveData[waveLevel].wavemonster.Length); // 웨이브 구성몹 중 하나의 번호를 뽑음
 
-        GameObject enemy = Instantiate(wave[waveLevel].wavemonster[rand], Vector3.zero, Quaternion.identity); // 적 생성
+        GameObject enemy = Instantiate(waveData[waveLevel].wavemonster[rand], Vector3.zero, Quaternion.identity); // 적 생성
         enemy.transform.SetParent(transform); // Enemy_Manager 오브젝트의 자식으로 등록
 
         enemy.SetActive(false); // 비활성화하여 대기 상태로 전환
@@ -105,7 +110,7 @@ public class EnemyManagerPool : MonoBehaviour
 
     bool IsCurrentWaveMonster(int n)
     {
-        foreach (GameObject monsterData in wave[waveLevel].wavemonster)
+        foreach (GameObject monsterData in waveData[waveLevel].wavemonster)
         {
             if (monsterData.GetComponent<Monster>().statData.code == n) return true;
             else continue;
@@ -152,4 +157,7 @@ public class EnemyManagerPool : MonoBehaviour
 public class WaveMonsters
 {
     public GameObject[] wavemonster;
+    public int endTime;
+    public bool canColoredEnemySpawn = false;
+    public float spawnTime;
 }

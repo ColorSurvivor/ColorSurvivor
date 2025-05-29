@@ -17,7 +17,7 @@ public class FireBall : BulletBase
             explode();
         }
     }
-    IEnumerator Timer()
+    override protected IEnumerator Timer()
     {
         yield return new WaitForSeconds(1.5f);
         explode();
