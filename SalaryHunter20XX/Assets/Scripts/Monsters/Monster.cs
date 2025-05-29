@@ -144,6 +144,8 @@ public class Monster : Entity
         yield return new WaitForSeconds(0.5f);
         EXP expOBJ = Instantiate(expPrefab, transform.position, transform.rotation);
         expOBJ.SetFinalEXP();
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Collider2D>().isTrigger = false;
         gameObject.SetActive(false);
     }
 
