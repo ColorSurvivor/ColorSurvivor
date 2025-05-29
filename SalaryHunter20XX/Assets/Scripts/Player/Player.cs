@@ -53,6 +53,7 @@ public class Player : Entity
         SPD = 3;
         Ani = GetComponent<Animator>();
         isDead = false;
+        CurHP = MaxHP;
     }
 
     void Update()

@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    protected float MaxHP = 10f, CurHP = 10f, ATK=1f, SPD=1f; //최대체력, 현재체력, 공격력, 이속,
+    [SerializeField]
+    protected float MaxHP = 10f;
+    protected float CurHP = 10f, ATK = 1f, SPD = 1f; //최대체력, 현재체력, 공격력, 이속,
     
     public float GetMaxHP()
     {

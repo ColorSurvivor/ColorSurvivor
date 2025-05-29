@@ -4030,6 +4030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7821a1ef3d61d4cadf41fb629fb423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHP: 100
   gameOverCanvas: {fileID: 1750697367}
   inputVec: {x: 0, y: 0}
   LevelUPOb: {fileID: 1588398042028582365, guid: 159c471b3789895479a7fd1cb0e87c47, type: 3}
