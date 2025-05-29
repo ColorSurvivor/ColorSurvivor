@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -7,6 +8,13 @@ public class PlayerSkill : MonoBehaviour
     public float ATKSpeedMul = 1; // 공격속도 배율
     public bool ShotLock = false; // 공격 봉인 여부
     public GameObject[] SkillPrefabs; // 스킬 프리팹 배열
+    public int SkillColor = 1; // 스킬 색상 (1: Red, 2: Green, 3: Blue)
+    public void SkillColorChange()
+    {
+        SkillColor++;
+        if (SkillColor > 3)
+            SkillColor = 1;
+    }
 
     public void UseSkill()
     {
@@ -71,6 +79,7 @@ public class PlayerSkill : MonoBehaviour
             NoneSkill();*/
 
         RRRSkill();//테스트용
+        StartCoroutine(SkillOn()); // 스킬 활성화
     }
 
     void RRRSkill()
@@ -161,5 +170,18 @@ public class PlayerSkill : MonoBehaviour
     {
         GameObject temp = Instantiate(SkillPrefabs[16], transform);
         temp.transform.position = transform.position; // 스킬 오브젝트 위치 지정
+    }
+
+    IEnumerator SkillOn()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<BaseGun>().IsSkillActive = true; // 모든 총의 스킬 활성화
+        }
+        yield return new WaitForSeconds(10f); // 스킬 지속 시간
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).GetComponent<BaseGun>().IsSkillActive = false; // 모든 총의 스킬 비활성화
+        }
     }
 }

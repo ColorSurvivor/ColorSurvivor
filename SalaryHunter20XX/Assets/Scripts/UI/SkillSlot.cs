@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SkillSlot : MonoBehaviour
 {
     public Image skillImage;  // 스킬 아이콘 이미지
+    public Image skillColorImage;  // 스킬컬러 아이콘 이미지
     public Image cooldownImage;  // 쿨타임 표시용 원형 이미지
     public float Skillcooltime = 10f;  // 스킬의 전체 쿨타임 시간
     private float currentCooldownTime = 0f;  // 현재 쿨타임 시간
@@ -13,6 +14,7 @@ public class SkillSlot : MonoBehaviour
     void Start()
     {
         currentCooldownTime = 0f;
+        skillColorImage.color = Color.red;
     }
 
     void Update()
@@ -21,6 +23,22 @@ public class SkillSlot : MonoBehaviour
         {
             isSkillReady = false; // 스킬 사용 불가 상태로 변경
             UseSkill();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            GameObject.Find("WeaponHanger").GetComponent<PlayerSkill>().SkillColorChange();
+            switch (GameObject.Find("WeaponHanger").GetComponent<PlayerSkill>().SkillColor)
+            {
+                case 1:
+                    skillColorImage.color = Color.red; // 빨간색
+                    break;
+                case 2:
+                    skillColorImage.color = Color.green; // 초록색
+                    break;
+                case 3:
+                    skillColorImage.color = Color.blue; // 파란색
+                    break;
+            }
         }
     }
 
