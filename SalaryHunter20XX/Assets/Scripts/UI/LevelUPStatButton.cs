@@ -53,6 +53,6 @@ public class LevelUPStatButton : MonoBehaviour
                 break;
         }
         weaponDamage.text = "Damage: " + itemStats.bulletDamage[(int)itemStats.rarity];
-        weaponSpeed.text = "Speed: " + itemStats.bulletSpeed[(int)itemStats.rarity];
+        weaponSpeed.text = "Speed: " + itemStats.ShootingSpeed[(int)itemStats.rarity];
     }
 }

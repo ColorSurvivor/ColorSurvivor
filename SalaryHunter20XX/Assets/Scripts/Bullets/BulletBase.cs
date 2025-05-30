@@ -45,11 +45,10 @@ public class BulletBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void InitBullet(int damage, float bulletSPD, int PNT, Vector2 VEC, ColorType bulletcolor)
+    public void InitBullet(int damage, float bulletSPD, Vector2 VEC, ColorType bulletcolor)
     {
         DMG = damage;
         SPD = bulletSPD;
-        penetration = PNT;
         GoVec = VEC;
         bulletColor = bulletcolor;
         Shot();

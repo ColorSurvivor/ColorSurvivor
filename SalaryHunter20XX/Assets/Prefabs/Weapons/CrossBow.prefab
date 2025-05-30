@@ -44,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703ad80eacafbda45a7a8d2a55fd1295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExampleBullet: {fileID: 3652846841097578714, guid: 77d01e6f67ba8d046b5b63bd23e8f392, type: 3}
+  ExampleBullet: {fileID: 3652846841097578714, guid: e1174c1ca3ea5cb40885c51b0226c707, type: 3}
+  weaponSprite: {fileID: 0}
   bulletDamage: 0
   bulletSpeed: 0
   shootSpeed: 0
-  MaxPenetrate: 0
-  WeaponColor: 0
+  MaxPenetration: 0
+  weaponColor: 0
+  SkillColor: 0
+  IsSkillActive: 0
+  rarity: 0

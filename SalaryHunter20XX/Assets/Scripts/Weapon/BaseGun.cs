@@ -89,9 +89,9 @@ public class BaseGun : MonoBehaviour
         temp.transform.localPosition = new Vector3(0.3f, 0, 0); //위치지정
         temp.transform.parent = null; //편입했던거 팽하기
         if (!IsSkillActive)
-            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, MaxPenetration, lookvec, weaponColor); //총알 설정 및 발사
+            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, lookvec, weaponColor); //총알 설정 및 발사
         else
-            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, MaxPenetration, lookvec, SkillColor); //스킬색 총알 발사
+            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, lookvec, SkillColor); //스킬색 총알 발사
     }
 
     public void Init(WeaponData weapondata)
@@ -101,7 +101,6 @@ public class BaseGun : MonoBehaviour
         bulletDamage = weapondata.bulletDamage[(int)rarity];
         bulletSpeed = weapondata.bulletSpeed[(int)rarity];
         shootSpeed = weapondata.ShootingSpeed[(int)rarity];
-        MaxPenetration = weapondata.MaxPenetration[(int)rarity];
         weaponColor = weapondata.weaponcolor;
     }
 }

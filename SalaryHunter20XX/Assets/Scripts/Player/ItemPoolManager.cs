@@ -37,28 +37,49 @@ public class ItemPoolManager : MonoBehaviour
         int rand = Random.Range(0, 100);
         int lv = GameManager.instance.player.GetLV();
 
-        if (lv <= 5) return WeaponGrade.Common; //5레벨까지는 일반만.
-        else if (lv <= 14) //6~14은 희귀/일반 25/75
+        if (lv <= 9) return WeaponGrade.Common; //10레벨까지는 일반만.
+
+
+        else if (lv <= 14) //10~14은 희귀/일반 15/85
         {
-            if (rand < 25) return WeaponGrade.Rare;
+            if (rand < 15) return WeaponGrade.Rare;
             else return WeaponGrade.Common;
         }
-        else if (lv <= 23) //14~23은 에픽/희귀/일반 20/60/20
+        else if (lv <= 19) //15~19은 희귀/일반 65/35
         {
-            if (rand < 20) return WeaponGrade.Epic;
-            else if (rand < 80) return WeaponGrade.Rare;
+            if (rand < 75) return WeaponGrade.Rare;
             else return WeaponGrade.Common;
         }
-        else if (lv <= 32) //24 ~ 32 전설/에펙/희귀 25/50/25
+
+
+        else if (lv <= 24) //20~24은 에픽/희귀/일반 15/55/30
         {
-            if (rand < 25) return WeaponGrade.Legendary;
-            else if (rand < 70) return WeaponGrade.Epic;
+            if (rand < 15) return WeaponGrade.Epic;
+            else if (rand < 70) return WeaponGrade.Rare;
+            else return WeaponGrade.Common;
+        }
+        else if (lv <= 29) //25~29은 에픽/희귀/일반 50/45/5
+        {
+            if (rand < 65) return WeaponGrade.Epic;
             else return WeaponGrade.Rare;
         }
-        else //33~ 전설/에픽 60/40
+
+
+        else if (lv <= 34) //24 ~ 32 전설/에펙/희귀 15/65/20
         {
-            if (rand < 60) return WeaponGrade.Legendary;
+            if (rand < 15) return WeaponGrade.Legendary;
+            else if (rand < 80) return WeaponGrade.Epic;
+            else return WeaponGrade.Rare;
+        }
+        else if (lv <= 39) //24 ~ 32 전설/에펙 50/50
+        {
+            if (rand < 50) return WeaponGrade.Legendary;
             else return WeaponGrade.Epic;
+        }
+
+        else //40~ 전설
+        {
+            return WeaponGrade.Legendary;
         }
     }
 
@@ -131,5 +152,4 @@ public class WeaponData
     public float[] bulletDamage = new float[4];
     public float[] bulletSpeed = new float[4];
     public float[] ShootingSpeed = new float[4];
-    public int[] MaxPenetration = new int[4];
 }

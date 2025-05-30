@@ -30277,7 +30277,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
+  m_Radius: 1.1
 --- !u!1001 &539648240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55980,7 +55980,7 @@ GameObject:
   - component: {fileID: 873914177}
   - component: {fileID: 873914180}
   - component: {fileID: 873914179}
-  - component: {fileID: 873914178}
+  - component: {fileID: 873914181}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -56007,19 +56007,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 450}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &873914178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873914176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6f39f7d1d40daa46acd4e04e5bf60a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeText: {fileID: 873914179}
 --- !u!114 &873914179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56119,6 +56106,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873914176}
   m_CullTransparentMesh: 1
+--- !u!114 &873914181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873914176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f39f7d1d40daa46acd4e04e5bf60a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeText: {fileID: 873914179}
 --- !u!1001 &875731137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62200,6 +62200,8 @@ RectTransform:
   - {fileID: 2120043436}
   - {fileID: 850744719}
   - {fileID: 873914177}
+  - {fileID: 1453021276}
+  - {fileID: 1491784226}
   - {fileID: 1911371360}
   - {fileID: 526542217}
   - {fileID: 213969950}
@@ -66179,25 +66181,24 @@ MonoBehaviour:
     rarity: 0
     weaponcolor: 0
     itemName: Bow
-    description: Shoots arrow.
+    description: Shoots arrow rapidly.
     bulletDamage:
+    - 7
     - 10
-    - 15
-    - 20
-    - 25
+    - 13
+    - 16
     bulletSpeed:
     - 10
     - 10.5
     - 11
     - 11.5
     ShootingSpeed:
-    - 0.8
-    - 0.9
-    - 1
-    - 1.1
-    MaxPenetration: 00000000000000000000000000000000
+    - 1.3
+    - 1.35
+    - 1.4
+    - 1.45
   - weaponPrefab: {fileID: 1446450722008764384, guid: 8592629adee80ce419103f1e8d6f2043, type: 3}
-    weaponSprite: {fileID: -5967562619467940673, guid: 19b5bdd8e78db44478ae85fe0f5ac80a, type: 3}
+    weaponSprite: {fileID: 5288317721943787079, guid: 9e365ede728c42745b8b9db12eb129ce, type: 3}
     rarity: 0
     weaponcolor: 0
     itemName: CrossBow
@@ -66208,22 +66209,21 @@ MonoBehaviour:
     - 12
     - 15
     bulletSpeed:
+    - 4.5
+    - 5
+    - 5.5
     - 6
-    - 6.5
-    - 7
-    - 7.5
     ShootingSpeed:
-    - 0.7
-    - 0.75
-    - 0.8
-    - 0.85
-    MaxPenetration: 05000000050000000600000006000000
+    - 0.5
+    - 0.55
+    - 0.6
+    - 0.65
   - weaponPrefab: {fileID: 990869804270699053, guid: a4158168ad4dba346aef9cc5b7740a90, type: 3}
     weaponSprite: {fileID: -5732831717495796295, guid: 0e48a24da6cdbd74e82d442571841f7f, type: 3}
     rarity: 0
     weaponcolor: 0
     itemName: Fire Staff
-    description: Make small explosion.
+    description: Makes small explosion.
     bulletDamage:
     - 8
     - 12
@@ -66239,7 +66239,6 @@ MonoBehaviour:
     - 0.55
     - 0.6
     - 0.65
-    MaxPenetration: 00000000000000000000000000000000
   - weaponPrefab: {fileID: 7291746019053340251, guid: df532b07ecf3d2248b1e4ab9a9a391de, type: 3}
     weaponSprite: {fileID: 1876318564, guid: ac5a08435d21ac04fa080a901d792289, type: 3}
     rarity: 0
@@ -66247,10 +66246,10 @@ MonoBehaviour:
     itemName: Throwing knives
     description: Scatters 5 knives.
     bulletDamage:
-    - 2.5
-    - 3
-    - 3.5
     - 4
+    - 5
+    - 6
+    - 7
     bulletSpeed:
     - 13
     - 14
@@ -66261,7 +66260,6 @@ MonoBehaviour:
     - 1.1
     - 1.2
     - 1.3
-    MaxPenetration: 00000000000000000000000000000000
   - weaponPrefab: {fileID: 3022827651622837205, guid: a9461f5990005f84e945071506a5e19a, type: 3}
     weaponSprite: {fileID: 7991816745748391132, guid: 1faf3f9f5b0a8574680b97c761adffc0, type: 3}
     rarity: 0
@@ -66269,43 +66267,41 @@ MonoBehaviour:
     itemName: Bible
     description: Strikes an random enemy.
     bulletDamage:
-    - 7
-    - 9
-    - 12
-    - 15
+    - 6
+    - 8
+    - 10
+    - 13
     bulletSpeed:
     - 0
     - 0
     - 0
     - 0
     ShootingSpeed:
-    - 1.3
     - 1.4
     - 1.5
     - 1.6
-    MaxPenetration: 00000000000000000000000000000000
+    - 1.7
   - weaponPrefab: {fileID: 3022827651622837205, guid: 9695a9f80f829f14ba3bdcc2f5fac939, type: 3}
     weaponSprite: {fileID: 1075056441852591851, guid: ac5a08435d21ac04fa080a901d792289, type: 3}
     rarity: 0
     weaponcolor: 0
     itemName: Sword
-    description: Sweeps forward and backward.
+    description: Sweeps forward.
     bulletDamage:
-    - 8
-    - 11
-    - 14
-    - 17
+    - 7
+    - 10
+    - 13
+    - 16
     bulletSpeed:
     - 0
     - 0
     - 0
     - 0
     ShootingSpeed:
+    - 0.7
+    - 0.75
     - 0.8
     - 0.85
-    - 0.9
-    - 0.95
-    MaxPenetration: 00000000000000000000000000000000
   curWeapons: []
   currentChoice:
   - weaponPrefab: {fileID: 0}
@@ -66329,7 +66325,6 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-    MaxPenetration: 00000000000000000000000000000000
   - weaponPrefab: {fileID: 0}
     weaponSprite: {fileID: 0}
     rarity: 0
@@ -66351,7 +66346,6 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-    MaxPenetration: 00000000000000000000000000000000
   - weaponPrefab: {fileID: 0}
     weaponSprite: {fileID: 0}
     rarity: 0
@@ -66373,7 +66367,6 @@ MonoBehaviour:
     - 0
     - 0
     - 0
-    MaxPenetration: 00000000000000000000000000000000
   hudSlots:
   - {fileID: 1911371361}
   - {fileID: 526542218}
@@ -75248,6 +75241,142 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1319099141463851812, guid: 019ab1af1d7a4b742a982c009534c058, type: 3}
   m_PrefabInstance: {fileID: 2027675987}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1453021275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1453021276}
+  - component: {fileID: 1453021279}
+  - component: {fileID: 1453021278}
+  m_Layer: 5
+  m_Name: NextWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1453021276
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453021275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072891637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 690, y: 318}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1453021278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453021275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Next Wave: '
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 53061cdcdac652e488a0586c410eae70, type: 2}
+  m_sharedMaterial: {fileID: 7978623042684153962, guid: 53061cdcdac652e488a0586c410eae70, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 50
+  m_fontSizeBase: 50
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -92.235596, w: -34.362366}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1453021279
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453021275}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1453418465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76390,6 +76519,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7947911505737750448, guid: ba7fef4c928d8c4459466bf93171730e, type: 3}
   m_PrefabInstance: {fileID: 193225250}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1491784225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491784226}
+  - component: {fileID: 1491784228}
+  - component: {fileID: 1491784227}
+  m_Layer: 5
+  m_Name: WaveColorUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1491784226
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491784225}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1072891637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 860, y: 298}
+  m_SizeDelta: {x: 45, y: 45}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1491784227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491784225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1491784228
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491784225}
+  m_CullTransparentMesh: 1
 --- !u!1 &1495735146
 GameObject:
   m_ObjectHideFlags: 0
@@ -105481,6 +105685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_pos: {fileID: 116440256}
+  waveColorUI: {fileID: 1491784227}
   waveData:
   - wavemonster:
     - {fileID: 1468705467444847978, guid: e40aa78fa1e487940a6f81a7118002d4, type: 3}
@@ -105496,24 +105701,24 @@ MonoBehaviour:
     - {fileID: 1536969901965268913, guid: b3161a469f7cf584ebcf94db7ff774a9, type: 3}
     endTime: 210
     canColoredEnemySpawn: 0
-    spawnTime: 1
+    spawnTime: 0.8
   - wavemonster:
     - {fileID: 1536969901965268913, guid: b3161a469f7cf584ebcf94db7ff774a9, type: 3}
     endTime: 301
     canColoredEnemySpawn: 1
-    spawnTime: 0.8
+    spawnTime: 0.7
   - wavemonster:
     - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
     - {fileID: 9048379050998339012, guid: 32b2559d0c7fee04d81d96c574a7d823, type: 3}
     endTime: 360
     canColoredEnemySpawn: 0
-    spawnTime: 1
+    spawnTime: 1.1
   - wavemonster:
     - {fileID: 3063265522720094109, guid: b6ec7b4e6f688ec48b3891420e8a2454, type: 3}
     - {fileID: 9048379050998339012, guid: 32b2559d0c7fee04d81d96c574a7d823, type: 3}
     endTime: 451
     canColoredEnemySpawn: 1
-    spawnTime: 0.8
+    spawnTime: 0.85
   - wavemonster:
     - {fileID: 7226282234714050665, guid: ef7dfe8af8cc08f4881e37c50b00a4db, type: 3}
     - {fileID: 1010366251915549738, guid: 2ef4db13f0f7646438bd0150841f173c, type: 3}

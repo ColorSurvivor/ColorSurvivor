@@ -3,11 +3,8 @@ using UnityEngine;
 public class EXPCollector : MonoBehaviour
 {
     Player playerData;
-    Collider2D coll;
-    float magnetRadius;
     void Awake()
     {
-        coll = GetComponent<CircleCollider2D>();
         playerData = GetComponentInParent<Player>();
     }
 

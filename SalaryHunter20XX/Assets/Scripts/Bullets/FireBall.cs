@@ -32,7 +32,7 @@ public class FireBall : BulletBase
 
             bool healApplied = false;
 
-            Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(transform.position, 1f);
+            Collider2D[] collidersInRange = Physics2D.OverlapCircleAll(transform.position, 1.1f);
 
             foreach (Collider2D collider in collidersInRange)
             {

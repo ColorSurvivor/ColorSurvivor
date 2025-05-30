@@ -15,9 +15,9 @@ public class Sword : BaseGun
         float dmg = GetColorBuffedDamage() * WeaponHanger.DamageMul;
         float spd = GetColorBuffedBulletSpeed();
         if (!IsSkillActive)
-            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, MaxPenetration, lookvec, weaponColor); //총알 설정 및 발사
+            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, lookvec, weaponColor); //총알 설정 및 발사
         else
-            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, MaxPenetration, lookvec, weaponColor); //총알 설정 및 발사
+            temp.GetComponent<BulletBase>().InitBullet((int)dmg, spd, lookvec, weaponColor); //총알 설정 및 발사
 
     }
 }

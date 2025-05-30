@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Arrow : BulletBase
+public class CrossBowBullet : BulletBase
 {
     private int healHitCount = 0; // 이 화살로 몇 번 회복했는지 추적
 
@@ -28,15 +28,13 @@ public class Arrow : BulletBase
             }
             if (OnGGGSkill)
                 target.GetComponent<Monster>().ApplySlow(1f,0.75f);
-            if (penetration <= 0) Destroy(gameObject); //관통이 남아있는지 검사.
-            else penetration--;
         }
         if (collision.CompareTag("Decorations")) Destroy(gameObject); //장식물에 부딪히면 삭제
     }
 
     override protected IEnumerator Timer()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
     }
 

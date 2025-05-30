@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManagerPool : MonoBehaviour
 {
     public Transform player_pos; // 플레이어 위치를 참조할 Transform
+    public Image waveColorUI;
     [Header("웨이브 구성")]
     public WaveMonsters[] waveData; // 다양한 적 프리팹 배열
     List<ColorType> validColor = new List<ColorType>();
@@ -29,6 +31,8 @@ public class EnemyManagerPool : MonoBehaviour
         validColor.Add(ColorType.Red);
         validColor.Insert(Random.Range(0, 2), ColorType.Blue);
         validColor.Insert(Random.Range(0, 3), ColorType.Green);
+
+        SetWaveColor(validColor[0]);
     }
 
     void Update()
@@ -43,10 +47,25 @@ public class EnemyManagerPool : MonoBehaviour
         }
         if (GameManager.instance.curGameTime > waveData[waveLevel].endTime)
         {
-            waveLevel++;
-            if(waveLevel < 7) EliteMonster.instance.currentColor = validColor[(waveLevel - 1) / 2]; //다음 웨이브시간 넘기면 웨이브레벨 증가.
+            waveLevel++; //다음 웨이브시간 넘기면 웨이브레벨 증가.
+            if (waveLevel < 7)
+            {
+                EliteMonster.instance.currentColor = validColor[(waveLevel - 1) / 2]; 
+            }
+
+            if (waveLevel == 6 || waveLevel == 7) waveColorUI.color = Color.black;
+            else if (waveLevel % 2 == 0)
+            {
+                SetWaveColor(validColor[(waveLevel - 1) / 2 + 1]);
+            }
+            else
+            {
+                SetWaveColor(ColorType.None);
+                
+            }
         }
         
+
         // 너무 멀리 벗어난 적들을 재배치
         RepositionFarEnemies();
     }
@@ -78,7 +97,7 @@ public class EnemyManagerPool : MonoBehaviour
         enemyComponent.multiplier = Mathf.Pow(1.2f, waveLevel);
 
         if (waveLevel == 7) enemyComponent.monsterColor = (ColorType)Random.Range(1, 4); //마지막 라운드는 색 랜덤으로 소환.
-        else if (waveData[waveLevel].canColoredEnemySpawn) enemyComponent.monsterColor = validColor[(waveLevel-1) / 2]; //몬스터 색을 라운드에 맞게 설정.
+        else if (waveData[waveLevel].canColoredEnemySpawn) enemyComponent.monsterColor = validColor[(waveLevel - 1) / 2]; //몬스터 색을 라운드에 맞게 설정.
         else enemyComponent.monsterColor = ColorType.None;
 
         enemy.SetActive(true); // 활성화하여 게임에 등장
@@ -149,6 +168,25 @@ public class EnemyManagerPool : MonoBehaviour
 
                 enemy.transform.position = new Vector2(newX, newY); // 위치 재지정
             }
+        }
+    }
+
+    void SetWaveColor(ColorType color)
+    {
+        switch (color)
+        {
+            case ColorType.Red:
+                waveColorUI.color = Color.red;
+                break;
+            case ColorType.Blue:
+                waveColorUI.color = Color.blue;
+                break;
+            case ColorType.Green:
+                waveColorUI.color = Color.green;
+                break;
+            default:
+                waveColorUI.color = Color.white;
+                break;
         }
     }
 }

@@ -26,7 +26,7 @@ public class SkeletonArcher : Monster
                 float angle = Mathf.Atan2(fireDir.y, fireDir.x) * Mathf.Rad2Deg;
                 spawnBullet.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-                spawnBullet.GetComponent<Rigidbody2D>().linearVelocity = fireDir * 5f;
+                spawnBullet.GetComponent<Rigidbody2D>().linearVelocity = fireDir * 3.5f;
 
                 currentAtkTimer = 0f;
             }
