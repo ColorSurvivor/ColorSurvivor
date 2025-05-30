@@ -18,6 +18,8 @@ public class DaggerBullet : BulletBase
                     GameManager.instance.player.HPChange(0.2f); // 5발 * 0.2 = 최대 1
                 }
             }
+            if (OnGGGSkill)
+                target.GetComponent<Monster>().ApplySlow(1f,0.75f);
             Destroy(gameObject);
         }
         if (collision.CompareTag("Decorations")) Destroy(gameObject); //장식물에 부딪히면 삭제

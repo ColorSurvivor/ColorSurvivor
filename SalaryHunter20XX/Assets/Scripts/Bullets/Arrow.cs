@@ -25,6 +25,8 @@ public class Arrow : BulletBase
                     healHitCount++;
                 }
             }
+            if (OnGGGSkill)
+                target.GetComponent<Monster>().ApplySlow(1f,0.75f);
             if (penetration <= 0) Destroy(gameObject); //관통이 남아있는지 검사.
             else penetration--;
         }

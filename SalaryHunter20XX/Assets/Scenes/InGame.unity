@@ -107297,9 +107297,14 @@ MonoBehaviour:
   DamageMul: 1
   ATKSpeedMul: 1
   ShotLock: 0
+  GGGSkillOn: 0
   SkillPrefabs:
   - {fileID: 7769090254720331638, guid: 7abda9cf0d0324b4eb2b49049724dcab, type: 3}
   - {fileID: 6049501513234962340, guid: 79423bd7e1976fc46ae7cd2651e88e2d, type: 3}
+  - {fileID: 7769090254720331638, guid: f75ac69786e6649409fc82fe99772d4f, type: 3}
+  - {fileID: 7769090254720331638, guid: 9e604b8e88d5cfe4b8196de3147e9962, type: 3}
+  - {fileID: 7769090254720331638, guid: 043cf47c0ca2f9a4ea6993547fbd81d2, type: 3}
+  - {fileID: 7769090254720331638, guid: 65e4ae9390ade8e4faf6838971adece0, type: 3}
   SkillColor: 1
 --- !u!4 &2076621069 stripped
 Transform:

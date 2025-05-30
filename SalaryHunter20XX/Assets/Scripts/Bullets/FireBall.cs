@@ -45,6 +45,8 @@ public class FireBall : BulletBase
                         GameManager.instance.player.HPChange(1f);
                         healApplied = true;
                     }
+                    if (OnGGGSkill)
+                        collider.GetComponent<Monster>().ApplySlow(1f,0.75f);
                 }
             }
             RD.linearVelocity = Vector2.zero;

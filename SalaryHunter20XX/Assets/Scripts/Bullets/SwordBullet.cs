@@ -13,7 +13,8 @@ public class SwordBullet : BulletBase
             if (target != null)
             {
                 target.TakeDamage(DMG, bulletColor);
-
+                if (OnGGGSkill)
+                    target.GetComponent<Monster>().ApplySlow(1f,0.75f);
                 if (bulletColor == ColorType.Blue)
                 {
                     // 플레이어의 위치에서 몬스터 방향 벡터

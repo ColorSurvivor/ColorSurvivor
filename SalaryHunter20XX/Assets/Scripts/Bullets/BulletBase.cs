@@ -9,10 +9,12 @@ public class BulletBase : MonoBehaviour
     protected Rigidbody2D RD;
     protected Vector2 GoVec; //날아갈 방향
     public ColorType bulletColor;
+    public bool OnGGGSkill = false; //GGG 스킬 사용 여부
 
     void Start()
     {
         RD = GetComponent<Rigidbody2D>();
+        OnGGGSkill = GameObject.Find("WeaponManager").GetComponent<PlayerSkill>().GGGSkillOn;
     }
 
     virtual public void Shot()
