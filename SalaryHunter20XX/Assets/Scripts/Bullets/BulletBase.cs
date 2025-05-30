@@ -14,7 +14,7 @@ public class BulletBase : MonoBehaviour
     void Start()
     {
         RD = GetComponent<Rigidbody2D>();
-        OnGGGSkill = GameObject.Find("WeaponManager").GetComponent<PlayerSkill>().GGGSkillOn;
+        OnGGGSkill = GameObject.Find("WeaponHanger").GetComponent<PlayerSkill>().GGGSkillOn;
     }
 
     virtual public void Shot()

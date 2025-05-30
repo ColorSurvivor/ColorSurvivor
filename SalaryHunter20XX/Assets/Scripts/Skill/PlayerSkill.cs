@@ -23,7 +23,7 @@ public class PlayerSkill : MonoBehaviour
         R = 0;
         G = 0;
         B = 0;
-
+        StartCoroutine(SkillOn()); // 스킬 활성화
         for (int i = 0; i < transform.childCount; i++)
         {
             ColorType CT = transform.GetChild(i).GetComponent<BaseGun>().weaponColor;
@@ -58,7 +58,7 @@ public class PlayerSkill : MonoBehaviour
         else
             NormalSkill();
 
-        StartCoroutine(SkillOn()); // 스킬 활성화
+        
     }
 
     void RRRSkill()
@@ -99,6 +99,7 @@ public class PlayerSkill : MonoBehaviour
 
     IEnumerator SkillOn()
     {
+        
         for (int i = 0; i < transform.childCount; i++)
         {
             transform.GetChild(i).GetComponent<BaseGun>().IsSkillActive = true; // 모든 총의 스킬 활성화
