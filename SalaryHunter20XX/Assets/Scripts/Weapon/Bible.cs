@@ -57,7 +57,10 @@ public class Bible : BaseGun
 
             if (target != null)
             {
-                target.TakeDamage((int)bibleDamage, weaponColor);
+                if(IsSkillActive)
+                    target.TakeDamage((int)bibleDamage, SkillColor);
+                else
+                    target.TakeDamage((int)bibleDamage, weaponColor);
                 GameObject temp = Instantiate(ExampleBullet); //총알 생성
                 temp.transform.position = target.transform.position;
 

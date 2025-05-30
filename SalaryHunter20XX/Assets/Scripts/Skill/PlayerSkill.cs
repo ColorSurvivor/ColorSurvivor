@@ -102,6 +102,21 @@ public class PlayerSkill : MonoBehaviour
         
         for (int i = 0; i < transform.childCount; i++)
         {
+            switch (SkillColor)
+            {
+                case 1: // Red
+                    transform.GetChild(i).GetComponent<BaseGun>().SkillColor = ColorType.Red;
+                    break;
+                case 2: // Green
+                    transform.GetChild(i).GetComponent<BaseGun>().SkillColor = ColorType.Green;
+                    break;
+                case 3: // Blue
+                    transform.GetChild(i).GetComponent<BaseGun>().SkillColor = ColorType.Blue;
+                    break;
+                default:
+                    transform.GetChild(i).GetComponent<BaseGun>().SkillColor = ColorType.None; // 기본값은 None
+                    break;
+            }
             transform.GetChild(i).GetComponent<BaseGun>().IsSkillActive = true; // 모든 총의 스킬 활성화
         }
         yield return new WaitForSeconds(10f); // 스킬 지속 시간
