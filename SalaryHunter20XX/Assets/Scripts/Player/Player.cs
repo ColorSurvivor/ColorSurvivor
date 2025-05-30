@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : Entity
 {
     protected float ATSpd = 1f, HPReg =0f, DEF = 0f, EXPM = 1f, GOLDM = 1f, Mag = 1f; //공속, 체젠, 방어력, 경험치배율, 돈배율, 자석범위
-    float curEXP = 0, MaxEXP = 10;
+    float curEXP = 0, MaxEXP = 15;
     int LV = 1;
     protected bool isDead;
     public GameObject gameOverCanvas;
@@ -176,9 +176,9 @@ public class Player : Entity
     float SetMaxEXP()
     {
         if (LV < 5) return MaxEXP *= 1.3f;
-        else if (LV < 15) return MaxEXP *= 1.4f;
-        else if (LV < 25) return MaxEXP *= 1.5f;
-        else return MaxEXP *= 1.05f;
+        else if (LV < 15) return MaxEXP *= 1.1f;
+        else if (LV < 25) return MaxEXP *= 1.05f;
+        else return MaxEXP *= 1.02f;
     }
     public void GetWeapon(WeaponData newWeapon)
     {

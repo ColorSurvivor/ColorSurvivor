@@ -75,7 +75,7 @@ public class EnemyManagerPool : MonoBehaviour
         Monster enemyComponent = enemy.GetComponent<Monster>();
 
         enemyComponent.SetPlayerData(player_pos); // 적에게 플레이어 위치 전달
-        enemyComponent.multiplier = 1f;
+        enemyComponent.multiplier = Mathf.Pow(1.2f, waveLevel);
 
         if (waveLevel == 7) enemyComponent.monsterColor = (ColorType)Random.Range(1, 4); //마지막 라운드는 색 랜덤으로 소환.
         else if (waveData[waveLevel].canColoredEnemySpawn) enemyComponent.monsterColor = validColor[(waveLevel-1) / 2]; //몬스터 색을 라운드에 맞게 설정.

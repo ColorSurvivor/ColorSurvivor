@@ -214,10 +214,10 @@ MonoBehaviour:
   monsterColor: 0
   statData:
     code: 0
-    baseMaxHP: 100
+    baseMaxHP: 600
     baseATK: 20
     baseContactDMG: 30
-  expPrefab: {fileID: 0}
+  expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
   multiplier: 1
   possibleColors: 010000000200000003000000
   colorChangeInterval: 5

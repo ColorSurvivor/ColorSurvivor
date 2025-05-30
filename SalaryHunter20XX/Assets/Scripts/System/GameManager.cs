@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
     {
         if (Time.timeScale == 0f) return;
         
-        if (canFlowGameTime) curGameTime += 3 *Time.deltaTime;
+        if (canFlowGameTime) curGameTime += Time.deltaTime;
 
         if (!elite3minSpawned && curGameTime >= 150f)
         {

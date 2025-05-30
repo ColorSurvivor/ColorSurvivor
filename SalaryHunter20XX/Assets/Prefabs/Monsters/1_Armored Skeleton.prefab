@@ -218,12 +218,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb257e74f112e743852997653609b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHP: 10
   monsterColor: 0
   statData:
     code: 1
-    baseMaxHP: 0
-    baseATK: 0
-    baseContactDMG: 0
+    baseMaxHP: 40
+    baseATK: 15
+    baseContactDMG: 15
   expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
   multiplier: 0
 --- !u!95 &4367967287019287307

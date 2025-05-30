@@ -156,11 +156,11 @@ MonoBehaviour:
   monsterColor: 0
   statData:
     code: 0
-    baseMaxHP: 300
-    baseATK: 20
-    baseContactDMG: 20
+    baseMaxHP: 400
+    baseATK: 30
+    baseContactDMG: 30
   expPrefab: {fileID: 8583254143966558510, guid: a484f8b9371c2494080ed32bf4d815db, type: 3}
-  multiplier: 0.5
+  multiplier: 1
 --- !u!58 &6921347552345397406
 CircleCollider2D:
   m_ObjectHideFlags: 0
