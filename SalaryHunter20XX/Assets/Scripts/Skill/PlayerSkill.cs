@@ -122,7 +122,8 @@ public class PlayerSkill : MonoBehaviour
         yield return new WaitForSeconds(10f); // 스킬 지속 시간
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).GetComponent<BaseGun>().IsSkillActive = false; // 모든 총의 스킬 비활성화
+            if (transform.GetChild(i).GetComponent<BaseGun>() != null)
+                transform.GetChild(i).GetComponent<BaseGun>().IsSkillActive = false; // 모든 총의 스킬 비활성화
         }
     }
 }

@@ -12,7 +12,6 @@ public class NormalSkills : Skills
     public override void Awake()
     {
         weaponHanger = transform.parent.GetComponent<PlayerSkill>();
-        StartCoroutine(Skill());
     }
     public void SkillOn(int r = 0, int g = 0, int b = 0)
     {

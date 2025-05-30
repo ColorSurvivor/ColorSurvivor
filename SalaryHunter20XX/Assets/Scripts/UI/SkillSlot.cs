@@ -61,7 +61,6 @@ public class SkillSlot : MonoBehaviour
             cooldownImage.fillAmount = currentCooldownTime / Skilltime;
             yield return new WaitForEndOfFrame();
         }
-        Debug.Log(currentCooldownTime);
         currentCooldownTime = 0; // 이제 디버프 시간 계산
         while (currentCooldownTime < DebuffTime)
         {
