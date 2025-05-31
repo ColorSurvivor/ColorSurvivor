@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject inGameCanvas;
     public GameObject gameClearCanvas;
     public GameObject playerObject;
+    public GameObject TutorialOBJ;
     public static bool isRestarting = false;
 
     public float curGameTime; // 현재 게임 시간
@@ -83,6 +84,10 @@ public class GameManager : MonoBehaviour
         if (playerObject != null)
         {
             playerObject.SetActive(true);
+        }
+        if (TutorialOBJ != null)
+        {
+            TutorialOBJ.SetActive(true);
         }
 
         Time.timeScale = 1f;
