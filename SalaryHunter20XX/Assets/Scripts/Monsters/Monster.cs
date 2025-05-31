@@ -10,6 +10,7 @@ public class Monster : Entity
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
     protected Coroutine slowCoroutine;
+    private float baseSPD;
     float contactDMGCooldown = 0.3f; // 충돌 피해 간격 (초)
     float lastContactTime = -999f;
 
@@ -154,6 +155,7 @@ public class Monster : Entity
         MaxHP = statData.baseMaxHP * multiplier;
         ATK = statData.baseATK * multiplier;
         contactDMG = statData.baseContactDMG * multiplier;
+        baseSPD = GetSPD();
     }
 
     public void ApplyColorVisual()
@@ -180,6 +182,7 @@ public class Monster : Entity
         if (slowCoroutine != null)
             StopCoroutine(slowCoroutine);
 
+        SPD = baseSPD;
         slowCoroutine = StartCoroutine(SlowCoroutine(duration, slowRate));
     }
 
@@ -194,15 +197,12 @@ public class Monster : Entity
 
     private IEnumerator SlowCoroutine(float duration, float slowRate)
     {
-        float originalSPD = SPD;
-        SPD *= slowRate; // 예: slowRate = 0.5f면 속도 50%
-        // 시각 효과 추가하고 싶으면 여기서 처리
+        SPD = baseSPD * slowRate;
 
         yield return new WaitForSeconds(duration);
 
-        SPD = originalSPD; // 원래 속도로 복구
+        SPD = baseSPD;
         slowCoroutine = null;
-        // 슬로우 해제 이펙트 처리도 여기
     }
 
     void OnDisable()
