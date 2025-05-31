@@ -6,6 +6,7 @@ public class EnemyManagerPool : MonoBehaviour
 {
     public Transform player_pos; // 플레이어 위치를 참조할 Transform
     public Image waveColorUI;
+    public Sprite allColorSprite;
     [Header("웨이브 구성")]
     public WaveMonsters[] waveData; // 다양한 적 프리팹 배열
     List<ColorType> validColor = new List<ColorType>();
@@ -53,16 +54,20 @@ public class EnemyManagerPool : MonoBehaviour
                 EliteMonster.instance.currentColor = validColor[(waveLevel - 1) / 2]; 
             }
 
-            if (waveLevel == 6 || waveLevel == 7) waveColorUI.color = Color.black;
+            if (waveLevel == 6 || waveLevel == 7)
+            {
+                waveColorUI.color = Color.white;
+                waveColorUI.sprite = allColorSprite;
+            }
             else if (waveLevel % 2 == 0)
             {
                 SetWaveColor(validColor[(waveLevel - 1) / 2 + 1]);
             }
-            else
-            {
-                SetWaveColor(ColorType.None);
+            // else
+            // {
+            //     SetWaveColor(ColorType.None);
                 
-            }
+            // }
         }
         
 
