@@ -14,7 +14,7 @@ public class SkillSlot : MonoBehaviour
     void Start()
     {
         currentCooldownTime = 0f;
-        skillColorImage.color = Color.red;
+        skillColorImage.color = new Color32(255, 0, 0, 100);
     }
 
     void Update()
@@ -32,13 +32,13 @@ public class SkillSlot : MonoBehaviour
             switch (GameObject.Find("WeaponHanger").GetComponent<PlayerSkill>().SkillColor)
             {
                 case 1:
-                    skillColorImage.color = Color.red; // 빨간색
+                    skillColorImage.color = new Color32(255, 0, 0, 100); // 빨간색
                     break;
                 case 2:
-                    skillColorImage.color = Color.green; // 초록색
+                    skillColorImage.color = new Color32(0, 255, 0, 100); // 초록색
                     break;
                 case 3:
-                    skillColorImage.color = Color.blue; // 파란색
+                    skillColorImage.color = new Color32(0, 0, 255, 100); // 파란색
                     break;
             }
         }
@@ -67,11 +67,11 @@ public class SkillSlot : MonoBehaviour
         while (currentCooldownTime < DebuffTime)
         {
             currentCooldownTime += Time.deltaTime;
-            skillImage.color = new Color(1, 0,0); // 스킬 시뻘겋게
+            skillImage.color = new Color32(255, 0,0, 100); // 스킬 시뻘겋게
             cooldownImage.fillAmount = currentCooldownTime / DebuffTime;
             yield return new WaitForEndOfFrame();
         }
-        skillImage.color = new Color(1, 1,1); // 스킬 복구
+        skillImage.color = new Color32(255, 255, 255, 100); // 스킬 복구
         currentCooldownTime = 0; // 이제 쿨탐 계산
         while (currentCooldownTime < Cooldown)
         {
