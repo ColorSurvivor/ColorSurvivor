@@ -19,6 +19,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource SkillUse;
     public AudioSource SkillReady;
 
+    public GameObject mainMenuCanvas;
+    private AudioSource lastPlayedBGM = null;
 
     void Awake()
     {
@@ -30,6 +32,55 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        // mainMenuCanvas가 null이면 씬이 전환된 것이므로 다시 찾아줌
+        if (mainMenuCanvas == null)
+        {
+            mainMenuCanvas = GameObject.Find("MainMenuCanvas");
+            if (mainMenuCanvas == null)
+                return; // 아직도 없으면 더 진행하지 않음
+        }
+
+        if (mainMenuCanvas.activeInHierarchy)
+        {
+            if (lastPlayedBGM != MainMenuBgm)
+            {
+                if (bgmSource.isPlaying)
+                    bgmSource.Stop();
+
+                if (!MainMenuBgm.isPlaying)
+                    MainMenuBgm.Play();
+
+                lastPlayedBGM = MainMenuBgm;
+            }
+        }
+        else
+        {
+            if (lastPlayedBGM != bgmSource)
+            {
+                if (MainMenuBgm.isPlaying)
+                    MainMenuBgm.Stop();
+
+                if (!bgmSource.isPlaying)
+                    bgmSource.Play();
+
+                lastPlayedBGM = bgmSource;
+            }
+        }
+    }
+
+    public void ReplayBGM()
+    {
+        if (bgmSource != null)
+        {
+            bgmSource.Stop();
+            bgmSource.time = 0f;
+            bgmSource.Play();
+            bgmSource.loop = true;
         }
     }
 
@@ -86,40 +137,6 @@ public class AudioManager : MonoBehaviour
         if (MonsterDead != null)
         {
             MonsterDead.Play();
-        }
-    }
-
-    public void PlayBGM()
-    {
-        if (bgmSource != null && !bgmSource.isPlaying)
-        {
-            bgmSource.loop = true;
-            bgmSource.Play();
-        }
-    }
-
-    public void StopBGM()
-    {
-        if (bgmSource != null && bgmSource.isPlaying)
-        {
-            bgmSource.Stop();
-        }
-    }
-
-    public void PlayMenuBGM()
-    {
-        if (MainMenuBgm != null && !MainMenuBgm.isPlaying)
-        {
-            MainMenuBgm.loop = true;
-            MainMenuBgm.Play();
-        }
-    }
-
-    public void StopMenuBGM()
-    {
-        if (MainMenuBgm != null && MainMenuBgm.isPlaying)
-        {
-            MainMenuBgm.Stop();
         }
     }
 

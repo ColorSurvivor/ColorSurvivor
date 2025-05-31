@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
     {
         isRestarting = true; // 재시작 플래그 설정
         Time.timeScale = 1f;
+        AudioManager.instance.ReplayBGM();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
