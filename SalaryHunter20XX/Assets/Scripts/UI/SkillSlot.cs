@@ -22,10 +22,12 @@ public class SkillSlot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isSkillReady)
         {
             isSkillReady = false; // 스킬 사용 불가 상태로 변경
+            AudioManager.instance.PlaySkillUse();
             UseSkill();
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
+            AudioManager.instance.PlayChangingColor();
             GameObject.Find("WeaponHanger").GetComponent<PlayerSkill>().SkillColorChange();
             switch (GameObject.Find("WeaponHanger").GetComponent<PlayerSkill>().SkillColor)
             {
@@ -80,6 +82,6 @@ public class SkillSlot : MonoBehaviour
         }
         isSkillReady = true; // 스킬 사용 가능 상태로 변경
         cooldownImage.fillAmount = 0; // 쿨타임 이미지 초기화
-
+        AudioManager.instance.PlaySkillReady();
     }
 }

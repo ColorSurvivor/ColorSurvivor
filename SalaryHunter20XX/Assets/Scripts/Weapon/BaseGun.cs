@@ -84,6 +84,7 @@ public class BaseGun : MonoBehaviour
         float spd = GetColorBuffedBulletSpeed();
 
         GameObject temp = Instantiate(ExampleBullet); //총알 생성
+        AudioManager.instance.PlayPlayerAttack();
         temp.transform.rotation = transform.rotation; //바라보는 방향으로 돌리기
         temp.transform.parent = transform; //위치지정의 편의성을 위해 자식 오브젝트로 편입
         temp.transform.localPosition = new Vector3(0.3f, 0, 0); //위치지정

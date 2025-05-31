@@ -17,6 +17,7 @@ public class MouseHoverActive : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         if (ActiveObject != null)
         {
+            AudioManager.instance.PlayHoverSound();
             ActiveObject.SetActive(true);
         }
     }

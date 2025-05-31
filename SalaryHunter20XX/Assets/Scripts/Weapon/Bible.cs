@@ -62,6 +62,7 @@ public class Bible : BaseGun
                 else
                     target.TakeDamage((int)bibleDamage, weaponColor);
                 GameObject temp = Instantiate(ExampleBullet); //총알 생성
+                AudioManager.instance.PlayPlayerAttack();
                 temp.transform.position = target.transform.position;
 
                 if (weaponColor == ColorType.Blue)

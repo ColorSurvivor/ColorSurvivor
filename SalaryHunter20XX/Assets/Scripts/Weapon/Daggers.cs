@@ -14,6 +14,7 @@ public class Daggers : BaseGun
             float spd = GetColorBuffedBulletSpeed();
 
             GameObject temp = Instantiate(ExampleBullet, transform.position, spawnRotation); //총알 생성
+            AudioManager.instance.PlayPlayerAttack();
             spawnRotation *= Quaternion.Euler(0, 0, rotationStep);
 
             temp.transform.parent = transform; //위치지정의 편의성을 위해 자식 오브젝트로 편입

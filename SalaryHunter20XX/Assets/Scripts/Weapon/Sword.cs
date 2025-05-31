@@ -6,6 +6,7 @@ public class Sword : BaseGun
     override protected void FireBullets(Vector2 lookvec)
     {
         GameObject temp = Instantiate(ExampleBullet); //총알 생성
+        AudioManager.instance.PlayPlayerAttack();
 
         temp.transform.parent = transform; //위치지정의 편의성을 위해 자식 오브젝트로 편입
         temp.transform.rotation = transform.rotation; //바라보는 방향으로 돌리기

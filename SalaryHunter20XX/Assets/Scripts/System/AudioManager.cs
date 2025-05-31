@@ -11,7 +11,14 @@ public class AudioManager : MonoBehaviour
     public AudioSource PlayerAttack;
     public AudioSource MonsterHurt;
     public AudioSource MonsterDead;
+    public AudioSource MainMenuBgm;
     public AudioSource bgmSource;
+    public AudioSource ClickSound;
+    public AudioSource HoverSound;
+    public AudioSource ChangingColor;
+    public AudioSource SkillUse;
+    public AudioSource SkillReady;
+
 
     void Awake()
     {
@@ -96,6 +103,63 @@ public class AudioManager : MonoBehaviour
         if (bgmSource != null && bgmSource.isPlaying)
         {
             bgmSource.Stop();
+        }
+    }
+
+    public void PlayMenuBGM()
+    {
+        if (MainMenuBgm != null && !MainMenuBgm.isPlaying)
+        {
+            MainMenuBgm.loop = true;
+            MainMenuBgm.Play();
+        }
+    }
+
+    public void StopMenuBGM()
+    {
+        if (MainMenuBgm != null && MainMenuBgm.isPlaying)
+        {
+            MainMenuBgm.Stop();
+        }
+    }
+
+    public void PlayClickSound()
+    {
+        if (ClickSound != null)
+        {
+            ClickSound.Play();
+        }
+    }
+
+    public void PlayHoverSound()
+    {
+        if (HoverSound != null)
+        {
+            HoverSound.Play();
+        }
+    }
+
+    public void PlayChangingColor()
+    {
+        if (ChangingColor != null)
+        {
+            ChangingColor.Play();
+        }
+    }
+
+    public void PlaySkillUse()
+    {
+        if (SkillUse != null)
+        {
+            SkillUse.Play();
+        }
+    }
+
+    public void PlaySkillReady()
+    {
+        if (SkillReady != null)
+        {
+            SkillReady.Play();
         }
     }
 }

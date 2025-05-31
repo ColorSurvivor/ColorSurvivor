@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CallGameClearCoroutine()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(4.0f);
 
         Time.timeScale = 0f;
         if (gameClearCanvas != null)

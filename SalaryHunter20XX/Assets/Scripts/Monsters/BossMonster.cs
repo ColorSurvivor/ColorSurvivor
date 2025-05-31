@@ -52,6 +52,7 @@ public class BossMonster : Monster
     protected override void Die()
     {
         isDead = true;
+        AudioManager.instance.PlayMonsterDead();
         if (colorChangeCoroutine != null)
         {
             StopCoroutine(colorChangeCoroutine);
