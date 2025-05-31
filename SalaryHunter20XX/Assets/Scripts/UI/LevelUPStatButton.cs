@@ -17,6 +17,7 @@ public class LevelUPStatButton : MonoBehaviour
     public void Select() //클릭되면 실행 
     {
         transform.parent.GetComponent<LevelUpButtonOb>().NewItemSelected(slotNumber);
+        AudioManager.instance.PlayClickSound();
     }
 
     public void Init(WeaponData itemStats)

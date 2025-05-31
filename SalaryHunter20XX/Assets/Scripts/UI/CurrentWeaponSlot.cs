@@ -10,6 +10,7 @@ public class CurrentWeaponSlot : MonoBehaviour
     public void Select()
     {
         transform.parent.GetComponent<LevelUpButtonOb>().CurrentItemSelected(slotNumber);
+        AudioManager.instance.PlayClickSound();
     }
 
     public void Init(Sprite weaponSprite, WeaponGrade rarity, ColorType color)
