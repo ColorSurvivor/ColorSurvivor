@@ -11,7 +11,7 @@ public class Monster : Entity
     protected Transform target; //플레이어의 위치를 저장.
     protected Coroutine slowCoroutine;
     protected float baseSPD;
-    float contactDMGCooldown = 0.3f; // 충돌 피해 간격 (초)
+    float contactDMGCooldown = 0.7f; // 충돌 피해 간격 (초)
     float lastContactTime = -999f;
 
     protected bool isDead = false;

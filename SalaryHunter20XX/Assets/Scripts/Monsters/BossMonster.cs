@@ -4,7 +4,7 @@ using System.Collections;
 public class BossMonster : Monster
 {
     public ColorType[] possibleColors = { ColorType.Red, ColorType.Green, ColorType.Blue };
-    public float colorChangeInterval = 0.1f;
+    public float colorChangeInterval;
 
     Coroutine colorChangeCoroutine;
 
