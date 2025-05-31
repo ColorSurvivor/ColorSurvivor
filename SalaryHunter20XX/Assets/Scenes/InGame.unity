@@ -5458,13 +5458,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 21152238}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 21152240}
+        m_TargetAssemblyTypeName: OptionMenu, Assembly-CSharp
+        m_MethodName: TogglePanel
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 21152238}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -106511,6 +106511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_pos: {fileID: 116440256}
   waveColorUI: {fileID: 1491784227}
+  allColorSprite: {fileID: 0}
   waveData:
   - wavemonster:
     - {fileID: 1468705467444847978, guid: e40aa78fa1e487940a6f81a7118002d4, type: 3}

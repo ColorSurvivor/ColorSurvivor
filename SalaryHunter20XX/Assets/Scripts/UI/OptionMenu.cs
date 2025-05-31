@@ -41,4 +41,9 @@ public class OptionMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void TogglePanel(GameObject panel)
+    {
+        panel.SetActive(!panel.activeSelf);
+    }
 }
