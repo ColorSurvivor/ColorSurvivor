@@ -87,6 +87,10 @@ public class EnemyManagerPool : MonoBehaviour
             return;
         }
 
+        Collider2D col = enemy.GetComponent<Collider2D>();
+        if (col != null && !col.enabled)
+            col.enabled = true;
+
         //풀에서 적을 찾으면 instantiate.
         Vector2 center = player_pos.position; // 타원의 중심은 플레이어 위치
         float angle = Random.Range(0f, 2f * Mathf.PI); // 0~360도 사이 랜덤 각도

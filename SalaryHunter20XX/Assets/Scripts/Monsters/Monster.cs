@@ -120,7 +120,7 @@ public class Monster : Entity
         AudioManager.instance.PlayMonsterDead();
         Ani.ResetTrigger("Hurt");
         Ani.Play("Death", 0, 0f);
-        GetComponent<Collider2D>().isTrigger = true;
+        GetComponent<Collider2D>().enabled = false;
         StartCoroutine(DieCoroutine());
     }
 
@@ -138,8 +138,6 @@ public class Monster : Entity
         yield return new WaitForSeconds(0.5f);
         EXP expOBJ = Instantiate(expPrefab, transform.position, transform.rotation);
         expOBJ.SetFinalEXP();
-        yield return new WaitForSeconds(0.1f);
-        GetComponent<Collider2D>().isTrigger = false;
         gameObject.SetActive(false);
     }
 

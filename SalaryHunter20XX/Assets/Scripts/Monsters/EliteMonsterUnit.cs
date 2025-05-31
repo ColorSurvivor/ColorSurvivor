@@ -47,7 +47,6 @@ public class EliteMonsterUnit : Monster
         expOBJ.SetFinalEXP();
         yield return new WaitForSeconds(0.1f);
 
-        GetComponent<Collider2D>().isTrigger = false;
         Destroy(gameObject);
     }
 }
