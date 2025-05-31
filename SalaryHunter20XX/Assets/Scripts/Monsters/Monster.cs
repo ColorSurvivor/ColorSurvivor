@@ -10,7 +10,7 @@ public class Monster : Entity
     protected float contactDMG;
     protected Transform target; //플레이어의 위치를 저장.
     protected Coroutine slowCoroutine;
-    private float baseSPD;
+    protected float baseSPD;
     float contactDMGCooldown = 0.3f; // 충돌 피해 간격 (초)
     float lastContactTime = -999f;
 
@@ -156,6 +156,7 @@ public class Monster : Entity
         ATK = statData.baseATK * multiplier;
         contactDMG = statData.baseContactDMG * multiplier;
         baseSPD = GetSPD();
+        SPD = baseSPD;
     }
 
     public void ApplyColorVisual()

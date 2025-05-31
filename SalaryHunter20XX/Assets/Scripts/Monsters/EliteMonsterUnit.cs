@@ -8,6 +8,8 @@ public class EliteMonsterUnit : Monster
         MaxHP = statData.baseMaxHP * multiplier;
         ATK = statData.baseATK * multiplier;
         contactDMG = statData.baseContactDMG * multiplier;
+        baseSPD = GetSPD();
+        SPD = baseSPD;
     }
 
     protected override void FixedUpdate()
