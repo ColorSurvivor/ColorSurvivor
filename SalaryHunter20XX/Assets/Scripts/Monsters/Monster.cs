@@ -152,8 +152,8 @@ public class Monster : Entity
     protected virtual void InitStats()
     {
         MaxHP = statData.baseMaxHP * multiplier;
-        ATK = statData.baseATK * multiplier;
-        contactDMG = statData.baseContactDMG * multiplier;
+        ATK = statData.baseATK;
+        contactDMG = statData.baseContactDMG;
     }
 
     public void ApplyColorVisual()

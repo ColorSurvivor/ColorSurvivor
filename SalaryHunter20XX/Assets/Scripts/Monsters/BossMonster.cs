@@ -59,6 +59,7 @@ public class BossMonster : Monster
         }
         Ani.ResetTrigger("Hurt");
         Ani.Play("Death", 0, 0f);
+        GetComponent<Collider2D>().isTrigger = true;
         StartCoroutine(DieCoroutine());
     }
 
