@@ -37,12 +37,11 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        // mainMenuCanvas가 null이면 씬이 전환된 것이므로 다시 찾아줌
         if (mainMenuCanvas == null)
         {
             mainMenuCanvas = GameObject.Find("MainMenuCanvas");
             if (mainMenuCanvas == null)
-                return; // 아직도 없으면 더 진행하지 않음
+                return;
         }
 
         if (mainMenuCanvas.activeInHierarchy)
@@ -53,7 +52,10 @@ public class AudioManager : MonoBehaviour
                     bgmSource.Stop();
 
                 if (!MainMenuBgm.isPlaying)
+                {
+                    MainMenuBgm.loop = true;
                     MainMenuBgm.Play();
+                }
 
                 lastPlayedBGM = MainMenuBgm;
             }
@@ -66,7 +68,10 @@ public class AudioManager : MonoBehaviour
                     MainMenuBgm.Stop();
 
                 if (!bgmSource.isPlaying)
+                {
+                    bgmSource.loop = true;
                     bgmSource.Play();
+                }
 
                 lastPlayedBGM = bgmSource;
             }
