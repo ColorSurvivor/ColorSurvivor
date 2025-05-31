@@ -96,12 +96,6 @@ public class Player : Entity
 
         // 애니메이션 설정
         Ani.SetFloat("Move", inputVec.magnitude);
-
-        if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            print("!");
-            getEXP(1500);
-        }
     }
     public override void HPChange(float How) //힐도 딜도 이걸로 통합 처리. 플레이어의 데미지는 방어력을 계산해서 적용.
     {
@@ -159,7 +153,6 @@ public class Player : Entity
         curEXP += amount * EXPM;
         CheckLevelup();
     }
-
     public void CheckLevelup()
     {
         if (curEXP > MaxEXP) //경험치 초과
